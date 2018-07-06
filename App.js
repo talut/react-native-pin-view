@@ -34,7 +34,7 @@ export default class App extends Component {
     if (lodash.isEqual(this.state.password, this.state.userInput)) {
       console.log('EŞİT');
     } else {
-      if (lodash.size(this.state.userInput) === 6) {
+      if (lodash.size(this.state.userInput) === lodash.size(this.state.password)) {
         console.log('ŞİFRE TAM GİRİLMEDİ');
       } else {
         console.log('EŞİT DEĞİL');
