@@ -38,7 +38,7 @@ class LoginScreen extends React.Component {
           buttonBgColor={ '#FFF' }
           inputBgColor={ '#333' }
           inputBgOpacity={ 0.1 }
-          deleteButton={'DEL'}
+          deleteText={'DEL'}
           inputActiveBgColor={ '#333' }
           onSuccess={ this.onSuccess }
           onFailure={ this.onFailure }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Animated, FlatList, Text, TouchableOpacity } from "react-native";
 
-const KeyboardView = ({keyboardOnPress, password, onSuccess, onFailure, bgColor, textColor, animatedDeleteButton, animatedDeleteButtonOnPress, styles}) => {
-  const data = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "SİL", "0"];
+const KeyboardView = ({keyboardOnPress, password, onSuccess, onFailure, bgColor, textColor, animatedDeleteButton, deleteText,animatedDeleteButtonOnPress, styles}) => {
+  const data = ["1", "2", "3", "4", "5", "6", "7", "8", "9", deleteText, "0"];
   const renderItem = ({item, index}) => {
     let style;
     let onPressActive;
