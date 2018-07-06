@@ -1,16 +1,22 @@
 import React from 'react';
-import PinView from "./PinView";
-import { View } from "react-native";
+import PinView from "./libs/PinView";
+import { Text, View } from "react-native";
 
 class LoginScreen extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      disabledPinView: false
+    };
     this.onSuccess = this.onSuccess.bind(this);
     this.onFailure = this.onFailure.bind(this);
   }
 
   onSuccess = () => {
-    alert("Password Correct!")
+    alert("Password Correct!");
+    this.setState({
+      disabledPinView: true
+    })
   };
   onFailure = () => {
     alert("Password Incorrect!")
@@ -23,10 +29,17 @@ class LoginScreen extends React.Component {
         backgroundColor: '#6548b7',
         justifyContent : 'center'
       } }>
+        <View>
+          <Text>CÜZDAN</Text>
+        </View>
         <PinView
+          disabled={ this.state.disabledPinView }
+          buttonTextColor={ '#FFF' }
+          buttonBgColor={ '#FFF' }
+          inputBgColor={ '#FFF' }
           onSuccess={ this.onSuccess }
           onFailure={ this.onFailure }
-          password={ [5, 1, 3, 5, 9, 0] }
+          password={ [5, 1, 3] }
         />
       </View>
     )
