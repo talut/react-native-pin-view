@@ -26,7 +26,7 @@ class LoginScreen extends React.Component {
     return (
       <View style={ {
         flex           : 1,
-        backgroundColor: '#6548b7',
+        backgroundColor: '#f1f1f1',
         justifyContent : 'center'
       } }>
         <View>
@@ -34,9 +34,12 @@ class LoginScreen extends React.Component {
         </View>
         <PinView
           disabled={ this.state.disabledPinView }
-          buttonTextColor={ '#FFF' }
+          buttonTextColor={ '#333' }
           buttonBgColor={ '#FFF' }
-          inputBgColor={ '#FFF' }
+          inputBgColor={ '#333' }
+          inputBgOpacity={ 0.1 }
+          deleteButton={'DEL'}
+          inputActiveBgColor={ '#333' }
           onSuccess={ this.onSuccess }
           onFailure={ this.onFailure }
           password={ [5, 1, 3] }
