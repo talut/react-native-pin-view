@@ -40,7 +40,7 @@ import PinView from 'react-native-pin-view'
 ## Props
 
 | Prop | Type | Default | Description | Required |
-|---|---|---|---|
+|---|---|---|---|---|
 |**`buttonTextColor`**|`string`| `#333` | Color of the texts on the number keyboard. | No |
 |**`buttonBgColor`**|`string`| `#FFF` | Background of the buttons on the number keyboard | No |
 |**`inputBgColor`**|`string`| `#333` | Input color before entering the pin  | No |

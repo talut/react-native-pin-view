@@ -35,7 +35,7 @@ import PinView from 'react-native-pin-view'
 ## Öznitelikleri
 
 | Nitelik | Tip | Varsayılan | Açıklama | Gerekli mi? |
-|---|---|---|---|
+|---|---|---|---|---|
 |**`buttonTextColor`**|`string`| `#333` | Tuş takımında ki rakamların rengi. | Hayır |
 |**`buttonBgColor`**|`string`| `#FFF` | Tuş takımında ki butonların arkplan rengi. | Hayır |
 |**`inputBgColor`**|`string`| `#333` | Şifreyi girmeye başlamadan önce ki giriş alanı rengi | Hayır |
