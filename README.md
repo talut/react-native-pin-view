@@ -1,51 +1,25 @@
-# React Native Simple Card View
+# React Native Pin View
+
+<p align='center'><img src='https://taluttasgiran.com.tr/assets/0-pin-view.png' alt='PinView 1'></p>
+<p align='center'><img src='https://taluttasgiran.com.tr/assets/1-pin-view.png' alt='PinView 2'></p>
 
 Easiest way to adding a card view on your screen.
-
-- *Hey, v0.3.0 is now released. You can use new component : CardView [See v0.3.0 Features](#v030-features)*
-
-<p align="center">
-<a href="https://s9.postimg.org/qxh30azpb/Simulator_Screen_Shot_-_i_Phone_8_-_2018-02-21_at_17.49.43.png">
-<img src="https://s9.postimg.org/pxvdia4rj/Simulator_Screen_Shot_-_i_Phone_8_-_2018-02-21_at_17.49.43.png" alt="CardViewWithImage Example" />
-</a>
-<img src="https://s9.postimg.org/748niqban/card_View_With_Icon.png" alt="CardViewWithImage" />
-</p>
-
-<p align="center"><a href="https://www.npmjs.com/package/react-native-simple-card-view" target="_blank"><img src="https://nodei.co/npm/react-native-simple-card-view.png?downloads=true&downloadRank=true&stars=true" alt="package info" /></a></p>
-
-[![GitHub stars](https://img.shields.io/github/stars/talut/react-native-simple-card-view.svg?style=social&label=Stars&style=flat-square)](https://github.com/talut/react-native-simple-card-view)
 
 ## Getting Started
 
 **via Yarn**
 
 ```
-yarn add react-native-simple-card-view
+yarn add react-native-pin-view
 ```
 
 **via NPM**
 
 ```
-npm install react-native-simple-card-view
+npm install --save react-native-pin-view
 ```
 
-**React-Native Link**
-
-```
-react-native link
-```
-
-#### Components
-
-- [x] CardViewWithIcon ([See documentation of usage](/docs/en/cardviewwithicon.md))
-- [x] CardViewWithImage ([See documentation of usage](/docs/en/cardviewwithimage.md))
-- [x] CardView (Place your component to inside of CardView)
-- [ ] CardViewWithAnimation or Adding animation support to CardViewWithIcon, CardViewWithImage, ArticleCardView
-
-## Styling card view
-
-You can create an object, who has the card view styles.
-Then you can give that object to style props. Card view style object can have the following attributes
+## Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|---|
@@ -57,15 +31,15 @@ Then you can give that object to style props. Card view style object can have th
 |**`deleteText`**|`string`| `DEL` | Appears when the user starts entering the pin.  |
 |**`onSuccess`**|`func`| none | It works when the user enters the password correctly |
 |**`onFailure`**|`func`| none | It works when the user enters the password incorrect |
-|**`password`**|`array`| none | **min: 3**  **max: 8** number allowed |
+|**`password`**|`array`| none | Only numbers are accepted, with a minimum of 3 and a maximum of 8. `ex. [1,3,5,7,9]` |
 
 ## Basic Usage
 
 ```
         <PinView
-          onSuccess={ this.onSuccess }
-          onFailure={ this.onFailure }
-          password={ [5, 1, 3] }
+          onSuccess={ ()=>{alert("SUCCESS")} }
+          onFailure={ ()=>{alert("FAILURE")} }
+          password={ [1, 3, 5, 7, 9] }
         />
 ```
 

@@ -13,7 +13,6 @@ export default StyleSheet.create({
     margin         : 5,
     width          : 35,
     borderRadius   : 35 / 2,
-    backgroundColor: '#FFFFFF',
   },
   passwordInputViewItemActive: {
     alignItems     : 'center',
@@ -22,12 +21,11 @@ export default StyleSheet.create({
     width          : 35,
     margin         : 5,
     borderRadius   : 35 / 2,
-    backgroundColor: '#FFFFFF',
   },
   // KeyboardView
   keyboardView               : {
     alignItems: 'center',
-    marginTop : 15
+    marginTop : 35
   },
   keyboardViewItem           : {
     alignItems      : 'center',
@@ -37,11 +35,9 @@ export default StyleSheet.create({
     marginHorizontal: 20,
     marginVertical  : 5,
     borderRadius    : 75 / 2,
-    backgroundColor : 'rgba(255,255,255,0.05)',
   },
   keyboardViewItemText       : {
     fontSize  : 22,
     fontWeight: '900',
-    color     : 'rgba(255,255,255,0.5)'
   },
 })
