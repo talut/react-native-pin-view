@@ -47,17 +47,17 @@ react-native link
 You can create an object, who has the card view styles.
 Then you can give that object to style props. Card view style object can have the following attributes
 
-| Prop | Type | Default | Description | Platform |
+| Prop | Type | Default | Description |
 |---|---|---|---|---|
-|**`buttonTextColor`**|`string`| `#333` | Color of the texts on the number keyboard. |-|
-|**`buttonBgColor`**|`string`| `#FFF` | Background of the buttons on the number keyboard |-|
-|**`inputBgColor`**|`string`| `#333` | Input color before entering the pin  |-|
-|**`inputBgOpacity`**|`number`| `0.1` | Input opacity before entering the pin |-|
-|**`inputActiveBgColor`**|`string`| `#333` | The input color that is active when entering the pin. |-|
-|**`deleteText`**|`string`| 'DEL' | Appears when the user starts entering the pin.  |-|
-|**`onSuccess`**|`func`| none | It works when the user enters the password correctly |-|
-|**`onFailure`**|`func`| none | It works when the user enters the password incorrect |-|
-|**`password`**|`array`| none | **min: 3**  **max: 8** number allowed |-|
+|**`buttonTextColor`**|`string`| `#333` | Color of the texts on the number keyboard. |
+|**`buttonBgColor`**|`string`| `#FFF` | Background of the buttons on the number keyboard |
+|**`inputBgColor`**|`string`| `#333` | Input color before entering the pin  |
+|**`inputBgOpacity`**|`number`| `0.1` | Input opacity before entering the pin |
+|**`inputActiveBgColor`**|`string`| `#333` | The input color that is active when entering the pin. |
+|**`deleteText`**|`string`| `DEL` | Appears when the user starts entering the pin.  |
+|**`onSuccess`**|`func`| none | It works when the user enters the password correctly |
+|**`onFailure`**|`func`| none | It works when the user enters the password incorrect |
+|**`password`**|`array`| none | **min: 3**  **max: 8** number allowed |
 
 ## Basic Usage
 
