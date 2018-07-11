@@ -18,6 +18,16 @@ yarn add react-native-pin-view
 npm install --save react-native-pin-view
 ```
 
+## Basic Usage
+
+````
+<PinView
+    password={ [1, 3, 5, 7, 9] }
+    onSuccess={ ()=>{alert("SUCCESS")} }
+    onFailure={ ()=>{alert("FAILURE")} }
+    />
+`````
+
 ## Props
 
 | Prop | Type | Default | Description |
@@ -32,15 +42,6 @@ npm install --save react-native-pin-view
 |**`onFailure`**|`func`| none | It works when the user enters the password incorrect |
 |**`password`**|`array`| none | Only numbers are accepted, with a minimum of 3 and a maximum of 8. `ex. [1,3,5,7,9]` |
 
-## Basic Usage
-
-```
-        <PinView
-          onSuccess={ ()=>{alert("SUCCESS")} }
-          onFailure={ ()=>{alert("FAILURE")} }
-          password={ [1, 3, 5, 7, 9] }
-        />
-```
 
 #### Documentation
 
