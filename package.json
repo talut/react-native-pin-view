@@ -1,7 +1,6 @@
 {
   "name": "react-native-pin-view",
   "version": "0.1.0",
-  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/talut/react-native-pin-view.git"
