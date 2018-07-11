@@ -1,7 +1,6 @@
 # React Native Pin View
 
-<p align='center'><img src='https://taluttasgiran.com.tr/assets/0-pin-view.png' alt='PinView 1'></p>
-<p align='center'><img src='https://taluttasgiran.com.tr/assets/1-pin-view.png' alt='PinView 2'></p>
+<p align='center'><img src='https://taluttasgiran.com.tr/assets/0-pin-view.png' alt='PinView 1'><img src='https://taluttasgiran.com.tr/assets/1-pin-view.png' alt='PinView 2'></p>
 
 Easiest way to adding a card view on your screen.
 
