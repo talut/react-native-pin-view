@@ -16,7 +16,7 @@ const KeyboardView = ({keyboardOnPress, password, onSuccess, onFailure, bgColor,
       style = [styles[0]]
     }
     return (
-      <TouchableOpacity onPress={ () => keyboardOnPress(item, password, onSuccess, onFailure) }
+      <TouchableOpacity activeOpacity={ 0.85 } onPress={ () => keyboardOnPress(item, password, onSuccess, onFailure) }
                         disabled={ onPressActive }>
         <Animated.View style={ [style, {
           backgroundColor: bgColor,
