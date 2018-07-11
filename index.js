@@ -1,5 +1,2 @@
 import PinView from './libs/PinView';
-
-export {
-  PinView
-}
+export default PinView
