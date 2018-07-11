@@ -77,7 +77,7 @@ class PinView extends React.Component {
   };
 
   render() {
-    const {password, buttonTextColor, buttonBgColor, inputBgColor, onSuccess, onFailure, disabled, inputActiveBgColor, inputBgOpacity,deleteText} = this.props;
+    const {password, buttonTextColor, buttonBgColor, inputBgColor, onSuccess, onFailure, disabled, inputActiveBgColor, inputBgOpacity, deleteText} = this.props;
     return (
       <View pointerEvents={ disabled ? "none" : undefined }>
         <InputView
@@ -96,7 +96,7 @@ class PinView extends React.Component {
             textColor={ buttonTextColor }
             animatedDeleteButton={ this.state.animatedDeleteButton }
             password={ password }
-            deleteText={deleteText}
+            deleteText={ deleteText }
             onSuccess={ onSuccess }
             onFailure={ onFailure }
             animatedDeleteButtonOnPress={ this.state.animatedDeleteButtonOnPress }
@@ -107,6 +107,27 @@ class PinView extends React.Component {
   }
 }
 
+PinView.defaultProps = {
+  deleteText        : "DEL",
+  buttonBgColor     : '#FFF',
+  buttonTextColor   : '#333',
+  inputBgColor      : '#333',
+  inputActiveBgColor: '#333',
+  inputBgOpacity    : 0.1,
+  disabled          : false
+};
+PinView.propTypes = {
+  disabled          : PropTypes.bool,
+  deleteText        : PropTypes.string,
+  buttonBgColor     : PropTypes.string,
+  buttonTextColor   : PropTypes.string,
+  inputBgColor      : PropTypes.string,
+  inputActiveBgColor: PropTypes.string,
+  inputBgOpacity    : PropTypes.number,
+  onSuccess         : PropTypes.func.isRequired,
+  onFailure         : PropTypes.func.isRequired,
+  password          : PropTypes.object.isRequired
+};
 
 Array.prototype.equals = function (array) {
   return this.length === array.length &&
