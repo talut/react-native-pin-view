@@ -1,8 +1,8 @@
 # React Native Pin View
 
-<p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
+Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS and Android, and has only keyboard and input. Thats means you can use everywhere also there is no need to run ```react-native link```
 
-Easiest way to adding a card view on your screen.
+<p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
 ## Getting Started
 
@@ -21,7 +21,7 @@ npm install --save react-native-pin-view
 ## Props
 
 | Prop | Type | Default | Description |
-|---|---|---|---|---|
+|---|---|---|---|
 |**`buttonTextColor`**|`string`| `#333` | Color of the texts on the number keyboard. |
 |**`buttonBgColor`**|`string`| `#FFF` | Background of the buttons on the number keyboard |
 |**`inputBgColor`**|`string`| `#333` | Input color before entering the pin  |
