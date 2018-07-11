@@ -1,4 +1,5 @@
-import { AppRegistry } from 'react-native';
-import LoginScreen from "./LoginScreen";
+import PinView from './libs/PinView';
 
-AppRegistry.registerComponent('PinView', () => LoginScreen);
+export {
+  PinView
+}

@@ -35,7 +35,7 @@ class PinView extends React.Component {
   };
 
   keyboardOnPress = (val, password, onSuccess, onFailure) => {
-    if (val === "SİL") {
+    if (val === this.props.deleteText) {
       this.userInput = this.userInput.slice(0, -1);
       this.setState({
         animatedInputIndex: this.state.animatedInputIndex.slice(0, -1)
