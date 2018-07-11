@@ -27,5 +27,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
-  "homepage": "https://github.com/talut/react-native-pin-view"
+  "homepage": "https://github.com/talut/react-native-pin-view",
+  "dependencies": {
+    "prop-types": "^15.6.2"
+  }
 }
