@@ -4,6 +4,7 @@ import { Animated, Easing, View } from "react-native";
 import KeyboardView from './parts/KeyboardView'
 import InputView from './parts/InputView'
 import Styles from './parts/styles'
+import PropTypes from 'prop-types'
 
 class PinView extends React.Component {
   constructor(props) {
@@ -126,7 +127,7 @@ PinView.propTypes = {
   inputBgOpacity    : PropTypes.number,
   onSuccess         : PropTypes.func.isRequired,
   onFailure         : PropTypes.func.isRequired,
-  password          : PropTypes.object.isRequired
+  password          : PropTypes.array.isRequired
 };
 
 Array.prototype.equals = function (array) {
