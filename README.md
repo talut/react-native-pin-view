@@ -4,7 +4,6 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 <p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
-
 ##### Turkish Documentation
 
 [![Turkish (Türkçe)](https://taluttasgiran.com.tr/assets/TR.svg)](/docs/tr/docs.md)
@@ -40,19 +39,18 @@ import PinView from 'react-native-pin-view'
 
 ## Props
 
-| Prop | Type | Default | Description | Required |
-|---|---|---|---|---|
-|**`buttonTextColor`**|`string`| `#333` | Color of the texts on the number keyboard. | No |
-|**`buttonBgColor`**|`string`| `#FFF` | Background of the buttons on the number keyboard | No |
-|**`inputBgColor`**|`string`| `#333` | Input color before entering the pin  | No |
-|**`inputBgOpacity`**|`number`| `0.1` | Input opacity before entering the pin | No |
-|**`inputActiveBgColor`**|`string`| `#333` | The input color that is active when entering the pin. | No |
-|**`deleteText`**|`string`| `DEL` | Appears when the user starts entering the pin.  | No |
-|**`onSuccess`**|`func`| none | It works when the user enters the password correctly| Yes |
-|**`onFailure`**|`func`| none | It works when the user enters the password incorrect | Yes |
-|**`password`**|`array`| none | Only numbers are accepted, with a minimum of 3 and a maximum of 8. `ex. [1,3,5,7,9]` | Yes |
-|**`disabled`**|`boolean`| false | Optionally, you can set this props `true` or `false`. If `true`, the user can not enter the password. | No |
-
+| Prop                     | Type      | Default | Description                                                                                           | Required |
+| ------------------------ | --------- | ------- | ----------------------------------------------------------------------------------------------------- | -------- |
+| **`buttonTextColor`**    | `string`  | `#333`  | Color of the texts on the number keyboard.                                                            | No       |
+| **`buttonBgColor`**      | `string`  | `#FFF`  | Background of the buttons on the number keyboard                                                      | No       |
+| **`inputBgColor`**       | `string`  | `#333`  | Input color before entering the pin                                                                   | No       |
+| **`inputBgOpacity`**     | `number`  | `0.1`   | Input opacity before entering the pin                                                                 | No       |
+| **`inputActiveBgColor`** | `string`  | `#333`  | The input color that is active when entering the pin.                                                 | No       |
+| **`deleteText`**         | `string`  | `DEL`   | Appears when the user starts entering the pin.                                                        | No       |
+| **`onSuccess`**          | `func`    | none    | It works when the user enters the password correctly                                                  | Yes      |
+| **`onFailure`**          | `func`    | none    | It works when the user enters the password incorrect                                                  | Yes      |
+| **`password`**           | `array`   | none    | Only numbers are accepted, with a minimum of 3 and a maximum of 8. `ex. [1,3,5,7,9]`                  | Yes      |
+| **`disabled`**           | `boolean` | false   | Optionally, you can set this props `true` or `false`. If `true`, the user can not enter the password. | No       |
 
 #### Example App
 
@@ -94,7 +92,7 @@ export default class Master extends Component<Props> {
 
 ## Contributors (Thank you all)
 
-- All contributions are accepted!
+- [@devcer](https://github.com/devcer)
 
 ## Built With
 
