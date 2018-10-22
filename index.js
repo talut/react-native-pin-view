@@ -20,6 +20,11 @@ class PinView extends React.Component {
     this.setDeleteButton = this.setDeleteButton.bind(this);
   }
 
+  /**
+   * @todo Update README.md for new features
+   * @body Write a doc for returnType and onComplete. Also add an info text for removed features
+   */
+
   userInput = [];
   setDeleteButton = (status) => {
     Animated.timing(
