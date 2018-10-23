@@ -4,17 +4,13 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 <p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
-###### What's new in v2.0.0
+##### What's new in v2.0.0
 
-With v2.0.0 user pin will not verified by `react-native-pin-view`. PinView component will only return the inputted value. 
+With v2.0.0 user inputted pin will not verified by `react-native-pin-view`. PinView component will only return the inputted value. 
 
 - returnType added (Return type of inputted value : `array` or `string`)
 - onComplete added (When user inputted the pin it will run. (Will return inputted value as returnType))
 - pinLength added (User pin length or default pin length for all users.)
-
-##### Turkish Documentation
-
-[![Turkish (Türkçe)](https://taluttasgiran.com.tr/assets/TR.svg)](/docs/tr/docs.md)
 
 ## Getting Started
 
