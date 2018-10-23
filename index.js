@@ -10,7 +10,6 @@ class PinView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userInput: [],
       animatedInputIndex: Object.assign([]),
       animatedDeleteButton: new Animated.Value(0),
       pinViewAnim: new Animated.Value(0),
@@ -18,7 +17,9 @@ class PinView extends React.Component {
     };
     this.keyboardOnPress = this.keyboardOnPress.bind(this);
     this.setDeleteButton = this.setDeleteButton.bind(this);
+    this.clear = this.clear.bind(this)
   }
+
   userInput = [];
   setDeleteButton = (status) => {
     Animated.timing(
@@ -33,6 +34,14 @@ class PinView extends React.Component {
       animatedDeleteButtonOnPress: !status,
     })
   };
+
+  clear() {
+    this.userInput = [];
+    this.setState({
+      animatedInputIndex: Object.assign([]),
+      pinViewAnim: new Animated.Value(0),
+    })
+  }
 
   keyboardOnPress = (val, returnType, pinLength, onComplete) => {
     if (val === this.props.deleteText) {
@@ -51,9 +60,9 @@ class PinView extends React.Component {
           animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
         }, () => {
           if (returnType === "string") {
-            return onComplete(this.userInput.join(""))
+            return onComplete(this.userInput.join(""), this.clear)
           } else if (returnType === "array") {
-            return onComplete(this.userInput)
+            return onComplete(this.userInput, this.clear)
           } else {
             console.log("Unkown return type!")
           }
@@ -67,6 +76,7 @@ class PinView extends React.Component {
       }
     }
   };
+
   render() {
     const { pinLength, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText } = this.props;
     return (
@@ -98,6 +108,7 @@ class PinView extends React.Component {
     )
   }
 }
+
 PinView.defaultProps = {
   deleteText: "DEL",
   buttonBgColor: '#FFF',
@@ -106,7 +117,8 @@ PinView.defaultProps = {
   inputActiveBgColor: '#333',
   returnType: 'string',
   inputBgOpacity: 0.1,
-  disabled: false
+  disabled: false,
+  clear: false,
 };
 PinView.propTypes = {
   disabled: PropTypes.bool,
@@ -118,7 +130,8 @@ PinView.propTypes = {
   inputActiveBgColor: PropTypes.string,
   inputBgOpacity: PropTypes.number,
   onComplete: PropTypes.func.isRequired,
-  pinLength: PropTypes.number.isRequired
+  pinLength: PropTypes.number.isRequired,
+  clear: PropTypes.bool,
 };
 
 export default PinView
