@@ -19,12 +19,6 @@ class PinView extends React.Component {
     this.keyboardOnPress = this.keyboardOnPress.bind(this);
     this.setDeleteButton = this.setDeleteButton.bind(this);
   }
-
-  /**
-   * @todo Update README.md for new features
-   * @body Write a doc for returnType and onComplete. Also add an info text for removed features
-   */
-
   userInput = [];
   setDeleteButton = (status) => {
     Animated.timing(
@@ -40,7 +34,7 @@ class PinView extends React.Component {
     })
   };
 
-  keyboardOnPress = (val, returnType, passwordLength, onComplete, onFail) => {
+  keyboardOnPress = (val, returnType, pinLength, onComplete) => {
     if (val === this.props.deleteText) {
       this.userInput = this.userInput.slice(0, -1);
       this.setState({
@@ -50,7 +44,7 @@ class PinView extends React.Component {
         this.setDeleteButton(false);
       }
     } else {
-      if (passwordLength === this.userInput.length + 1) {
+      if (pinLength === this.userInput.length + 1) {
         this.userInput = this.userInput.concat(parseInt(val));
         this.setDeleteButton(true);
         this.setState({
@@ -73,14 +67,13 @@ class PinView extends React.Component {
       }
     }
   };
-
   render() {
-    const { passwordLength, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText } = this.props;
+    const { pinLength, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText } = this.props;
     return (
         <View pointerEvents={disabled ? "none" : undefined}>
           <InputView
               bgOpacity={inputBgOpacity}
-              passwordLength={passwordLength}
+              pinLength={pinLength}
               activeBgColor={inputActiveBgColor}
               animatedInputIndex={this.state.animatedInputIndex}
               pinViewAnim={this.state.pinViewAnim}
@@ -93,7 +86,7 @@ class PinView extends React.Component {
                 bgColor={buttonBgColor}
                 textColor={buttonTextColor}
                 animatedDeleteButton={this.state.animatedDeleteButton}
-                passwordLength={passwordLength}
+                pinLength={pinLength}
                 deleteText={deleteText}
                 onComplete={onComplete}
                 animatedDeleteButtonOnPress={this.state.animatedDeleteButtonOnPress}
@@ -105,7 +98,6 @@ class PinView extends React.Component {
     )
   }
 }
-
 PinView.defaultProps = {
   deleteText: "DEL",
   buttonBgColor: '#FFF',
@@ -126,14 +118,7 @@ PinView.propTypes = {
   inputActiveBgColor: PropTypes.string,
   inputBgOpacity: PropTypes.number,
   onComplete: PropTypes.func.isRequired,
-  passwordLength: PropTypes.number.isRequired
-};
-
-Array.prototype.equals = function (array) {
-  return this.length === array.length &&
-      this.every(function (this_i, i) {
-        return this_i === array[i]
-      })
+  pinLength: PropTypes.number.isRequired
 };
 
 export default PinView

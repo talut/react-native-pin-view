@@ -1,7 +1,7 @@
 import React from 'react';
 import { Animated } from "react-native";
 
-const InputView = ({ pinViewAnim, animatedInputIndex, passwordLength, bgColor, activeBgColor, styles, bgOpacity }) => {
+const InputView = ({ pinViewAnim, animatedInputIndex, pinLength, bgColor, activeBgColor, styles, bgOpacity }) => {
   const tilt = pinViewAnim.interpolate({
     inputRange: [0, 0.3, 0.6, 0.9],
     outputRange: [0, -50, 50, 0]
@@ -24,10 +24,10 @@ const InputView = ({ pinViewAnim, animatedInputIndex, passwordLength, bgColor, a
           opacity: 1
         }]}/>
   };
-  const ShowInput = (passwordLength) => {
-    let table = []
+  const ShowInput = (pinLength) => {
+    let table = [];
     {
-      for (let i = 0; i < passwordLength; i++) {
+      for (let i = 0; i < pinLength; i++) {
         if (animatedInputIndex[i] === undefined) {
           table.push(inactiveInput(i))
         } else {
@@ -42,7 +42,7 @@ const InputView = ({ pinViewAnim, animatedInputIndex, passwordLength, bgColor, a
       <Animated.View style={[styles[0], {
         transform: [{ translateX: tilt }]
       }]}>
-        {ShowInput(passwordLength)}
+        {ShowInput(pinLength)}
       </Animated.View>
   )
 
