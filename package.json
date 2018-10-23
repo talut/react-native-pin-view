@@ -15,7 +15,9 @@
     "react pin view",
     "pin view",
     "react pin",
-    "react password"
+    "react password",
+    "pin",
+    "PinView"
   ],
   "main": "index.js",
   "author": "Talut Tasgiran",

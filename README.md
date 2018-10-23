@@ -49,7 +49,7 @@ import PinView from 'react-native-pin-view'
 | **`inputBgOpacity`**     | `number`  | `0.1`   | Input opacity before entering the pin                                                                 | No       |
 | **`inputActiveBgColor`** | `string`  | `#333`  | The input color that is active when entering the pin.                                                 | No       |
 | **`deleteText`**         | `string`  | `DEL`   | Appears when the user starts entering the pin.                                                        | No       |
-| **`onComplete`**         | `func`    | none    | When the user completed input the pin, then inputted value will return. (It will work with **returnType**)| Yes      |
+| **`onComplete`**         | `func`    | none    | When the user completed input the pin, then inputted value will return. Also **`clear()`** is returning too. So if you want to remove user input after **onComplete** call **`clear()`** func in onComplete  (It will work with **returnType**)| Yes      |
 | **`returnType`**         | `string`  |`string` | _onComplete_ returning value type. It can be `string` or `array`| No      |
 | **`pinLength`**     | `number`  | none         | (Min length: `3` , Max length: `8`) User pin length like `this.state.pin.length` or `5` If you're using hashed pin then set default length all pin or use pin length.  | Yes      |
 | **`disabled`**           | `boolean` | false   | Optionally, you can set this props `true` or `false`. If `true`, the user can not enter the password. | No       |
