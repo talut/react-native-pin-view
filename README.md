@@ -4,9 +4,13 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 <p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
-##### Turkish Documentation
+##### What's new in v2.0.0
 
-[![Turkish (Türkçe)](https://taluttasgiran.com.tr/assets/TR.svg)](/docs/tr/docs.md)
+With v2.0.0 user inputted pin will not verified by `react-native-pin-view`. PinView component will only return the inputted value. 
+
+- returnType added (Return type of inputted value : `array` or `string`)
+- onComplete added (When user inputted the pin it will run. (Will return inputted value as returnType))
+- pinLength added (User pin length or default pin length for all users.)
 
 ## Getting Started
 
@@ -29,12 +33,10 @@ npm install --save react-native-pin-view
 import PinView from 'react-native-pin-view'
 
 ...
-
-<PinView
-    password={ [1, 3, 5, 7, 9] }
-    onSuccess={ ()=>{alert("SUCCESS")} }
-    onFailure={ ()=>{alert("FAILURE")} }
-    />
+        <PinView
+            onComplete={(val)=>{alert(val)}}
+            pinLength={5}
+        />
 ```
 
 ## Props
@@ -47,9 +49,9 @@ import PinView from 'react-native-pin-view'
 | **`inputBgOpacity`**     | `number`  | `0.1`   | Input opacity before entering the pin                                                                 | No       |
 | **`inputActiveBgColor`** | `string`  | `#333`  | The input color that is active when entering the pin.                                                 | No       |
 | **`deleteText`**         | `string`  | `DEL`   | Appears when the user starts entering the pin.                                                        | No       |
-| **`onSuccess`**          | `func`    | none    | It works when the user enters the password correctly                                                  | Yes      |
-| **`onFailure`**          | `func`    | none    | It works when the user enters the password incorrect                                                  | Yes      |
-| **`password`**           | `array`   | none    | Only numbers are accepted, with a minimum of 3 and a maximum of 8. `ex. [1,3,5,7,9]`                  | Yes      |
+| **`onComplete`**         | `func`    | none    | When the user completed input the pin, then inputted value will return. (It will work with **returnType**)| Yes      |
+| **`returnType`**         | `string`  |`string` | _onComplete_ returning value type. It can be `string` or `array`| No      |
+| **`pinLength`**     | `number`  | none         | (Min length: `3` , Max length: `8`) User pin length like `this.state.pin.length` or `5` If you're using hashed pin then set default length all pin or use pin length.  | Yes      |
 | **`disabled`**           | `boolean` | false   | Optionally, you can set this props `true` or `false`. If `true`, the user can not enter the password. | No       |
 
 #### Example App
@@ -63,14 +65,13 @@ type Props = {};
 export default class Master extends Component<Props> {
   constructor(props) {
     super(props);
-    this.onFailure = this.onFailure.bind(this);
-    this.onSuccess = this.onSuccess.bind(this);
+    this.onComplete = this.onComplete.bind(this);
+    this.state = {
+        pin: "896745"
+    }
   }
-  onFailure() {
-    alert('FAILURE')
-  }
-  onSuccess() {
-    alert('SUCCESS')
+  onComplete(val) {
+    console.log("UserInput: ", val)
   }
   render() {
     return (
@@ -80,9 +81,9 @@ export default class Master extends Component<Props> {
         justifyContent : 'center'
       } }>
         <PinView
-          onSuccess={ this.onSuccess }
-          onFailure={ this.onFailure }
-          password={ [1, 3, 5, 7, 9] }
+        onComplete={this.onComplete}
+        pinLength={this.state.pin.length}
+        // pinLength={6} // You can also use like that.
         />
       </View>
     );
