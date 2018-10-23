@@ -4,7 +4,7 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 <p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
-##### What's new in v2.0.0
+##### What's new in v2.0.1
 
 With v2.0.1 user inputted pin will not verified by `react-native-pin-view`. PinView component will only return the inputted value. 
 
