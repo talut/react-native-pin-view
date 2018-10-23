@@ -8,10 +8,10 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 With v2.0.1 user inputted pin will not verified by `react-native-pin-view`. PinView component will only return the inputted value. 
 
-- returnType added (Return type of inputted value : `array` or `string`)
-- onComplete added (This will return `inputtedVal` and `clear()` callback) (When user inputted the pin it will run. (Will return inputted value as returnType))
-- pinLength added (User pin length or default pin length for all users.)
-- clear() you can use this in onComplete callback. If you want to clear user input you should call this.
+- `returnType` added (Return type of inputted value : `array` or `string`)
+- `onComplete` added (This will return `inputtedVal` and `clear()` callback) (When user inputted the pin it will run. (Will return inputted value as returnType))
+- `pinLength` added (User pin length or default pin length for all users.)
+- **`clear()`** you can use this in `onComplete` callback. If you want to clear user input you should call this.
 
 ## Getting Started
 
