@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, Easing, View } from "react-native";
+import { Text, Animated, Easing, View } from "react-native";
 
 import KeyboardView from './libs/parts/KeyboardView'
 import InputView from './libs/parts/InputView'
@@ -78,9 +78,12 @@ class PinView extends React.Component {
   };
 
   render() {
-    const { pinLength, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText } = this.props;
+    const { titleText, pinLength, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText } = this.props;
     return (
-        <View pointerEvents={disabled ? "none" : undefined}>
+        <View pointerEvents={disabled ? "none" : undefined} styles={{flex: 1}}>
+          <View style={{paddingVertical: 20}}>
+            <Text style={{ color: 'blue', fontSize: 20, fontWeight: '700', textAlign: "center" }}>{titleText}</Text>
+          </View>
           <InputView
               bgOpacity={inputBgOpacity}
               pinLength={pinLength}
@@ -110,6 +113,7 @@ class PinView extends React.Component {
 }
 
 PinView.defaultProps = {
+  titleText: "TITLE",
   deleteText: "DEL",
   buttonBgColor: '#FFF',
   buttonTextColor: '#333',
@@ -121,6 +125,7 @@ PinView.defaultProps = {
   clear: false,
 };
 PinView.propTypes = {
+  titleText: PropTypes.string,
   disabled: PropTypes.bool,
   deleteText: PropTypes.string,
   returnType: PropTypes.string,
