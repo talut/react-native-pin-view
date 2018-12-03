@@ -41,7 +41,6 @@ class PinView extends React.Component {
       animatedInputIndex: Object.assign([]),
       pinViewAnim: new Animated.Value(0),
     })
-    this.setDeleteButton(false)
   }
 
   keyboardOnPress = (val, returnType, pinLength, onComplete) => {
