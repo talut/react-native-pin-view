@@ -52,7 +52,13 @@ class PinView extends React.Component {
       if (this.userInput.length === 0) {
         this.setDeleteButton(false);
       }
-    } else {
+    } else if(val === this.props.optionalBtnText){
+      const { optionalBtnClick } = this.props;
+      if(optionalBtnClick){
+        optionalBtnClick();
+      }
+    }
+     else {
       if (pinLength === this.userInput.length + 1) {
         this.userInput = this.userInput.concat(parseInt(val));
         this.setDeleteButton(true);
@@ -78,7 +84,12 @@ class PinView extends React.Component {
   };
 
   render() {
-    const { pinLength, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText } = this.props;
+    const { pinLength, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, 
+      disabled, inputActiveBgColor, inputBgOpacity, deleteText,
+      optionalBtnClick,
+      optionalBtnText,
+      hasOptionalBtn
+     } = this.props;
     return (
         <View pointerEvents={disabled ? "none" : undefined}>
           <InputView
@@ -102,6 +113,9 @@ class PinView extends React.Component {
                 animatedDeleteButtonOnPress={this.state.animatedDeleteButtonOnPress}
                 keyboardOnPress={this.keyboardOnPress}
                 returnType={returnType}
+                optionalBtnClick={optionalBtnClick}
+                optionalBtnText={optionalBtnText}
+                hasOptionalBtn={hasOptionalBtn}
             />
           </View>
         </View>
@@ -119,6 +133,9 @@ PinView.defaultProps = {
   inputBgOpacity: 0.1,
   disabled: false,
   clear: false,
+  hasOptionalBtn: false,
+  optionalBtnClick: null,
+  optionalBtnText: "Reset"
 };
 PinView.propTypes = {
   disabled: PropTypes.bool,
@@ -132,6 +149,9 @@ PinView.propTypes = {
   onComplete: PropTypes.func.isRequired,
   pinLength: PropTypes.number.isRequired,
   clear: PropTypes.bool,
+  hasOptionalBtn: PropTypes.bool,
+  optionalBtnText: PropTypes.string,
+  optionalBtnClick: PropTypes.func
 };
 
 export default PinView

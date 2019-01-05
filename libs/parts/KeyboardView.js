@@ -1,12 +1,27 @@
 import React from 'react';
 import { Animated, FlatList, Text, TouchableOpacity } from "react-native";
 
-const KeyboardView = ({ keyboardOnPress, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles }) => {
-  const data = ["1", "2", "3", "4", "5", "6", "7", "8", "9", deleteText, "0"];
+const KeyboardView = ({ keyboardOnPress, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, 
+  deleteText, animatedDeleteButtonOnPress, styles, hasOptionalBtn, optionalBtnText, optionalBtnClick  }) => {
+  const data = ["1", "2", "3", "4", "5", "6", "7", "8", "9", deleteText, "0", optionalBtnText];
   const renderItem = ({ item, index }) => {
     let style;
     let onPressActive;
-    if (item === deleteText) {
+    if(item === optionalBtnText){
+      if(hasOptionalBtn){
+        onPressActive = optionalBtnClick;
+        onPressActive = false;
+        style = [styles[0], {
+          opacity: 1,
+        }]
+      }
+      else if(!hasOptionalBtn){
+        style = [styles[0],{
+          opacity: 0,
+        }]
+      }
+    }
+    else if (item === deleteText) {
       onPressActive = animatedDeleteButtonOnPress;
       style = [styles[0], {
         opacity: animatedDeleteButton
