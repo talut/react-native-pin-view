@@ -1,31 +1,30 @@
-import { StyleSheet } from 'react-native'
+import {StyleSheet, I18nManager} from 'react-native'
 
 export default StyleSheet.create({
   //passwordInputView
   passwordInputView          : {
-    flexDirection: 'row',
     alignSelf    : 'center',
   },
   passwordInputViewItem      : {
-    alignItems     : 'center',
-    justifyContent : 'center',
-    height         : 35,
-    margin         : 5,
-    width          : 35,
-    borderRadius   : 35 / 2,
+    alignItems    : 'center',
+    justifyContent: 'center',
+    height        : 35,
+    margin        : 5,
+    width         : 35,
+    borderRadius  : 35 / 2,
   },
   passwordInputViewItemActive: {
-    alignItems     : 'center',
-    justifyContent : 'center',
-    height         : 35,
-    width          : 35,
-    margin         : 5,
-    borderRadius   : 35 / 2,
+    alignItems    : 'center',
+    justifyContent: 'center',
+    height        : 35,
+    width         : 35,
+    margin        : 5,
+    borderRadius  : 35 / 2,
   },
   // KeyboardView
   keyboardView               : {
     alignItems: 'center',
-    marginTop : 35
+    marginTop : 35,
   },
   keyboardViewItem           : {
     alignItems      : 'center',

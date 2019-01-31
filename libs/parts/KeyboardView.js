@@ -1,29 +1,37 @@
 import React from 'react';
-import { Animated, FlatList, Text, TouchableOpacity } from "react-native";
+import {Animated, View, FlatList, Text, TouchableOpacity, I18nManager} from "react-native";
 
-const KeyboardView = ({ keyboardOnPress, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles }) => {
-  const data = ["1", "2", "3", "4", "5", "6", "7", "8", "9", deleteText, "0"];
-  const renderItem = ({ item, index }) => {
+const KeyboardView = ({keyboardOnPress, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles}) => {
+  let data;
+  if(I18nManager.isRTL) {
+    data = ["1", "2", "3", "4", "5", "6", "7", "8", "9", deleteText, "0", null].reverse();
+
+  } else {
+    data = ["1", "2", "3", "4", "5", "6", "7", "8", "9", deleteText, "0"];
+  }
+  const renderItem = ({item, index}) => {
     let style;
-    let onPressActive;
-    if (item === deleteText) {
-      onPressActive = animatedDeleteButtonOnPress;
+    let onPressInactive;
+    if(item === deleteText) {
+      onPressInactive = animatedDeleteButtonOnPress;
       style = [styles[0], {
         opacity: animatedDeleteButton
       }]
     } else {
-      onPressActive = false;
+      onPressInactive = false;
       style = [styles[0]]
     }
     return (
-        <TouchableOpacity activeOpacity={0.85}
-                          onPress={() => keyboardOnPress(item, returnType, pinLength, onComplete)}
-                          disabled={onPressActive}>
+        <TouchableOpacity
+            key={"key-item-" + index}
+            activeOpacity={0.9}
+            onPress={() => keyboardOnPress(item, returnType, pinLength, onComplete)}
+            disabled={onPressInactive}>
           <Animated.View style={[style, {
             backgroundColor: bgColor,
           }]}>
             <Text style={[styles[1], {
-              color: textColor,
+              color  : textColor,
               opacity: 1,
             }]}>{item}</Text>
           </Animated.View>
@@ -32,6 +40,10 @@ const KeyboardView = ({ keyboardOnPress, pinLength, onComplete, bgColor, returnT
   };
   return (
       <FlatList
+          contentContainerStyle={{
+            flexDirection: I18nManager.isRTL ? 'column-reverse' : 'column',
+            alignItems   : I18nManager.isRTL ? 'flex-end' : 'flex-start',
+          }}
           scrollEnabled={false}
           horizontal={false}
           vertical={true}
