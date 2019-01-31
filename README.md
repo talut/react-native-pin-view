@@ -4,14 +4,27 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 <p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
-##### What's new in v2.0.1
+##### What's new at v2.1.0
+
+- At v2.1.0, RTL support disabled. But I will review and add RTL support at future release. Right now RTL component same as LTR. [https://github.com/talut/react-native-pin-view/issues/17](https://github.com/talut/react-native-pin-view/issues/17)
+- delayBeforeOnComplete props added. Default is 175ms. [https://github.com/talut/react-native-pin-view/issues/14](https://github.com/talut/react-native-pin-view/issues/14)
+
+##### TODO's
+
+- Show/Hide support for inputted pin. [https://github.com/talut/react-native-pin-view/issues/13](https://github.com/talut/react-native-pin-view/issues/13)
+- Support for more styleable component.. [https://github.com/talut/react-native-pin-view/issues/6](https://github.com/talut/react-native-pin-view/issues/6)
+- Permission to you for own KeyboardView number pad. Like Arabic or Latin. I think this will solve RTL issue.
+
+
+###### What was new at v2.0.1
 
 With v2.0.1 user inputted pin will not verified by `react-native-pin-view`. PinView component will only return the inputted value. 
 
-- `returnType` added (Return type of inputted value : `array` or `string`)
-- `onComplete` added (This will return `inputtedVal` and `clear()` callback) (When user inputted the pin it will run. (Will return inputted value as returnType))
-- `pinLength` added (User pin length or default pin length for all users.)
-- **`clear()`** you can use this in `onComplete` callback. If you want to clear user input you should call this.
+- returnType added (Return type of inputted value : `array` or `string`)
+- onComplete added (This will return `inputtedVal` and `clear()` callback) (When user inputted the pin it will run. (Will return inputted value as returnType))
+- pinLength added (User pin length or default pin length for all users.)
+- clear() you can use this in onComplete callback. If you want to clear user input you should call this.
+
 
 ## Getting Started
 
@@ -54,6 +67,7 @@ import PinView from 'react-native-pin-view'
 | **`returnType`**         | `string`  |`string` | _onComplete_ returning value type. It can be `string` or `array`| No      |
 | **`pinLength`**     | `number`  | none         | (Min length: `3` , Max length: `8`) User pin length like `this.state.pin.length` or `5` If you're using hashed pin then set default length all pin or use pin length.  | Yes      |
 | **`disabled`**           | `boolean` | false   | Optionally, you can set this props `true` or `false`. If `true`, the user can not enter the password. | No       |
+| **`delayBeforeOnComplete`**           | `number` | 175   | Optionally, you can set this props for delaying before onComplete event. | No       |
 
 #### Example App
 

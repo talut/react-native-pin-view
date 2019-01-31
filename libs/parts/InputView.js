@@ -1,9 +1,9 @@
 import React from 'react';
-import { Animated } from "react-native";
+import {Animated, I18nManager} from "react-native";
 
-const InputView = ({ pinViewAnim, animatedInputIndex, pinLength, bgColor, activeBgColor, styles, bgOpacity }) => {
+const InputView = ({pinViewAnim, animatedInputIndex, pinLength, bgColor, activeBgColor, styles, bgOpacity}) => {
   const tilt = pinViewAnim.interpolate({
-    inputRange: [0, 0.3, 0.6, 0.9],
+    inputRange : [0, 0.3, 0.6, 0.9],
     outputRange: [0, -50, 50, 0]
   });
 
@@ -12,7 +12,7 @@ const InputView = ({ pinViewAnim, animatedInputIndex, pinLength, bgColor, active
         key={"passwordItem-" + index}
         style={[styles[1], {
           backgroundColor: bgColor,
-          opacity: bgOpacity
+          opacity        : bgOpacity,
         }]}/>;
   };
 
@@ -21,14 +21,14 @@ const InputView = ({ pinViewAnim, animatedInputIndex, pinLength, bgColor, active
         key={"passwordItem-" + index}
         style={[styles[2], {
           backgroundColor: activeBgColor,
-          opacity: 1
+          opacity        : 1,
         }]}/>
   };
   const ShowInput = (pinLength) => {
     let table = [];
     {
-      for (let i = 0; i < pinLength; i++) {
-        if (animatedInputIndex[i] === undefined) {
+      for(let i = 0; i < pinLength; i++) {
+        if(animatedInputIndex[i] === undefined) {
           table.push(inactiveInput(i))
         } else {
           table.push(activeInput(i))
@@ -40,7 +40,8 @@ const InputView = ({ pinViewAnim, animatedInputIndex, pinLength, bgColor, active
 
   return (
       <Animated.View style={[styles[0], {
-        transform: [{ translateX: tilt }]
+        transform    : [{translateX: tilt}],
+        flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
       }]}>
         {ShowInput(pinLength)}
       </Animated.View>

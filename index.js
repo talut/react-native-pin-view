@@ -1,6 +1,6 @@
 import React from 'react';
-import { Animated, Easing, View } from "react-native";
-
+import {Animated, Easing, View} from "react-native";
+import {I18nManager} from 'react-native';
 import KeyboardView from './libs/parts/KeyboardView'
 import InputView from './libs/parts/InputView'
 import Styles from './libs/parts/styles'
@@ -10,9 +10,9 @@ class PinView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      animatedInputIndex: Object.assign([]),
-      animatedDeleteButton: new Animated.Value(0),
-      pinViewAnim: new Animated.Value(0),
+      animatedInputIndex         : Object.assign([]),
+      animatedDeleteButton       : new Animated.Value(0),
+      pinViewAnim                : new Animated.Value(0),
       animatedDeleteButtonOnPress: true
     };
     this.keyboardOnPress = this.keyboardOnPress.bind(this);
@@ -26,7 +26,7 @@ class PinView extends React.Component {
         // Animate value over time
         this.state.animatedDeleteButton, // The value to drive
         {
-          toValue: status ? 1 : 0, // Animate to final value of 1
+          toValue : status ? 1 : 0, // Animate to final value of 1
           duration: 100
         }
     ).start(); // Start the animation
@@ -39,39 +39,35 @@ class PinView extends React.Component {
     this.userInput = [];
     this.setState({
       animatedInputIndex: Object.assign([]),
-      pinViewAnim: new Animated.Value(0),
+      pinViewAnim       : new Animated.Value(0),
     })
   }
 
   keyboardOnPress = (val, returnType, pinLength, onComplete) => {
-    if (val === this.props.deleteText) {
+    if(val === this.props.deleteText) {
       this.userInput = this.userInput.slice(0, -1);
       this.setState({
         animatedInputIndex: this.state.animatedInputIndex.slice(0, -1)
       });
-      if (this.userInput.length === 0) {
+      if(this.userInput.length === 0) {
         this.setDeleteButton(false);
       }
-    } else if(val === this.props.optionalBtnText){
-      const { optionalBtnClick } = this.props;
-      if(optionalBtnClick){
-        optionalBtnClick();
-      }
-    }
-     else {
-      if (pinLength === this.userInput.length + 1) {
+    } else {
+      if(pinLength === this.userInput.length + 1) {
         this.userInput = this.userInput.concat(parseInt(val));
         this.setDeleteButton(true);
         this.setState({
           animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
         }, () => {
-          if (returnType === "string") {
-            return onComplete(this.userInput.join(""), this.clear)
-          } else if (returnType === "array") {
-            return onComplete(this.userInput, this.clear)
-          } else {
-            console.log("Unkown return type!")
-          }
+          setTimeout(() => {
+            if(returnType === "string") {
+              return onComplete(this.userInput.join(""), this.clear)
+            } else if(returnType === "array") {
+              return onComplete(this.userInput, this.clear)
+            } else {
+              console.log("Unkown return type!")
+            }
+          }, this.props.delayBeforeOnComplete)
         });
       } else {
         this.userInput = this.userInput.concat(parseInt(val));
@@ -84,12 +80,7 @@ class PinView extends React.Component {
   };
 
   render() {
-    const { pinLength, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, 
-      disabled, inputActiveBgColor, inputBgOpacity, deleteText,
-      optionalBtnClick,
-      optionalBtnText,
-      hasOptionalBtn
-     } = this.props;
+    const {pinLength, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText} = this.props;
     return (
         <View pointerEvents={disabled ? "none" : undefined}>
           <InputView
@@ -113,9 +104,6 @@ class PinView extends React.Component {
                 animatedDeleteButtonOnPress={this.state.animatedDeleteButtonOnPress}
                 keyboardOnPress={this.keyboardOnPress}
                 returnType={returnType}
-                optionalBtnClick={optionalBtnClick}
-                optionalBtnText={optionalBtnText}
-                hasOptionalBtn={hasOptionalBtn}
             />
           </View>
         </View>
@@ -124,34 +112,30 @@ class PinView extends React.Component {
 }
 
 PinView.defaultProps = {
-  deleteText: "DEL",
-  buttonBgColor: '#FFF',
-  buttonTextColor: '#333',
-  inputBgColor: '#333',
-  inputActiveBgColor: '#333',
-  returnType: 'string',
-  inputBgOpacity: 0.1,
-  disabled: false,
-  clear: false,
-  hasOptionalBtn: false,
-  optionalBtnClick: null,
-  optionalBtnText: "Reset"
+  deleteText           : "DEL",
+  buttonBgColor        : '#FFF',
+  buttonTextColor      : '#333',
+  inputBgColor         : '#333',
+  inputActiveBgColor   : '#333',
+  returnType           : 'string',
+  inputBgOpacity       : 0.1,
+  disabled             : false,
+  clear                : false,
+  delayBeforeOnComplete: 175,
 };
 PinView.propTypes = {
-  disabled: PropTypes.bool,
-  deleteText: PropTypes.string,
-  returnType: PropTypes.string,
-  buttonBgColor: PropTypes.string,
-  buttonTextColor: PropTypes.string,
-  inputBgColor: PropTypes.string,
-  inputActiveBgColor: PropTypes.string,
-  inputBgOpacity: PropTypes.number,
-  onComplete: PropTypes.func.isRequired,
-  pinLength: PropTypes.number.isRequired,
-  clear: PropTypes.bool,
-  hasOptionalBtn: PropTypes.bool,
-  optionalBtnText: PropTypes.string,
-  optionalBtnClick: PropTypes.func
+  disabled             : PropTypes.bool,
+  deleteText           : PropTypes.string,
+  returnType           : PropTypes.string,
+  buttonBgColor        : PropTypes.string,
+  buttonTextColor      : PropTypes.string,
+  inputBgColor         : PropTypes.string,
+  inputActiveBgColor   : PropTypes.string,
+  inputBgOpacity       : PropTypes.number,
+  onComplete           : PropTypes.func.isRequired,
+  pinLength            : PropTypes.number.isRequired,
+  delayBeforeOnComplete: PropTypes.number,
+  clear                : PropTypes.bool,
 };
 
 export default PinView
