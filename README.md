@@ -4,10 +4,10 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 <p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
-##### What's new at v2.2.0
+##### What's new at v2.1.11
 
 - Show/Hide support added for inputted pin. showInputs and inputTextStyle props added. Just set  `showInputs={true}` at PinView component. [https://github.com/talut/react-native-pin-view/issues/13](https://github.com/talut/react-native-pin-view
-
+- pinLength issue solved. [https://github.com/talut/react-native-pin-view/issues/18](https://github.com/talut/react-native-pin-view/issues/18)
 ##### TODO's
 
 - Support for more styleable component.. [https://github.com/talut/react-native-pin-view/issues/6](https://github.com/talut/react-native-pin-view/issues/6)
