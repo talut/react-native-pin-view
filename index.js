@@ -1,6 +1,5 @@
 import React from 'react';
-import {Animated, Easing, View} from "react-native";
-import {I18nManager} from 'react-native';
+import {Animated, View} from "react-native";
 import KeyboardView from './libs/parts/KeyboardView'
 import InputView from './libs/parts/InputView'
 import Styles from './libs/parts/styles'
@@ -44,37 +43,40 @@ class PinView extends React.Component {
   }
 
   keyboardOnPress = (val, returnType, pinLength, onComplete) => {
-    if(val === this.props.deleteText) {
-      this.userInput = this.userInput.slice(0, -1);
-      this.setState({
-        animatedInputIndex: this.state.animatedInputIndex.slice(0, -1)
-      });
-      if(this.userInput.length === 0) {
-        this.setDeleteButton(false);
-      }
-    } else {
-      if(pinLength === this.userInput.length + 1) {
-        this.userInput = this.userInput.concat(parseInt(val));
-        this.setDeleteButton(true);
+    if(this.userInput.length <= pinLength) {
+      if(val === this.props.deleteText) {
+        this.userInput = this.userInput.slice(0, -1);
         this.setState({
-          animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
-        }, () => {
-          setTimeout(() => {
-            if(returnType === "string") {
-              return onComplete(this.userInput.join(""), this.clear)
-            } else if(returnType === "array") {
-              return onComplete(this.userInput, this.clear)
-            } else {
-              console.log("Unkown return type!")
-            }
-          }, this.props.delayBeforeOnComplete)
+          animatedInputIndex: this.state.animatedInputIndex.slice(0, -1)
         });
+        if(this.userInput.length === 0) {
+          this.setDeleteButton(false);
+        }
       } else {
-        this.userInput = this.userInput.concat(parseInt(val));
-        this.setDeleteButton(true);
-        this.setState({
-          animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
-        });
+        if(pinLength === this.userInput.length + 1) {
+          this.userInput = this.userInput.concat(parseInt(val));
+          console.log(this.userInput)
+          this.setDeleteButton(true);
+          this.setState({
+            animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
+          }, () => {
+            setTimeout(() => {
+              if(returnType === "string") {
+                return onComplete(this.userInput.join(""), this.clear)
+              } else if(returnType === "array") {
+                return onComplete(this.userInput, this.clear)
+              } else {
+                console.log("Unkown return type!")
+              }
+            }, this.props.delayBeforeOnComplete)
+          });
+        } else {
+          this.userInput = this.userInput.concat(parseInt(val));
+          this.setDeleteButton(true);
+          this.setState({
+            animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
+          });
+        }
       }
     }
   };

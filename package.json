@@ -1,6 +1,6 @@
 {
   "name": "react-native-pin-view",
-  "version": "2.1.0",
+  "version": "2.1.11",
   "repository": {
     "type": "git",
     "url": "https://github.com/talut/react-native-pin-view.git"
@@ -20,6 +20,7 @@
     "PinView"
   ],
   "main": "index.js",
+  "types": "react-native-pin-view.d.ts",
   "author": "Talut Tasgiran",
   "license": "MIT",
   "bugs": {
@@ -30,6 +31,6 @@
   },
   "homepage": "https://github.com/talut/react-native-pin-view",
   "dependencies": {
-    "prop-types": "^15.6.2"
+    "prop-types": "^15.7.2"
   }
 }
