@@ -4,16 +4,21 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 <p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
-##### What's new at v2.1.11
+##### What's new at v2.2.0
+- With this update you can change input style and keyboard number style.
+- Typescript definitions added.
+
+###### What's new at v2.1.11
 
 - Show/Hide support added for inputted pin. showInputs and inputTextStyle props added. Just set  `showInputs={true}` at PinView component. [https://github.com/talut/react-native-pin-view/issues/13](https://github.com/talut/react-native-pin-view/issues/13)
 - pinLength issue solved. [https://github.com/talut/react-native-pin-view/issues/18](https://github.com/talut/react-native-pin-view/issues/18)
-##### TODO's
+
+###### TODO's
 
 - Support for more styleable component.. [https://github.com/talut/react-native-pin-view/issues/6](https://github.com/talut/react-native-pin-view/issues/6)
 - Permission to you for own KeyboardView number pad. Like Arabic or Latin. I think this will solve RTL issue.
 
-##### What was new at v2.1.0
+###### What was new at v2.1.0
 
 - At v2.1.0, RTL support disabled. But I will review and add RTL support at future release. Right now RTL component same as LTR. [https://github.com/talut/react-native-pin-view/issues/17](https://github.com/talut/react-native-pin-view/issues/17)
 - delayBeforeOnComplete props added. Default is 175ms. [https://github.com/talut/react-native-pin-view/issues/14](https://github.com/talut/react-native-pin-view/issues/14)
@@ -63,7 +68,9 @@ import PinView from 'react-native-pin-view'
 | **`disabled`**           | `boolean` | false   | Optionally, you can set this props `true` or `false`. If `true`, the user can not enter the password. | No       |
 | **`delayBeforeOnComplete`**           | `number` | 175   | Optionally, you can set this props for delaying before onComplete event. | No       |
 | **`showInputs`**           | `boolean` | `false`   | If you want to show inputted pin use this props. | No       |
-| **`inputTextStyle`**           | `number` | `{color:'#FFF',fontWeight:'bold'}`   | This props for styling inputted pin text. | No       |
+| **`inputTextStyle`**           | `object` | `{color:'#FFF',fontWeight:'bold'}`   | This props for styling inputted pin text. | No       |
+| **`inputViewStyle`**           | `object` | `{borderRadius:6}`   | This props for styling input view item. | No       |
+| **`keyboardViewStyle`**           | `object` | `{borderRadius:6}`   | This props for styling keyboard view item. | No       |
 
 #### Example App
 

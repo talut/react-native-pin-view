@@ -1,7 +1,7 @@
 import React from 'react';
 import {Animated, I18nManager, Text} from "react-native";
 
-const InputView = ({pinViewAnim, inputTextStyle, showInputs, inputtedValues, animatedInputIndex, pinLength, bgColor, activeBgColor, styles, bgOpacity}) => {
+const InputView = ({pinViewAnim, inputViewStyle, inputTextStyle, showInputs, inputtedValues, animatedInputIndex, pinLength, bgColor, activeBgColor, styles, bgOpacity}) => {
   const tilt = pinViewAnim.interpolate({
     inputRange : [0, 0.3, 0.6, 0.9],
     outputRange: [0, -50, 50, 0]
@@ -12,7 +12,7 @@ const InputView = ({pinViewAnim, inputTextStyle, showInputs, inputtedValues, ani
         style={[styles[1], {
           backgroundColor: bgColor,
           opacity        : bgOpacity,
-        }]}/>;
+        }, inputViewStyle]}/>;
   };
 
   const activeInput = (index) => {
@@ -23,7 +23,7 @@ const InputView = ({pinViewAnim, inputTextStyle, showInputs, inputtedValues, ani
               style={[styles[2], {
                 backgroundColor: activeBgColor,
                 opacity        : 1,
-              }]}>
+              }, inputViewStyle]}>
             <Text style={inputTextStyle}>{inputtedValues[index]}</Text>
           </Animated.View>
       )
@@ -33,7 +33,7 @@ const InputView = ({pinViewAnim, inputTextStyle, showInputs, inputtedValues, ani
           style={[styles[2], {
             backgroundColor: activeBgColor,
             opacity        : 1,
-          }]}/>
+          }, inputViewStyle]}/>
     }
   };
   const ShowInput = (pinLength) => {
