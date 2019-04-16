@@ -1,6 +1,5 @@
 import React from 'react';
-import {Animated, Easing, View} from "react-native";
-import {I18nManager} from 'react-native';
+import {Animated, View} from "react-native";
 import KeyboardView from './libs/parts/KeyboardView'
 import InputView from './libs/parts/InputView'
 import Styles from './libs/parts/styles'
@@ -44,47 +43,53 @@ class PinView extends React.Component {
   }
 
   keyboardOnPress = (val, returnType, pinLength, onComplete) => {
-    if(val === this.props.deleteText) {
-      this.userInput = this.userInput.slice(0, -1);
-      this.setState({
-        animatedInputIndex: this.state.animatedInputIndex.slice(0, -1)
-      });
-      if(this.userInput.length === 0) {
-        this.setDeleteButton(false);
-      }
-    } else {
-      if(pinLength === this.userInput.length + 1) {
-        this.userInput = this.userInput.concat(parseInt(val));
-        this.setDeleteButton(true);
+    if(this.userInput.length <= pinLength) {
+      if(val === this.props.deleteText) {
+        this.userInput = this.userInput.slice(0, -1);
         this.setState({
-          animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
-        }, () => {
-          setTimeout(() => {
-            if(returnType === "string") {
-              return onComplete(this.userInput.join(""), this.clear)
-            } else if(returnType === "array") {
-              return onComplete(this.userInput, this.clear)
-            } else {
-              console.log("Unkown return type!")
-            }
-          }, this.props.delayBeforeOnComplete)
+          animatedInputIndex: this.state.animatedInputIndex.slice(0, -1)
         });
+        if(this.userInput.length === 0) {
+          this.setDeleteButton(false);
+        }
       } else {
-        this.userInput = this.userInput.concat(parseInt(val));
-        this.setDeleteButton(true);
-        this.setState({
-          animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
-        });
+        if(pinLength === this.userInput.length + 1) {
+          this.userInput = this.userInput.concat(parseInt(val));
+          console.log(this.userInput)
+          this.setDeleteButton(true);
+          this.setState({
+            animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
+          }, () => {
+            setTimeout(() => {
+              if(returnType === "string") {
+                return onComplete(this.userInput.join(""), this.clear)
+              } else if(returnType === "array") {
+                return onComplete(this.userInput, this.clear)
+              } else {
+                console.log("Unkown return type!")
+              }
+            }, this.props.delayBeforeOnComplete)
+          });
+        } else {
+          this.userInput = this.userInput.concat(parseInt(val));
+          this.setDeleteButton(true);
+          this.setState({
+            animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
+          });
+        }
       }
     }
   };
 
   render() {
-    const {pinLength, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText} = this.props;
+    const {pinLength, showInputs, inputTextStyle, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText} = this.props;
     return (
         <View pointerEvents={disabled ? "none" : undefined}>
           <InputView
+              showInputs={showInputs}
+              inputTextStyle={inputTextStyle}
               bgOpacity={inputBgOpacity}
+              inputtedValues={showInputs ? this.userInput : undefined}
               pinLength={pinLength}
               activeBgColor={inputActiveBgColor}
               animatedInputIndex={this.state.animatedInputIndex}
@@ -122,6 +127,8 @@ PinView.defaultProps = {
   disabled             : false,
   clear                : false,
   delayBeforeOnComplete: 175,
+  inputTextStyle       : {color: '#FFF', fontWeight: 'bold'},
+  showInputs           : false
 };
 PinView.propTypes = {
   disabled             : PropTypes.bool,
@@ -136,6 +143,8 @@ PinView.propTypes = {
   pinLength            : PropTypes.number.isRequired,
   delayBeforeOnComplete: PropTypes.number,
   clear                : PropTypes.bool,
+  inputTextStyle       : PropTypes.object,
+  showInputs           : PropTypes.bool,
 };
 
 export default PinView
