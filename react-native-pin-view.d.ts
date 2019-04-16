@@ -2,10 +2,8 @@
 // Project: https://github.com/talut/react-native-pin-view
 // Definitions by: Talut TASGIRAN <https://github.com/talut>
 // TypeScript Version: 2.8
-
 declare module "react-native-pin-view" {
     import React from 'react';
-
     interface PinViewProps {
         pinLength: number,
         showInputs: boolean,
