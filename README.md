@@ -4,7 +4,7 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 <p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
-##### What's new at v2.2.0
+##### What's new at v2.2.1
 - With this update you can change input style and keyboard number style.
 - Typescript definitions added.
 
