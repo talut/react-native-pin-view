@@ -4,6 +4,7 @@
 // TypeScript Version: 2.8
 declare module "react-native-pin-view" {
     import React from 'react';
+
     interface PinViewProps {
         pinLength: number,
         showInputs: boolean,
@@ -16,7 +17,9 @@ declare module "react-native-pin-view" {
         disabled: boolean,
         inputActiveBgColor: string,
         inputBgOpacity: number,
-        deleteText: string
+        deleteText: string,
+        inputViewStyle?: object,
+        keyboardViewStyle?: object,
     }
 
     const PinView: (props: PinViewProps) => React.Component<PinViewProps>;
