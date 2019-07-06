@@ -55,7 +55,6 @@ class PinView extends React.Component {
       } else {
         if(pinLength === this.userInput.length + 1) {
           this.userInput = this.userInput.concat(parseInt(val));
-          console.log(this.userInput)
           this.setDeleteButton(true);
           this.setState({
             animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
