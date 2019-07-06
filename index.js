@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, View, ViewPropTypes } from "react-native";
+import {Animated, View, ViewPropTypes} from "react-native";
 import KeyboardView from './libs/parts/KeyboardView'
 import InputView from './libs/parts/InputView'
 import Styles from './libs/parts/styles'

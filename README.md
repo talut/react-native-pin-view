@@ -75,6 +75,7 @@ import PinView from 'react-native-pin-view'
 | **`inputViewStyle`**           | `object` | `{borderRadius:6}`   | This props for styling input view item. | No       |
 | **`keyboardViewStyle`**           | `object` | `{borderRadius:6}`   | This props for styling keyboard view item. | No       |
 | **`keyboardViewTextStyle`**           | `object` | `{fontWeight:'normal'}`   | This props for styling keyboard view text. | No       |
+| **`keyboardContainerStyle`**           | `object` | `{marginTop:10}`   | This props for styling keyboard container view text. | No       |
 
 #### Example App
 
