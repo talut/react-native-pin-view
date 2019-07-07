@@ -78,7 +78,7 @@ import PinView from 'react-native-pin-view'
 
 #### Example App
 
-```
+```javascript
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import PinView from 'react-native-pin-view'
@@ -93,19 +93,19 @@ export default class Master extends Component<Props> {
     }
   }
   onComplete(inputtedPin, clear) {
-  if(val!==this.state.pin){
-  clear();
-  }else{
-  console.log("Pin is correct")
-  }
+    if (val!==this.state.pin){
+      clear();
+    } else {
+      console.log("Pin is correct")
+    }
   }
   render() {
     return (
-      <View style={ {
+      <View style={{
         flex           : 1,
         backgroundColor: '#f1f1f1',
         justifyContent : 'center'
-      } }>
+      }}>
         <PinView
         onComplete={this.onComplete}
         pinLength={this.state.pin.length}
