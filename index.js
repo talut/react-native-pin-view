@@ -1,5 +1,5 @@
 import React from 'react';
-import {Animated, View, ViewPropTypes} from "react-native";
+import {Animated, View, ViewPropTypes, StyleSheet} from "react-native";
 import KeyboardView from './libs/parts/KeyboardView'
 import InputView from './libs/parts/InputView'
 import Styles from './libs/parts/styles'
@@ -119,18 +119,19 @@ class PinView extends React.Component {
 }
 
 PinView.defaultProps = {
-  deleteText           : "DEL",
-  buttonBgColor        : '#FFF',
-  buttonTextColor      : '#333',
-  inputBgColor         : '#333',
-  inputActiveBgColor   : '#333',
-  returnType           : 'string',
-  inputBgOpacity       : 0.1,
-  disabled             : false,
-  clear                : false,
-  delayBeforeOnComplete: 175,
-  inputTextStyle       : {color: '#FFF', fontWeight: 'bold'},
-  showInputs           : false
+  deleteText            : "DEL",
+  buttonBgColor         : '#FFF',
+  buttonTextColor       : '#333',
+  inputBgColor          : '#333',
+  inputActiveBgColor    : '#333',
+  returnType            : 'string',
+  inputBgOpacity        : 0.1,
+  disabled              : false,
+  clear                 : false,
+  delayBeforeOnComplete : 175,
+  inputTextStyle        : {color: '#FFF', fontWeight: 'bold'},
+  showInputs            : false,
+  keyboardContainerStyle: StyleSheet.create({}),
 };
 PinView.propTypes = {
   disabled             : PropTypes.bool,
