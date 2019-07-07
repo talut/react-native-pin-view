@@ -122,6 +122,7 @@ export default class Master extends Component<Props> {
 ## Contributors (Thank you all)
 
 - [@devcer](https://github.com/devcer)
+- [@mattvick](https://github.com/mattvick)
 
 ## Built With
 
