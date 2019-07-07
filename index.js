@@ -42,7 +42,7 @@ class PinView extends React.Component {
     })
   }
 
-  keyboardOnPress = (val, returnType, pinLength, onComplete) => {
+  keyboardOnPress = (val, returnType, pinLength, onComplete, onPress) => {
     if(this.userInput.length <= pinLength) {
       if(val === this.props.deleteText) {
         this.userInput = this.userInput.slice(0, -1);
@@ -79,10 +79,13 @@ class PinView extends React.Component {
         }
       }
     }
+    if(onPress && typeof onPress === 'function') {
+      onPress(this.userInput, this.clear, val);
+    }
   };
 
   render() {
-    const {pinLength, showInputs, inputTextStyle, keyboardViewStyle, keyboardViewTextStyle, inputViewStyle, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText} = this.props;
+    const {pinLength, showInputs, inputTextStyle, keyboardViewStyle, keyboardViewTextStyle, inputViewStyle, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText, onPress} = this.props;
     return (
         <View pointerEvents={disabled ? "none" : undefined}>
           <InputView
@@ -112,6 +115,7 @@ class PinView extends React.Component {
                 animatedDeleteButtonOnPress={this.state.animatedDeleteButtonOnPress}
                 keyboardOnPress={this.keyboardOnPress}
                 returnType={returnType}
+                onPress={onPress}
             />
           </View>
         </View>
@@ -131,7 +135,8 @@ PinView.defaultProps = {
   clear                : false,
   delayBeforeOnComplete: 175,
   inputTextStyle       : {color: '#FFF', fontWeight: 'bold'},
-  showInputs           : false
+  showInputs           : false,
+  onPress              : undefined,
 };
 PinView.propTypes = {
   disabled             : PropTypes.bool,
@@ -150,6 +155,7 @@ PinView.propTypes = {
   showInputs           : PropTypes.bool,
   inputViewStyle       : PropTypes.object,
   keyboardViewStyle    : PropTypes.object,
+  onPress              : PropTypes.func,
 };
 
 export default PinView
