@@ -76,6 +76,7 @@ import PinView from 'react-native-pin-view'
 | **`keyboardViewStyle`**           | `object` | `{borderRadius:6}`   | This props for styling keyboard view item. | No       |
 | **`keyboardViewTextStyle`**           | `object` | `{fontWeight:'normal'}`   | This props for styling keyboard view text. | No       |
 | **`keyboardContainerStyle`**           | `object` | `{marginTop:10}`   | This props for styling keyboard container view text. | No       |
+| **`onPress`**         | `func`    | `undefined`    | When the user presses the keypad, the inputted **`value`** (PIN code) will return. Also **`clear()`** is returned and the value of the **pressed** key. So if you want to remove user input after **onPress** call **`clear()`** func in onPress, or if you want to disable a submit button when the PIN code is not completely filled you can check it's length with `value.length`. Usage: `onPress={(value, clear, pressed) => console.log('value', value, 'clear', clear, 'pressed', pressed)}`| No      |
 
 #### Example App
 
