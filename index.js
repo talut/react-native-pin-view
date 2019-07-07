@@ -131,6 +131,8 @@ PinView.defaultProps = {
   delayBeforeOnComplete : 175,
   inputTextStyle        : {color: '#FFF', fontWeight: 'bold'},
   showInputs            : false,
+  inputViewStyle        : StyleSheet.create({}),
+  keyboardViewStyle     : StyleSheet.create({}),
   keyboardContainerStyle: StyleSheet.create({}),
 };
 PinView.propTypes = {
