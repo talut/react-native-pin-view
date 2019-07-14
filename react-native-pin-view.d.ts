@@ -22,6 +22,6 @@ declare module "react-native-pin-view" {
         deleteText?: string
     }
 
-    const PinView: (props: PinViewProps) => React.Component<PinViewProps>;
+    const PinView: React.FunctionComponent<PinViewProps>;
     export default PinView;
 }
