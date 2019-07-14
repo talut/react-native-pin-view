@@ -4,6 +4,9 @@
 // TypeScript Version: 2.8
 declare module "react-native-pin-view" {
     import React from 'react';
+
+    type onCompleteCallback = (value: string, clear: () => void) => void;
+
     interface PinViewProps {
         pinLength?: number,
         showInputs?: boolean,
@@ -12,7 +15,7 @@ declare module "react-native-pin-view" {
         returnType?: string,
         buttonBgColor?: string,
         inputBgColor?: string,
-        onComplete: () => void,
+        onComplete: onCompleteCallback,
         disabled?: boolean,
         inputActiveBgColor?: string,
         inputBgOpacity?: number,
