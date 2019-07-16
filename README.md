@@ -4,17 +4,17 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 <p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
-##### What's new at v2.2.2
+##### What's new at v2.3
+- keyboardContainerStyle added. [https://github.com/talut/react-native-pin-view/pull/22](https://github.com/talut/react-native-pin-view/pull/22)
+- onPress added. [https://github.com/talut/react-native-pin-view/pull/23](https://github.com/talut/react-native-pin-view/pull/23)
+- Correctly type the onComplete callback. [https://github.com/talut/react-native-pin-view/pull/28](https://github.com/talut/react-native-pin-view/pull/28)
+
+###### What's new at v2.2.2
 - KeyboardViewTextStyle added. [https://github.com/talut/react-native-pin-view/pull/21](https://github.com/talut/react-native-pin-view/pull/21)
 
 ###### What's new at v2.2.1
 - With this update you can change input style and keyboard number style.
 - Typescript definitions added.
-
-###### What's new at v2.1.11
-
-- Show/Hide support added for inputted pin. showInputs and inputTextStyle props added. Just set  `showInputs={true}` at PinView component. [https://github.com/talut/react-native-pin-view/issues/13](https://github.com/talut/react-native-pin-view/issues/13)
-- pinLength issue solved. [https://github.com/talut/react-native-pin-view/issues/18](https://github.com/talut/react-native-pin-view/issues/18)
 
 ###### TODO's
 
@@ -76,7 +76,7 @@ import PinView from 'react-native-pin-view'
 | **`keyboardViewStyle`**           | `object` | `{borderRadius:6}`   | This props for styling keyboard view item. | No       |
 | **`keyboardViewTextStyle`**           | `object` | `{fontWeight:'normal'}`   | This props for styling keyboard view text. | No       |
 | **`keyboardContainerStyle`**           | `object` | `{marginTop:10}`   | This props for styling keyboard container view text. | No       |
-| **`onPress`**         | `func`    | `undefined`    | When the user presses the keypad, the inputted **`value`** (PIN code) will return. Also **`clear()`** is returned and the value of the **pressed** key. So if you want to remove user input after **onPress** call **`clear()`** func in onPress, or if you want to disable a submit button when the PIN code is not completely filled you can check it's length with `value.length`. Usage: `onPress={(value, clear, pressed) => console.log('value', value, 'clear', clear, 'pressed', pressed)}`| No      |
+| **`onPress`**         | `func`    | `undefined`    | When the user presses the keypad, the inputted **`value`** (PIN code) will return. Also **`clear()`** is returned and the value of the **pressed** key. So if you want to remove user input after **onPress** call **`clear()`** func in onPress, or if you want to disable a submit button when the PIN code is not completely filled you can check it's length with `value.length`.| No      |
 
 
 #### Example App

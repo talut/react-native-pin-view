@@ -6,6 +6,7 @@ declare module "react-native-pin-view" {
     import React from 'react';
 
     type onCompleteCallback = (value: string, clear: () => void) => void;
+    type onPressCallback = (value: string, pressed: boolean, clear: () => void) => void;
 
     interface PinViewProps {
         pinLength?: number,
@@ -16,6 +17,7 @@ declare module "react-native-pin-view" {
         buttonBgColor?: string,
         inputBgColor?: string,
         onComplete: onCompleteCallback,
+        onPress: onPressCallback,
         disabled?: boolean,
         inputActiveBgColor?: string,
         inputBgOpacity?: number,
