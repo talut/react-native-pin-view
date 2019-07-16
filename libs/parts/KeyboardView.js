@@ -1,5 +1,5 @@
 import React from 'react';
-import {Animated, View, FlatList, Text, TouchableOpacity, I18nManager} from "react-native";
+import {Animated, FlatList, Text, TouchableOpacity, I18nManager} from "react-native";
 
 const KeyboardView = ({keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress}) => {
   let data;
