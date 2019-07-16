@@ -4,7 +4,7 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 <p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
-##### What's new at v2.3
+##### What's new at v2.3.1
 - keyboardContainerStyle added. [https://github.com/talut/react-native-pin-view/pull/22](https://github.com/talut/react-native-pin-view/pull/22)
 - onPress added. [https://github.com/talut/react-native-pin-view/pull/23](https://github.com/talut/react-native-pin-view/pull/23)
 - Correctly type the onComplete callback. [https://github.com/talut/react-native-pin-view/pull/28](https://github.com/talut/react-native-pin-view/pull/28)
@@ -102,6 +102,11 @@ export default class Master extends Component<Props> {
       console.log("Pin is correct")
     }
   }
+  onPress(inputtedPin, clear, pressed) {
+    console.log("Pressed: "+ pressed);
+    console.log("inputtedPin: "+ inputtedPin)
+    // clear()
+  }
   render() {
     return (
       <View style={{
@@ -110,6 +115,7 @@ export default class Master extends Component<Props> {
         justifyContent : 'center'
       }}>
         <PinView
+        onPress={this.onPress}
         onComplete={this.onComplete}
         pinLength={this.state.pin.length}
         // pinLength={6} // You can also use like that.
