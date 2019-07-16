@@ -1,5 +1,5 @@
 import React from 'react';
-import {Animated, View} from "react-native";
+import {Animated, View, ViewPropTypes, StyleSheet} from "react-native";
 import KeyboardView from './libs/parts/KeyboardView'
 import InputView from './libs/parts/InputView'
 import Styles from './libs/parts/styles'
@@ -55,7 +55,6 @@ class PinView extends React.Component {
       } else {
         if(pinLength === this.userInput.length + 1) {
           this.userInput = this.userInput.concat(parseInt(val));
-          console.log(this.userInput)
           this.setDeleteButton(true);
           this.setState({
             animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
@@ -85,7 +84,7 @@ class PinView extends React.Component {
   };
 
   render() {
-    const {pinLength, showInputs, inputTextStyle, keyboardViewStyle, keyboardViewTextStyle, inputViewStyle, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText, onPress} = this.props;
+        const {pinLength, showInputs, inputTextStyle, keyboardViewStyle, keyboardViewTextStyle, inputViewStyle, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText, onPress, keyboardContainerStyle} = this.props;
     return (
         <View pointerEvents={disabled ? "none" : undefined}>
           <InputView
@@ -101,7 +100,7 @@ class PinView extends React.Component {
               bgColor={inputBgColor}
               styles={[Styles.passwordInputView, Styles.passwordInputViewItem, Styles.passwordInputViewItemActive]}
           />
-          <View style={Styles.keyboardView}>
+          <View style={[Styles.keyboardView, keyboardContainerStyle]}>
             <KeyboardView
                 keyboardViewStyle={keyboardViewStyle}
                 keyboardViewTextStyle={keyboardViewTextStyle}
@@ -124,19 +123,22 @@ class PinView extends React.Component {
 }
 
 PinView.defaultProps = {
-  deleteText           : "DEL",
-  buttonBgColor        : '#FFF',
-  buttonTextColor      : '#333',
-  inputBgColor         : '#333',
-  inputActiveBgColor   : '#333',
-  returnType           : 'string',
-  inputBgOpacity       : 0.1,
-  disabled             : false,
-  clear                : false,
-  delayBeforeOnComplete: 175,
-  inputTextStyle       : {color: '#FFF', fontWeight: 'bold'},
-  showInputs           : false,
-  onPress              : undefined,
+  deleteText            : "DEL",
+  buttonBgColor         : '#FFF',
+  buttonTextColor       : '#333',
+  inputBgColor          : '#333',
+  inputActiveBgColor    : '#333',
+  returnType            : 'string',
+  inputBgOpacity        : 0.1,
+  disabled              : false,
+  clear                 : false,
+  delayBeforeOnComplete : 175,
+  inputTextStyle        : {color: '#FFF', fontWeight: 'bold'},
+  showInputs            : false,
+  inputViewStyle        : StyleSheet.create({}),
+  keyboardViewStyle     : StyleSheet.create({}),
+  keyboardContainerStyle: StyleSheet.create({}),
+      onPress              : undefined,
 };
 PinView.propTypes = {
   disabled             : PropTypes.bool,
@@ -153,9 +155,10 @@ PinView.propTypes = {
   clear                : PropTypes.bool,
   inputTextStyle       : PropTypes.object,
   showInputs           : PropTypes.bool,
-  inputViewStyle       : PropTypes.object,
-  keyboardViewStyle    : PropTypes.object,
-  onPress              : PropTypes.func,
+  inputViewStyle       : ViewPropTypes.style,
+  keyboardViewStyle    : ViewPropTypes.style,
+  keyboardContainerStyle: ViewPropTypes.style,
+    onPress              : PropTypes.func,
 };
 
 export default PinView
