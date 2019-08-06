@@ -4,7 +4,7 @@
 // TypeScript Version: 2.8
 declare module "react-native-pin-view" {
     import React from 'react';
-    import { ViewStyle } from 'react-native'
+    import { ViewStyle, TextStyle } from 'react-native'
 
     type onCompleteCallback = (value: string, clear: () => void) => void;
     type onPressCallback = (value: string, pressed: boolean, clear: () => void) => void;
@@ -12,7 +12,7 @@ declare module "react-native-pin-view" {
     interface PinViewProps {
         pinLength?: number,
         showInputs?: boolean,
-        inputTextStyle?: object,
+        inputTextStyle?: TextStyle,
         buttonTextColor?: string,
         returnType?: string,
         buttonBgColor?: string,
@@ -23,7 +23,11 @@ declare module "react-native-pin-view" {
         inputActiveBgColor?: string,
         inputBgOpacity?: number,
         deleteText?: string,
-        keyboardViewStyle?: ViewStyle
+        delayBeforeOnComplete?: number,
+        inputViewStyle?: ViewStyle,
+        keyboardViewStyle?: ViewStyle,
+        keyboardViewTextStyle?: TextStyle,
+        keyboardContainerStyle?: ViewStyle
     }
 
     const PinView: React.FunctionComponent<PinViewProps>;
