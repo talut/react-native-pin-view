@@ -142,7 +142,7 @@ PinView.defaultProps = {
   keyboardContainerStyle: StyleSheet.create({}),
   onPress: undefined,
   buttonDeletePosition: "left",
-  buttonDeleteStyle: { },
+  buttonDeleteStyle: StyleSheet.create({}),
 };
 PinView.propTypes = {
   disabled: PropTypes.bool,
