@@ -3,6 +3,8 @@ import {Animated, FlatList, Text, TouchableOpacity, I18nManager} from "react-nat
 
 const KeyboardView = ({keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress, buttonDeletePosition}) => {
   let data = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  const leftButtonDeletePositions = [deleteText, "0", null];
+  const rightButtonDeletePositions = [null, "0", deleteText];
 
   const setButtonDeletePosition = (arrToConcatLeft, arrToConcatRight) => {
     let newData = data;
@@ -18,9 +20,9 @@ const KeyboardView = ({keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle
   };
 
   if(I18nManager.isRTL) {
-    data = setButtonDeletePosition([null, "0", deleteText], [deleteText, "0", null]).reverse();
+    data = setButtonDeletePosition(leftButtonDeletePositions, rightButtonDeletePositions).reverse();
   } else {
-    data = setButtonDeletePosition([null, "0", deleteText], [deleteText, "0", null]);
+    data = setButtonDeletePosition(leftButtonDeletePositions, rightButtonDeletePositions);
   }
   const renderItem = ({item, index}) => {
     let style;
