@@ -28,12 +28,14 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
     let style;
     let onPressInactive;
     let onPressKeyboard = () => keyboardOnPress(item, returnType, pinLength, onComplete, onPress);
+
     if(item === deleteText) {
       onPressInactive = animatedDeleteButtonOnPress;
       style = [styles[0], {
         visibility: 'hidden',
         opacity: animatedDeleteButton,
-      }, buttonDeleteStyle,]
+        ...buttonDeleteStyle,
+      },]
     } else if(item === 'empty') {
       onPressInactive = false;
       style = [styles[0], {
