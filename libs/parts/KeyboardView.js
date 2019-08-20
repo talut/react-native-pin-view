@@ -18,9 +18,9 @@ const KeyboardView = ({keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle
   };
 
   if(I18nManager.isRTL) {
-    data = setButtonDeletePosition([...data, null, "0", deleteText], [...data, deleteText, "0", null]).reverse();
+    data = setButtonDeletePosition([null, "0", deleteText], [deleteText, "0", null]).reverse();
   } else {
-    data = setButtonDeletePosition([...data, null, "0", deleteText], [...data, deleteText, "0", null]);
+    data = setButtonDeletePosition([null, "0", deleteText], [deleteText, "0", null]);
   }
   const renderItem = ({item, index}) => {
     let style;
