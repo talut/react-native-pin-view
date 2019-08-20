@@ -161,7 +161,7 @@ PinView.propTypes = {
   keyboardViewStyle: ViewPropTypes.style,
   keyboardContainerStyle: ViewPropTypes.style,
   onPress: PropTypes.func,
-  buttonDeletePosition: PropTypes.bool,
+  buttonDeletePosition: PropTypes.string,
 };
 
 export default PinView;

@@ -22,6 +22,7 @@ declare module "react-native-pin-view" {
         inputActiveBgColor?: string,
         inputBgOpacity?: number,
         deleteText?: string
+        buttonDeletePosition?: string,
     }
 
     const PinView: React.FunctionComponent<PinViewProps>;
