@@ -84,7 +84,7 @@ class PinView extends React.Component {
   };
 
   render() {
-    const { pinLength, showInputs, inputTextStyle, keyboardViewStyle, keyboardViewTextStyle, inputViewStyle, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText, onPress, keyboardContainerStyle, buttonDeletePosition } = this.props;
+    const { pinLength, showInputs, inputTextStyle, keyboardViewStyle, keyboardViewTextStyle, inputViewStyle, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText, onPress, keyboardContainerStyle, buttonDeletePosition, buttonDeleteStyles } = this.props;
     return (
       <View pointerEvents={disabled ? "none" : undefined}>
         <InputView
@@ -141,6 +141,7 @@ PinView.defaultProps = {
   keyboardContainerStyle: StyleSheet.create({}),
   onPress: undefined,
   buttonDeletePosition: "left",
+  buttonDeleteStyles: { },
 };
 PinView.propTypes = {
   disabled: PropTypes.bool,
@@ -162,6 +163,7 @@ PinView.propTypes = {
   keyboardContainerStyle: ViewPropTypes.style,
   onPress: PropTypes.func,
   buttonDeletePosition: PropTypes.string,
+  buttonDeleteStyles: PropTypes.object,
 };
 
 export default PinView;

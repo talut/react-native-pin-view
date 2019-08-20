@@ -1,7 +1,7 @@
 import React from 'react';
 import {Animated, FlatList, Text, TouchableOpacity, I18nManager} from "react-native";
 
-const KeyboardView = ({keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress, buttonDeletePosition}) => {
+const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress, buttonDeletePosition, buttonDeleteStyles }) => {
   let data = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
   const leftButtonDeletePositions = [deleteText, "0", 'empty'];
   const rightButtonDeletePositions = ['empty', "0", deleteText];
@@ -30,11 +30,12 @@ const KeyboardView = ({keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle
     if(item === deleteText) {
       onPressInactive = animatedDeleteButtonOnPress;
       style = [styles[0], {
-        opacity: animatedDeleteButton
+        visibility: 'hidden',
+        buttonDeleteStyles,
       }]
     } else if(item === 'empty') {
       style = [styles[0], {
-        opacity: 0
+        opacity: 0,
       }]
     } else {
       onPressInactive = false;
