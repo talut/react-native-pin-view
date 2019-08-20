@@ -116,6 +116,7 @@ class PinView extends React.Component {
             returnType={returnType}
             onPress={onPress}
             buttonDeletePosition={buttonDeletePosition}
+            buttonDeleteStyle={buttonDeleteStyle}
           />
         </View>
       </View>
@@ -141,7 +142,7 @@ PinView.defaultProps = {
   keyboardContainerStyle: StyleSheet.create({}),
   onPress: undefined,
   buttonDeletePosition: "left",
-  buttonDeleteStyles: { },
+  buttonDeleteStyle: { },
 };
 PinView.propTypes = {
   disabled: PropTypes.bool,
@@ -163,7 +164,7 @@ PinView.propTypes = {
   keyboardContainerStyle: ViewPropTypes.style,
   onPress: PropTypes.func,
   buttonDeletePosition: PropTypes.string,
-  buttonDeleteStyles: PropTypes.object,
+  buttonDeleteStyle: PropTypes.object,
 };
 
 export default PinView;
