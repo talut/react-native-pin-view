@@ -8,22 +8,20 @@ const KeyboardView = ({keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle
     let newData = data;
 
     if (buttonDeletePosition === "right") {
-      newData = [...data, arrToConcatRight];
+      newData = [...data, ...arrToConcatRight];
 
       return newData;
     }
 
-    newData = [...data, arrToConcatLeft];
+    newData = [...data, ...arrToConcatLeft];
     return newData;
   };
 
   if(I18nManager.isRTL) {
     data = setButtonDeletePosition([null, "0", deleteText], [deleteText, "0", null]).reverse();
   } else {
-    data = ["1", "2", "3", "4", "5", "6", "7", "8", "9", deleteText, "0"];
+    data = setButtonDeletePosition([null, "0", deleteText], [deleteText, "0", null]);
   }
-
-  console.log(data)
   const renderItem = ({item, index}) => {
     let style;
     let onPressInactive;
