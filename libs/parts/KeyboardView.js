@@ -28,15 +28,13 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
     let style;
     let onPressInactive;
     let onPressKeyboard = () => keyboardOnPress(item, returnType, pinLength, onComplete, onPress);
-    let ViewStyles = {...keyboardViewStyle};
 
     if(item === deleteText) {
       onPressInactive = animatedDeleteButtonOnPress;
       style = [styles[0], {
         visibility: 'hidden',
         opacity: animatedDeleteButton,
-      }];
-      ViewStyles = { ... ViewStyles, ...buttonDeleteStyle };
+      }, buttonDeleteStyle];
     } else if(item === 'empty') {
       onPressInactive = false;
       style = [styles[0], {
@@ -55,7 +53,7 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
             disabled={onPressInactive}>
           <Animated.View style={[style, {
             backgroundColor: bgColor,
-          }, ViewStyles]}>
+          }, keyboardViewStyle]}>
             <Text style={[styles[1], {
               color  : textColor,
               opacity: 1,
