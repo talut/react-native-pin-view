@@ -1,13 +1,26 @@
 import React from 'react';
 import {Animated, FlatList, Text, TouchableOpacity, I18nManager} from "react-native";
 
-const KeyboardView = ({keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress}) => {
-  let data;
-  if(I18nManager.isRTL) {
-    data = ["1", "2", "3", "4", "5", "6", "7", "8", "9", deleteText, "0", null].reverse();
+const KeyboardView = ({keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress, buttonDeletePosition}) => {
+  let data = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
+  const setButtonDeletePosition = (arrToConcatLeft, arrToConcatRight) => {
+    let newData = data;
+
+    if (buttonDeletePosition === "right") {
+      newData = [...data, arrToConcatRight];
+
+      return newData;
+    }
+
+    newData = [...data, arrToConcatLeft];
+    return newData;
+  };
+
+  if(I18nManager.isRTL) {
+    data = setButtonDeletePosition([...data, null, "0", deleteText], [...data, deleteText, "0", null]).reverse();
   } else {
-    data = ["1", "2", "3", "4", "5", "6", "7", "8", "9", deleteText, "0"];
+    data = setButtonDeletePosition([...data, null, "0", deleteText], [...data, deleteText, "0", null]);
   }
   const renderItem = ({item, index}) => {
     let style;
