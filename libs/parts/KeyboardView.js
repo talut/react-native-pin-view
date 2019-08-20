@@ -34,7 +34,7 @@ const KeyboardView = ({keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle
       }]
     } else if(item === 'empty') {
       style = [styles[0], {
-        visibility: 'hidden'
+        opacity: 0
       }]
     } else {
       onPressInactive = false;
