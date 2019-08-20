@@ -27,6 +27,7 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
   const renderItem = ({item, index}) => {
     let style;
     let onPressInactive;
+    let onPressKeyboard = () => keyboardOnPress(item, returnType, pinLength, onComplete, onPress);
     if(item === deleteText) {
       onPressInactive = animatedDeleteButtonOnPress;
       style = [styles[0], {
@@ -36,7 +37,8 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
       onPressInactive = false;
       style = [styles[0], {
         opacity: 0,
-      }]
+      }];
+      onPressKeyboard = () => {};
     } else {
       onPressInactive = false;
       style = [styles[0]]
@@ -45,7 +47,7 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
         <TouchableOpacity
             key={"key-item-" + index}
             activeOpacity={0.9}
-            onPress={() => keyboardOnPress(item, returnType, pinLength, onComplete, onPress)}
+            onPress={onPressKeyboard}
             disabled={onPressInactive}>
           <Animated.View style={[style, {
             backgroundColor: bgColor,
