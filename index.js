@@ -43,39 +43,37 @@ class PinView extends React.Component {
   }
 
   keyboardOnPress = (val, returnType, pinLength, onComplete, onPress) => {
-    if(this.userInput.length <= pinLength) {
-      if(val === this.props.deleteText) {
-        this.userInput = this.userInput.slice(0, -1);
+    if(val === this.props.deleteText) {
+      this.userInput = this.userInput.slice(0, -1);
+      this.setState({
+        animatedInputIndex: this.state.animatedInputIndex.slice(0, -1)
+      });
+      if(this.userInput.length === 0) {
+        this.setDeleteButton(false);
+      }
+    } else if(this.userInput.length < pinLength) {
+      if(pinLength === this.userInput.length + 1) {
+        this.userInput = this.userInput.concat(parseInt(val));
+        this.setDeleteButton(true);
         this.setState({
-          animatedInputIndex: this.state.animatedInputIndex.slice(0, -1)
+          animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
+        }, () => {
+          setTimeout(() => {
+            if(returnType === "string") {
+              return onComplete(this.userInput.join(""), this.clear)
+            } else if(returnType === "array") {
+              return onComplete(this.userInput, this.clear)
+            } else {
+              console.log("Unkown return type!")
+            }
+          }, this.props.delayBeforeOnComplete)
         });
-        if(this.userInput.length === 0) {
-          this.setDeleteButton(false);
-        }
       } else {
-        if(pinLength === this.userInput.length + 1) {
-          this.userInput = this.userInput.concat(parseInt(val));
-          this.setDeleteButton(true);
-          this.setState({
-            animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
-          }, () => {
-            setTimeout(() => {
-              if(returnType === "string") {
-                return onComplete(this.userInput.join(""), this.clear)
-              } else if(returnType === "array") {
-                return onComplete(this.userInput, this.clear)
-              } else {
-                console.log("Unkown return type!")
-              }
-            }, this.props.delayBeforeOnComplete)
-          });
-        } else {
-          this.userInput = this.userInput.concat(parseInt(val));
-          this.setDeleteButton(true);
-          this.setState({
-            animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
-          });
-        }
+        this.userInput = this.userInput.concat(parseInt(val));
+        this.setDeleteButton(true);
+        this.setState({
+          animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
+        });
       }
     }
     if(onPress && typeof onPress === 'function') {
