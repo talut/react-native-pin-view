@@ -1,0 +1,55 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "@react-native-community"
+  ],
+  "plugins": [
+    "react-native",
+    "react"
+  ],
+  "env": {
+    "jest": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "semi": [
+      "error",
+      "always"
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "import/no-unresolved": [
+      2,
+      {
+        "ignore": [
+          "^NativeModules$"
+        ]
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "globals": {
+    "__DEV__": "readonly"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".ios.js",
+          ".android.js",
+          ".jsx"
+        ]
+      }
+    }
+  }
+}

@@ -4,17 +4,17 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 <p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
-##### What's new at v2.2.2
+##### What's new at v2.3.1
+- keyboardContainerStyle added. [https://github.com/talut/react-native-pin-view/pull/22](https://github.com/talut/react-native-pin-view/pull/22)
+- onPress added. [https://github.com/talut/react-native-pin-view/pull/23](https://github.com/talut/react-native-pin-view/pull/23)
+- Correctly type the onComplete callback. [https://github.com/talut/react-native-pin-view/pull/28](https://github.com/talut/react-native-pin-view/pull/28)
+
+###### What's new at v2.2.2
 - KeyboardViewTextStyle added. [https://github.com/talut/react-native-pin-view/pull/21](https://github.com/talut/react-native-pin-view/pull/21)
 
 ###### What's new at v2.2.1
 - With this update you can change input style and keyboard number style.
 - Typescript definitions added.
-
-###### What's new at v2.1.11
-
-- Show/Hide support added for inputted pin. showInputs and inputTextStyle props added. Just set  `showInputs={true}` at PinView component. [https://github.com/talut/react-native-pin-view/issues/13](https://github.com/talut/react-native-pin-view/issues/13)
-- pinLength issue solved. [https://github.com/talut/react-native-pin-view/issues/18](https://github.com/talut/react-native-pin-view/issues/18)
 
 ###### TODO's
 
@@ -101,6 +101,11 @@ export default class Master extends Component<Props> {
       console.log("Pin is correct")
     }
   }
+  onPress(inputtedPin, clear, pressed) {
+    console.log("Pressed: "+ pressed);
+    console.log("inputtedPin: "+ inputtedPin)
+    // clear()
+  }
   render() {
     return (
       <View style={{
@@ -109,6 +114,7 @@ export default class Master extends Component<Props> {
         justifyContent : 'center'
       }}>
         <PinView
+        onPress={this.onPress}
         onComplete={this.onComplete}
         pinLength={this.state.pin.length}
         // pinLength={6} // You can also use like that.
