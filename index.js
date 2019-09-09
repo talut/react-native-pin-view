@@ -156,8 +156,6 @@ PinView.propTypes = {
   inputViewStyle       : ViewPropTypes.style,
   keyboardViewStyle    : ViewPropTypes.style,
   keyboardContainerStyle: ViewPropTypes.style,
-  inputViewStyle       : PropTypes.object,
-  keyboardViewStyle    : PropTypes.object,
   onPress              : PropTypes.func,
 };
 
