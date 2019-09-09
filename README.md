@@ -135,6 +135,7 @@ export default class Master extends Component<Props> {
 
 - [@devcer](https://github.com/devcer)
 - [@mattvick](https://github.com/mattvick)
+- [@TchernyavskyDaniil](https://github.com/TchernyavskyDaniil)
 
 ## Built With
 
