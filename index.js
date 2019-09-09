@@ -193,7 +193,7 @@ PinView.propTypes = {
   buttonDeletePosition: PropTypes.string,
   buttonDeleteStyle: ViewPropTypes.style,
   onExit: PropTypes.func,
-  exit: PropTypes.oneOfType(PropTypes.string, PropTypes.object)
+  exit: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 }
 
 export default PinView
