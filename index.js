@@ -105,6 +105,8 @@ class PinView extends React.Component {
       onPress,
       buttonDeletePosition,
       buttonDeleteStyle,
+      onExit,
+      exit,
     } = this.props
     return (
       <View pointerEvents={disabled ? "none" : undefined}>
@@ -138,6 +140,8 @@ class PinView extends React.Component {
             onPress={onPress}
             buttonDeletePosition={buttonDeletePosition}
             buttonDeleteStyle={buttonDeleteStyle}
+            exit={exit}
+            onExit={onExit}
           />
         </View>
       </View>
@@ -164,6 +168,8 @@ PinView.defaultProps = {
   onPress: undefined,
   buttonDeletePosition: "left",
   buttonDeleteStyle: StyleSheet.create({}),
+  onExit: () => {},
+  exit: null,
 }
 PinView.propTypes = {
   disabled: PropTypes.bool,
@@ -186,6 +192,8 @@ PinView.propTypes = {
   onPress: PropTypes.func,
   buttonDeletePosition: PropTypes.string,
   buttonDeleteStyle: ViewPropTypes.style,
+  onExit: PropTypes.func,
+  exit: PropTypes.oneOfType(PropTypes.string, PropTypes.object)
 }
 
 export default PinView

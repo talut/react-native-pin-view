@@ -12,6 +12,8 @@ declare module "react-native-pin-view" {
     interface PinViewProps {
         pinLength?: number
         showInputs?: boolean
+        onExit?: Function
+        exit?: string | object
         inputTextStyle?: TextStyle
         buttonTextColor?: string
         returnType?: string
