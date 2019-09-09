@@ -48,36 +48,36 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
       style = [styles[0]]
     }
     return (
-        <TouchableOpacity
-            key={"key-item-" + index}
-            activeOpacity={0.9}
-            onPress={onPressKeyboard}
-            disabled={onPressInactive}>
-          <Animated.View style={[style, {
-            backgroundColor: bgColor,
-          }, ViewStyles]}>
-            <Text style={[styles[1], {
-              color  : textColor,
-              opacity: 1,
-            }, keyboardViewTextStyle]}>{item}</Text>
-          </Animated.View>
-        </TouchableOpacity>
+      <TouchableOpacity
+        key={"key-item-" + index}
+        activeOpacity={0.9}
+        onPress={onPressKeyboard}
+        disabled={onPressInactive}>
+        <Animated.View style={[style, {
+          backgroundColor: bgColor,
+        }, ViewStyles]}>
+          <Text style={[styles[1], {
+            color  : textColor,
+            opacity: 1,
+          }, keyboardViewTextStyle]}>{item}</Text>
+        </Animated.View>
+      </TouchableOpacity>
     )
   };
   return (
-      <FlatList
-          contentContainerStyle={{
-            flexDirection: I18nManager.isRTL ? 'column-reverse' : 'column',
-            alignItems   : I18nManager.isRTL ? 'flex-end' : 'flex-start',
-          }}
-          scrollEnabled={false}
-          horizontal={false}
-          vertical={true}
-          numColumns={3}
-          renderItem={renderItem}
-          data={data}
-          keyExtractor={(val, index) => "pinViewItem-" + index}
-      />
+    <FlatList
+      contentContainerStyle={{
+        flexDirection: I18nManager.isRTL ? 'column-reverse' : 'column',
+        alignItems   : I18nManager.isRTL ? 'flex-end' : 'flex-start',
+      }}
+      scrollEnabled={false}
+      horizontal={false}
+      vertical={true}
+      numColumns={3}
+      renderItem={renderItem}
+      data={data}
+      keyExtractor={(val, index) => "pinViewItem-" + index}
+    />
   )
 };
 export default KeyboardView
