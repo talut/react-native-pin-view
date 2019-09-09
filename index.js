@@ -1,5 +1,5 @@
 import React from "react"
-import { Animated, View, ViewPropTypes, StyleSheet } from "react-native"
+import { Animated, View, ViewPropTypes, StyleSheet, Text } from "react-native"
 import KeyboardView from "./libs/parts/KeyboardView"
 import InputView from "./libs/parts/InputView"
 import Styles from "./libs/parts/styles"
@@ -178,14 +178,14 @@ PinView.propTypes = {
   pinLength: PropTypes.number.isRequired,
   delayBeforeOnComplete: PropTypes.number,
   clear: PropTypes.bool,
-  inputTextStyle: PropTypes.object,
+  inputTextStyle: Text.propTypes.style,
   showInputs: PropTypes.bool,
   inputViewStyle: ViewPropTypes.style,
   keyboardViewStyle: ViewPropTypes.style,
   keyboardContainerStyle: ViewPropTypes.style,
   onPress: PropTypes.func,
   buttonDeletePosition: PropTypes.string,
-  buttonDeleteStyle: PropTypes.object,
+  buttonDeleteStyle: ViewPropTypes.style,
 }
 
 export default PinView

@@ -4,7 +4,11 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 <p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
-##### What's new at v2.3.1
+##### What's new at v2.4.0
+- Added new feautres for Button Delete (buttonDeletePosition, buttonDeleteStyle) [https://github.com/talut/react-native-pin-view/pull/33](https://github.com/talut/react-native-pin-view/pull/33)
+- Fix pin length issue [https://github.com/talut/react-native-pin-view/pull/35](https://github.com/talut/react-native-pin-view/pull/35)
+
+###### What's new at v2.3.1
 - keyboardContainerStyle added. [https://github.com/talut/react-native-pin-view/pull/22](https://github.com/talut/react-native-pin-view/pull/22)
 - onPress added. [https://github.com/talut/react-native-pin-view/pull/23](https://github.com/talut/react-native-pin-view/pull/23)
 - Correctly type the onComplete callback. [https://github.com/talut/react-native-pin-view/pull/28](https://github.com/talut/react-native-pin-view/pull/28)
@@ -77,6 +81,8 @@ import PinView from 'react-native-pin-view'
 | **`keyboardViewTextStyle`**           | `object` | `{fontWeight:'normal'}`   | This props for styling keyboard view text. | No       |
 | **`keyboardContainerStyle`**           | `object` | `{marginTop:10}`   | This props for styling keyboard container view text. | No       |
 | **`onPress`**         | `func`    | `undefined`    | When the user presses the keypad, the inputted **`value`** (PIN code) will return. Also **`clear()`** is returned and the value of the **pressed** key. So if you want to remove user input after **onPress** call **`clear()`** func in onPress, or if you want to disable a submit button when the PIN code is not completely filled you can check it's length with `value.length`. Usage: `onPress={(value, clear, pressed) => console.log('value', value, 'clear', clear, 'pressed', pressed)}`| No      |
+| **`buttonDeletePosition`**         | `string`    | `left`    | Delete button position **`left - right`** | No      |
+| **`buttonDeleteStyle`**         | `object`    | `undefined`    | Delete button style | No      |
 
 #### Example App
 
