@@ -37,17 +37,17 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
         opacity: animatedDeleteButton,
       }];
       ViewStyles = { ...ViewStyles, ...buttonDeleteStyle };
-    } else if(item === exit) {
-      style = [styles[0], {
-        visibility: 'hidden',
-      }]
-      onPressKeyboard = onExit
     } else if(item === 'empty') {
       onPressInactive = false;
       style = [styles[0], {
         opacity: 0,
       }];
       onPressKeyboard = () => {};
+    } else if(item === exit) {
+      style = [styles[0], {
+        visibility: 'hidden',
+      }]
+      onPressKeyboard = onExit
     } else {
       onPressInactive = false;
       style = [styles[0]]

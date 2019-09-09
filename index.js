@@ -169,7 +169,7 @@ PinView.defaultProps = {
   buttonDeletePosition: "left",
   buttonDeleteStyle: StyleSheet.create({}),
   onExit: () => {},
-  exit: null,
+  exit: 'empty',
 }
 PinView.propTypes = {
   disabled: PropTypes.bool,
