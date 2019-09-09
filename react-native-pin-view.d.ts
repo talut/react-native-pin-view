@@ -13,7 +13,7 @@ declare module "react-native-pin-view" {
     pinLength?: number
     showInputs?: boolean
     onExit?: Function
-    exit?: string | object
+    exit?: string | object | boolean
     exitStyle?: TextStyle
     inputTextStyle?: TextStyle
     buttonTextColor?: string
