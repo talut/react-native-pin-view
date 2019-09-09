@@ -82,7 +82,7 @@ class PinView extends React.Component {
   };
 
   render() {
-    const {pinLength, showInputs, inputTextStyle, keyboardViewStyle, keyboardViewTextStyle, inputViewStyle, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText, keyboardContainerStyle, onPress} = this.props;
+    const {pinLength, showInputs, inputTextStyle, keyboardViewStyle, keyboardViewTextStyle, inputViewStyle, buttonTextColor, returnType, buttonBgColor, inputBgColor, onComplete, disabled, inputActiveBgColor, inputBgOpacity, deleteText, keyboardContainerStyle, onPress, buttonDeletePosition, buttonDeleteStyle} = this.props;
     return (
       <View pointerEvents={disabled ? "none" : undefined}>
         <InputView
@@ -113,6 +113,8 @@ class PinView extends React.Component {
             keyboardOnPress={this.keyboardOnPress}
             returnType={returnType}
             onPress={onPress}
+            buttonDeletePosition={buttonDeletePosition}
+            buttonDeleteStyle={buttonDeleteStyle}
           />
         </View>
       </View>
@@ -136,7 +138,9 @@ PinView.defaultProps = {
   inputViewStyle        : StyleSheet.create({}),
   keyboardViewStyle     : StyleSheet.create({}),
   keyboardContainerStyle: StyleSheet.create({}),
-  onPress               : undefined,
+  onPress: undefined,
+  buttonDeletePosition: "left",
+  buttonDeleteStyle: StyleSheet.create({}),
 };
 PinView.propTypes = {
   disabled: PropTypes.bool,
@@ -151,12 +155,14 @@ PinView.propTypes = {
   pinLength: PropTypes.number.isRequired,
   delayBeforeOnComplete: PropTypes.number,
   clear                : PropTypes.bool,
-  inputTextStyle       : PropTypes.object,
+  inputTextStyle       : ViewPropTypes.style,
   showInputs           : PropTypes.bool,
   inputViewStyle       : ViewPropTypes.style,
   keyboardViewStyle    : ViewPropTypes.style,
   keyboardContainerStyle: ViewPropTypes.style,
-  onPress              : PropTypes.func,
+  onPress: PropTypes.func,
+  buttonDeletePosition: PropTypes.string,
+  buttonDeleteStyle: ViewPropTypes.style,
 };
 
 export default PinView;

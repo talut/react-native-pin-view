@@ -1,22 +1,48 @@
 import React from 'react';
 import {Animated, FlatList, Text, TouchableOpacity, I18nManager} from "react-native";
 
-const KeyboardView = ({keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress}) => {
-  let data;
-  if(I18nManager.isRTL) {
-    data = ["1", "2", "3", "4", "5", "6", "7", "8", "9", deleteText, "0", null].reverse();
+const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress, buttonDeletePosition, buttonDeleteStyle }) => {
+  let data = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  const leftButtonDeletePositions = [deleteText, "0", 'empty'];
+  const rightButtonDeletePositions = ['empty', "0", deleteText];
 
+  const setButtonDeletePosition = (arrToConcatLeft, arrToConcatRight) => {
+    let newData = data;
+
+    if(buttonDeletePosition === "right") {
+      newData = [...data, ...arrToConcatRight];
+
+      return newData;
+    }
+
+    newData = [...data, ...arrToConcatLeft];
+    return newData;
+  };
+
+  if(I18nManager.isRTL) {
+    data = setButtonDeletePosition(leftButtonDeletePositions, rightButtonDeletePositions).reverse();
   } else {
-    data = ["1", "2", "3", "4", "5", "6", "7", "8", "9", deleteText, "0"];
+    data = setButtonDeletePosition(leftButtonDeletePositions, rightButtonDeletePositions);
   }
   const renderItem = ({item, index}) => {
     let style;
     let onPressInactive;
+    let onPressKeyboard = () => keyboardOnPress(item, returnType, pinLength, onComplete, onPress);
+    let ViewStyles = keyboardViewStyle;
+
     if(item === deleteText) {
       onPressInactive = animatedDeleteButtonOnPress;
       style = [styles[0], {
-        opacity: animatedDeleteButton
-      }]
+        visibility: 'hidden',
+        opacity: animatedDeleteButton,
+      }];
+      ViewStyles = { ...ViewStyles, ...buttonDeleteStyle };
+    } else if(item === 'empty') {
+      onPressInactive = false;
+      style = [styles[0], {
+        opacity: 0,
+      }];
+      onPressKeyboard = () => {};
     } else {
       onPressInactive = false;
       style = [styles[0]]
@@ -25,11 +51,11 @@ const KeyboardView = ({keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle
         <TouchableOpacity
             key={"key-item-" + index}
             activeOpacity={0.9}
-            onPress={() => keyboardOnPress(item, returnType, pinLength, onComplete, onPress)}
+            onPress={onPressKeyboard}
             disabled={onPressInactive}>
           <Animated.View style={[style, {
             backgroundColor: bgColor,
-          }, keyboardViewStyle]}>
+          }, ViewStyles]}>
             <Text style={[styles[1], {
               color  : textColor,
               opacity: 1,
