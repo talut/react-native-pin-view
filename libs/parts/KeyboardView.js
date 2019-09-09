@@ -1,7 +1,9 @@
 import React from 'react';
 import {Animated, FlatList, Text, TouchableOpacity, I18nManager} from "react-native";
+import { pinBorderStyles } from "../../../../src/features/Pincode/styles"
+import { View } from "react-native-reanimated"
 
-const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress, buttonDeletePosition, buttonDeleteStyle, exit, onExit }) => {
+const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress, buttonDeletePosition, buttonDeleteStyle, exit, onExit, exitStyle }) => {
   let data = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
   const leftButtonDeletePositions = [deleteText, "0", exit];
   const rightButtonDeletePositions = [exit, "0", deleteText];
@@ -47,6 +49,7 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
       style = [styles[0], {
         visibility: 'hidden',
       }]
+      ViewStyles = { ...ViewStyles, ...exitStyle }
       onPressKeyboard = onExit
     } else {
       onPressInactive = false;

@@ -3,37 +3,38 @@
 // Definitions by: Talut TASGIRAN <https://github.com/talut>
 // TypeScript Version: 2.8
 declare module "react-native-pin-view" {
-    import React from "react"
-    import { ViewStyle, TextStyle } from "react-native"
+  import React from "react"
+  import { ViewStyle, TextStyle } from "react-native"
 
-    type onCompleteCallback = (value: string, clear: () => void) => void
-    type onPressCallback = (value: string, pressed: boolean, clear: () => void) => void
+  type onCompleteCallback = (value: string, clear: () => void) => void
+  type onPressCallback = (value: string, pressed: boolean, clear: () => void) => void
 
-    interface PinViewProps {
-        pinLength?: number
-        showInputs?: boolean
-        onExit?: Function
-        exit?: string | object
-        inputTextStyle?: TextStyle
-        buttonTextColor?: string
-        returnType?: string
-        buttonBgColor?: string
-        inputBgColor?: string
-        onComplete: onCompleteCallback
-        onPress?: onPressCallback
-        disabled?: boolean
-        inputActiveBgColor?: string
-        inputBgOpacity?: number
-        deleteText?: string
-        buttonDeletePosition?: string
-        buttonDeleteStyle?: ViewStyle
-        delayBeforeOnComplete?: number
-        inputViewStyle?: ViewStyle
-        keyboardViewStyle?: ViewStyle
-        keyboardViewTextStyle?: TextStyle
-        keyboardContainerStyle?: ViewStyle
-    }
+  interface PinViewProps {
+    pinLength?: number
+    showInputs?: boolean
+    onExit?: Function
+    exit?: string | object
+    exitStyle?: TextStyle
+    inputTextStyle?: TextStyle
+    buttonTextColor?: string
+    returnType?: string
+    buttonBgColor?: string
+    inputBgColor?: string
+    onComplete: onCompleteCallback
+    onPress?: onPressCallback
+    disabled?: boolean
+    inputActiveBgColor?: string
+    inputBgOpacity?: number
+    deleteText?: string
+    buttonDeletePosition?: string
+    buttonDeleteStyle?: ViewStyle
+    delayBeforeOnComplete?: number
+    inputViewStyle?: ViewStyle
+    keyboardViewStyle?: ViewStyle
+    keyboardViewTextStyle?: TextStyle
+    keyboardContainerStyle?: ViewStyle
+  }
 
-    const PinView: React.FunctionComponent<PinViewProps>
-    export default PinView
+  const PinView: React.FunctionComponent<PinViewProps>
+  export default PinView
 }
