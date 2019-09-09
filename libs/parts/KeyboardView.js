@@ -38,7 +38,9 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
       }];
       ViewStyles = { ...ViewStyles, ...buttonDeleteStyle };
     } else if(item === exit) {
-      style = [styles[0]]
+      style = [styles[0], {
+        visibility: 'hidden',
+      }]
       onPressKeyboard = onExit
     } else if(item === 'empty') {
       onPressInactive = false;
