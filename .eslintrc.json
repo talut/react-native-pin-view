@@ -1,55 +1,73 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "@react-native-community"
-  ],
-  "plugins": [
-    "react-native",
-    "react"
-  ],
   "env": {
-    "jest": true
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "react-native/react-native": true
   },
-  "parser": "babel-eslint",
-  "rules": {
-    "semi": [
-      "error",
-      "always"
-    ],
-    "react/jsx-filename-extension": [
-      1,
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "@react-native-community"],
+  "plugins": ["react-native", "react"],
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "detect",
+      "flowVersion": "0.53"
+    },
+    "propWrapperFunctions": [
+      "forbidExtraProps",
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "property": "freeze",
+        "object": "Object"
+      },
+      {
+        "property": "myFavoriteWrapper"
       }
     ],
-    "import/no-unresolved": [
+    "linkComponents": [
+      "Hyperlink",
+      {
+        "name": "Link",
+        "linkAttribute": "to"
+      }
+    ]
+  },
+  "rules": {
+    "react/jsx-wrap-multilines": ["error", { "declaration": "ignore", "assignment": "ignore", "prop": "ignore" }],
+    "react-native/no-unused-styles": 2,
+    "react-native/split-platform-components": 2,
+    "react-native/no-inline-styles": "off",
+    "react-native/no-color-literals": "off",
+    "react-native/no-raw-text": "off",
+    "react/jsx-max-props-per-line": [2, { "maximum": 4, "when": "multiline" }],
+    "react/jsx-first-prop-new-line": [2, "multiline-multiprop"],
+    "max-len": [
+      2,
+      120,
+      4,
+      {
+        "ignoreUrls": true,
+        "ignoreStrings": true
+      }
+    ],
+    "no-inline-comments": "off",
+    "prettier/prettier": "error",
+    "indent": [
+      "error",
       2,
       {
-        "ignore": [
-          "^NativeModules$"
-        ]
+        "SwitchCase": 1
       }
     ],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
-  },
-  "globals": {
-    "__DEV__": "readonly"
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [
-          ".js",
-          ".ios.js",
-          ".android.js",
-          ".jsx"
-        ]
-      }
-    }
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "double"],
+    "semi": ["off", "always"]
   }
 }

@@ -8,32 +8,32 @@ const InputView = ({pinViewAnim, inputViewStyle, inputTextStyle, showInputs, inp
   });
   const inactiveInput = (index) => {
     return <Animated.View
-        key={"passwordItem-" + index}
-        style={[styles[1], {
-          backgroundColor: bgColor,
-          opacity        : bgOpacity,
-        }, inputViewStyle]}/>;
+      key={"passwordItem-" + index}
+      style={[styles[1], {
+        backgroundColor: bgColor,
+        opacity        : bgOpacity,
+      }, inputViewStyle]}/>;
   };
 
   const activeInput = (index) => {
     if(showInputs) {
       return (
-          <Animated.View
-              key={"passwordItem-" + index}
-              style={[styles[2], {
-                backgroundColor: activeBgColor,
-                opacity        : 1,
-              }, inputViewStyle]}>
-            <Text style={inputTextStyle}>{inputtedValues[index]}</Text>
-          </Animated.View>
-      )
-    } else {
-      return <Animated.View
+        <Animated.View
           key={"passwordItem-" + index}
           style={[styles[2], {
             backgroundColor: activeBgColor,
             opacity        : 1,
-          }, inputViewStyle]}/>
+          }, inputViewStyle]}>
+          <Text style={inputTextStyle}>{inputtedValues[index]}</Text>
+        </Animated.View>
+      )
+    } else {
+      return <Animated.View
+        key={"passwordItem-" + index}
+        style={[styles[2], {
+          backgroundColor: activeBgColor,
+          opacity        : 1,
+        }, inputViewStyle]}/>
     }
   };
   const ShowInput = (pinLength) => {
@@ -51,12 +51,12 @@ const InputView = ({pinViewAnim, inputViewStyle, inputTextStyle, showInputs, inp
   };
 
   return (
-      <Animated.View style={[styles[0], {
-        transform    : [{translateX: tilt}],
-        flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
-      }]}>
-        {ShowInput(pinLength)}
-      </Animated.View>
+    <Animated.View style={[styles[0], {
+      transform    : [{translateX: tilt}],
+      flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    }]}>
+      {ShowInput(pinLength)}
+    </Animated.View>
   )
 
 };
