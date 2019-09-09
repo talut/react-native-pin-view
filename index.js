@@ -140,7 +140,7 @@ class PinView extends React.Component {
             onPress={onPress}
             buttonDeletePosition={buttonDeletePosition}
             buttonDeleteStyle={buttonDeleteStyle}
-            exit={exit}
+            exit={exit || 'empty'}
             onExit={onExit}
           />
         </View>
@@ -173,7 +173,7 @@ PinView.defaultProps = {
 }
 PinView.propTypes = {
   disabled: PropTypes.bool,
-  deleteText: PropTypes.string,
+  deleteText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   returnType: PropTypes.string,
   buttonBgColor: PropTypes.string,
   buttonTextColor: PropTypes.string,
@@ -193,7 +193,7 @@ PinView.propTypes = {
   buttonDeletePosition: PropTypes.string,
   buttonDeleteStyle: ViewPropTypes.style,
   onExit: PropTypes.func,
-  exit: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+  exit: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType])
 }
 
 export default PinView
