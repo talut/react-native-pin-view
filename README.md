@@ -1,12 +1,19 @@
 # React Native Pin View
 
+## I'm rewriting this package (V3) with new features. If you have any idea/feature request please open an issue with `[FEATURE REQUEST]` label.
+
 Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS and Android, and has only keyboard and input. Thats means you can use everywhere also there is no need to run ```react-native link```
 
 <p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
-##### What's new at v2.4.0
-- Added new feautres for Button Delete (buttonDeletePosition, buttonDeleteStyle) [https://github.com/talut/react-native-pin-view/pull/33](https://github.com/talut/react-native-pin-view/pull/33)
+##### What's new at v2.4.1
+- Minor styling issues.
+- Fix type definition for `deleteText` [https://github.com/talut/react-native-pin-view/pull/35](https://github.com/talut/react-native-pin-view/pull/35)
+
+###### What's new at v2.4.0
+- Added new features for Button Delete (buttonDeletePosition, buttonDeleteStyle) [https://github.com/talut/react-native-pin-view/pull/33](https://github.com/talut/react-native-pin-view/pull/33)
 - Fix pin length issue [https://github.com/talut/react-native-pin-view/pull/35](https://github.com/talut/react-native-pin-view/pull/35)
+
 
 ###### What's new at v2.3.1
 - keyboardContainerStyle added. [https://github.com/talut/react-native-pin-view/pull/22](https://github.com/talut/react-native-pin-view/pull/22)
@@ -15,10 +22,6 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 ###### What's new at v2.2.2
 - KeyboardViewTextStyle added. [https://github.com/talut/react-native-pin-view/pull/21](https://github.com/talut/react-native-pin-view/pull/21)
-
-###### What's new at v2.2.1
-- With this update you can change input style and keyboard number style.
-- Typescript definitions added.
 
 ###### TODO's
 

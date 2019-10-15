@@ -167,7 +167,7 @@ PinView.defaultProps = {
 }
 PinView.propTypes = {
   disabled: PropTypes.bool,
-  deleteText: PropTypes.string,
+  deleteText: PropTypes.any,
   returnType: PropTypes.string,
   buttonBgColor: PropTypes.string,
   buttonTextColor: PropTypes.string,

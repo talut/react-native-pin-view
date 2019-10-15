@@ -22,7 +22,7 @@ declare module "react-native-pin-view" {
         disabled?: boolean
         inputActiveBgColor?: string
         inputBgOpacity?: number
-        deleteText?: string
+        deleteText?: any
         buttonDeletePosition?: string
         buttonDeleteStyle?: ViewStyle
         delayBeforeOnComplete?: number
