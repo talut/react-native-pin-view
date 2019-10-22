@@ -68,7 +68,7 @@ import PinView from 'react-native-pin-view'
 | ------------------------ | --------- | ------- | ----------------------------------------------------------------------------------------------------- | -------- |
 | **`buttonTextColor`**    | `string`  | `#333`  | Color of the texts on the number keyboard.                                                            | No       |
 | **`buttonBgColor`**      | `string`  | `#FFF`  | Background of the buttons on the number keyboard                                                      | No       |
-| **`buttonActiveOpacity`**           | `number` | 0.9   | This prop is for styling keyboard button opacity on press. | No       |
+| **`buttonActiveOpacity`**           | `number` | `0.9`   | This prop is for styling keyboard button opacity on press. | No       |
 | **`inputBgColor`**       | `string`  | `#333`  | Input color before entering the pin                                                                   | No       |
 | **`inputBgOpacity`**     | `number`  | `0.1`   | Input opacity before entering the pin                                                                 | No       |
 | **`inputActiveBgColor`** | `string`  | `#333`  | The input color that is active when entering the pin.                                                 | No       |
@@ -77,7 +77,7 @@ import PinView from 'react-native-pin-view'
 | **`returnType`**         | `string`  |`string` | _onComplete_ returning value type. It can be `string` or `array`| No      |
 | **`pinLength`**     | `number`  | none         | (Min length: `3` , Max length: `8`) User pin length like `this.state.pin.length` or `5` If you're using hashed pin then set default length all pin or use pin length.  | Yes      |
 | **`disabled`**           | `boolean` | false   | Optionally, you can set this props `true` or `false`. If `true`, the user can not enter the password. | No       |
-| **`delayBeforeOnComplete`**           | `number` | 175   | Optionally, you can set this props for delaying before onComplete event. | No       |
+| **`delayBeforeOnComplete`**           | `number` | `175`   | Optionally, you can set this props for delaying before onComplete event. | No       |
 | **`showInputs`**           | `boolean` | `false`   | If you want to show inputted pin use this props. | No       |
 | **`inputTextStyle`**           | `object` | `{color:'#FFF',fontWeight:'bold'}`   | This props for styling inputted pin text. | No       |
 | **`inputViewStyle`**           | `object` | `{borderRadius:6}`   | This props for styling input view item. | No       |
