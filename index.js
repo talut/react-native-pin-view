@@ -27,7 +27,7 @@ class PinView extends React.Component {
       {
         toValue: status ? 1 : 0, // Animate to final value of 1
         duration: 100,
-      }
+      },
     ).start() // Start the animation
     this.setState({
       animatedDeleteButtonOnPress: !status,
@@ -69,7 +69,7 @@ class PinView extends React.Component {
                 console.log("Unkown return type!")
               }
             }, this.props.delayBeforeOnComplete)
-          }
+          },
         )
       } else {
         this.userInput = this.userInput.concat(parseInt(val))

@@ -24,7 +24,7 @@ export default StyleSheet.create({
   // KeyboardView
   keyboardView: {
     alignItems: "center",
-    marginVertical:15
+    marginVertical: 15,
   },
   keyboardViewItem: {
     alignItems: "center",
