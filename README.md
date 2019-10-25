@@ -55,7 +55,7 @@ npm install --save react-native-pin-view
 
 ```
 
-import PinView from 'react-native-pin-view'
+import PinView from 'react-native-pin-view';
 
 ...
         <PinView
@@ -95,7 +95,7 @@ import PinView from 'react-native-pin-view'
 ```javascript
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import PinView from 'react-native-pin-view'
+import PinView from 'react-native-pin-view';
 
 type Props = {};
 export default class Master extends Component<Props> {
@@ -104,19 +104,19 @@ export default class Master extends Component<Props> {
     this.onComplete = this.onComplete.bind(this);
     this.state = {
         pin: "896745"
-    }
+    };
   }
   onComplete(inputtedPin, clear) {
-    if (val!==this.state.pin){
+    if (val !== this.state.pin) {
       clear();
     } else {
-      console.log("Pin is correct")
+      console.log("Pin is correct");
     }
   }
   onPress(inputtedPin, clear, pressed) {
     console.log("Pressed: "+ pressed);
-    console.log("inputtedPin: "+ inputtedPin)
-    // clear()
+    console.log("inputtedPin: "+ inputtedPin);
+    // clear();
   }
   render() {
     return (
