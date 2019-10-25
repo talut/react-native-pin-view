@@ -70,7 +70,7 @@ import PinView from 'react-native-pin-view';
 | ------------------------ | --------- | ------- | ----------------------------------------------------------------------------------------------------- | -------- |
 | **`buttonTextColor`**    | `string`  | `#333`  | Color of the texts on the number keyboard.                                                            | No       |
 | **`buttonBgColor`**      | `string`  | `#FFF`  | Background of the buttons on the number keyboard                                                      | No       |
-| **`buttonActiveOpacity`**           | `number` | `0.9`   | This prop is for styling keyboard button opacity on press. | No       |
+| **`buttonActiveOpacity`**| `number`  | `0.9`    | This prop is for styling keyboard button opacity on press. | No       |
 | **`inputBgColor`**       | `string`  | `#333`  | Input color before entering the pin                                                                   | No       |
 | **`inputBgOpacity`**     | `number`  | `0.1`   | Input opacity before entering the pin                                                                 | No       |
 | **`inputActiveBgColor`** | `string`  | `#333`  | The input color that is active when entering the pin.                                                 | No       |

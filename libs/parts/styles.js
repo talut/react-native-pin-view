@@ -1,7 +1,5 @@
-import { StyleSheet, I18nManager } from "react-native"
-
+import { StyleSheet } from "react-native"
 export default StyleSheet.create({
-  //passwordInputView
   passwordInputView: {
     alignSelf: "center",
   },
