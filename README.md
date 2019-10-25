@@ -1,6 +1,8 @@
 # React Native Pin View
 
-## I'm rewriting this package (V3) with new features. If you have any idea/feature request please open an issue with `[FEATURE REQUEST]` label.
+## I'm rewriting this package (V3) with new features. If you have any idea/feature request please open an issue with `[FEATURE REQUEST]` label. 
+
+## If you have any request please contact me : [hi@talut.dev](hi@talut.dev)
 
 Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS and Android, and has only keyboard and input. Thats means you can use everywhere also there is no need to run ```react-native link```
 
