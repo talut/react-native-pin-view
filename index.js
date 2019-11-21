@@ -106,7 +106,7 @@ class PinView extends React.Component {
       buttonDeletePosition,
       buttonDeleteStyle,
       buttonActiveOpacity,
-      accessibilityLabel,
+      testID,
     } = this.props
     return (
       <View pointerEvents={disabled ? "none" : undefined}>
@@ -141,7 +141,7 @@ class PinView extends React.Component {
             buttonDeletePosition={buttonDeletePosition}
             buttonDeleteStyle={buttonDeleteStyle}
             buttonActiveOpacity={buttonActiveOpacity}
-            accessibilityLabel={accessibilityLabel}
+            testID={testID}
           />
         </View>
       </View>
@@ -169,7 +169,7 @@ PinView.defaultProps = {
   buttonDeletePosition: "left",
   buttonDeleteStyle: StyleSheet.create({}),
   buttonActiveOpacity: 0.9,
-  accessibilityLabel: "pin-view-button"
+  testID: "pin-view-button"
 }
 PinView.propTypes = {
   disabled: PropTypes.bool,
@@ -193,7 +193,7 @@ PinView.propTypes = {
   buttonDeletePosition: PropTypes.string,
   buttonDeleteStyle: ViewPropTypes.style,
   buttonActiveOpacity: PropTypes.number,
-  accessibilityLabel: PropTypes.string,
+  testID: PropTypes.string,
 }
 
 export default PinView

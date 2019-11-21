@@ -1,7 +1,7 @@
 import React from "react"
 import { Animated, FlatList, Text, TouchableOpacity, I18nManager } from "react-native"
 
-const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress, buttonDeletePosition, buttonDeleteStyle, buttonActiveOpacity, accessibilityLabel }) => {
+const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress, buttonDeletePosition, buttonDeleteStyle, buttonActiveOpacity, testID }) => {
   let data = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
   const leftButtonDeletePositions = [deleteText, "0", "empty"]
   const rightButtonDeletePositions = ["empty", "0", deleteText]
@@ -54,7 +54,8 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
         onPress={onPressKeyboard}
         disabled={onPressInactive}
         accessible={true}
-        accessibilityLabel={`${accessibilityLabel}-${item}`}>
+        accessibilityLabel={`${testID}-${item}`}
+        testID={`${testID}-${item}`}>
         <Animated.View style={[style, {
           backgroundColor: bgColor,
         }, ViewStyles]}>
