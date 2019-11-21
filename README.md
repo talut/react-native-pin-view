@@ -89,6 +89,7 @@ import PinView from 'react-native-pin-view';
 | **`onPress`**         | `func`    | `undefined`    | When the user presses the keypad, the inputted **`value`** (PIN code) will return. Also **`clear()`** is returned and the value of the **pressed** key. So if you want to remove user input after **onPress** call **`clear()`** func in onPress, or if you want to disable a submit button when the PIN code is not completely filled you can check it's length with `value.length`. Usage: `onPress={(value, clear, pressed) => console.log('value', value, 'clear', clear, 'pressed', pressed)}`| No      |
 | **`buttonDeletePosition`**         | `string`    | `left`    | Delete button position **`left - right`** | No      |
 | **`buttonDeleteStyle`**         | `object`    | `undefined`    | Delete button style | No      |
+| **`accessibilityLabel`**         | `string`    | `pin-view-button`    | Pin buttons accessibility label prefix. Resulting accessibilityLabel will be pin-view-button-${button-text} | No      |
 
 #### Example App
 

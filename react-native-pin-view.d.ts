@@ -29,7 +29,8 @@ declare module "react-native-pin-view" {
         inputViewStyle?: ViewStyle
         keyboardViewStyle?: ViewStyle
         keyboardViewTextStyle?: TextStyle
-        keyboardContainerStyle?: ViewStyle
+        keyboardContainerStyle?: ViewStyle,
+        accessibilityLabel?: string
     }
 
     const PinView: React.FunctionComponent<PinViewProps>
