@@ -8,9 +8,10 @@ declare module "react-native-pin-view" {
 
     type onCompleteCallback = (value: string, clear: () => void) => void
     type onPressCallback = (value: string, pressed: boolean, clear: () => void) => void
+    type onCustomButtonPress = () => void
 
     interface PinViewProps {
-        pinLength?: number
+        pinLength: number
         showInputs?: boolean
         inputTextStyle?: TextStyle
         buttonTextColor?: string
@@ -23,6 +24,8 @@ declare module "react-native-pin-view" {
         inputActiveBgColor?: string
         inputBgOpacity?: number
         deleteText?: any
+        customButtonText?: any
+        onCustomButtonPress?: onCustomButtonPress,
         buttonDeletePosition?: string
         buttonDeleteStyle?: ViewStyle
         delayBeforeOnComplete?: number
