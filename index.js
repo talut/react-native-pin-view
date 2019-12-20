@@ -43,7 +43,9 @@ class PinView extends React.Component {
   }
 
   keyboardOnPress = (val, returnType, pinLength, onComplete, onPress) => {
-    if (val === this.props.deleteText) {
+    if (val === this.props.customButtonText) {
+      this.props.onCustomButtonPress()
+    } else if (val === this.props.deleteText) {
       this.userInput = this.userInput.slice(0, -1)
       this.setState({
         animatedInputIndex: this.state.animatedInputIndex.slice(0, -1),
@@ -101,6 +103,8 @@ class PinView extends React.Component {
       inputActiveBgColor,
       inputBgOpacity,
       deleteText,
+      customButtonText,
+      onCustomButtonPress,
       keyboardContainerStyle,
       onPress,
       buttonDeletePosition,
@@ -132,6 +136,8 @@ class PinView extends React.Component {
             animatedDeleteButton={this.state.animatedDeleteButton}
             pinLength={pinLength}
             deleteText={deleteText}
+            customButtonText={customButtonText}
+            onCustomButtonPress={onCustomButtonPress}
             onComplete={onComplete}
             animatedDeleteButtonOnPress={this.state.animatedDeleteButtonOnPress}
             keyboardOnPress={this.keyboardOnPress}
@@ -171,6 +177,8 @@ PinView.defaultProps = {
 PinView.propTypes = {
   disabled: PropTypes.bool,
   deleteText: PropTypes.any,
+  customButtonText: PropTypes.any,
+  onCustomButtonPress: PropTypes.func,
   returnType: PropTypes.string,
   buttonBgColor: PropTypes.string,
   buttonTextColor: PropTypes.string,
