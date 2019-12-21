@@ -1,10 +1,12 @@
 import React from "react"
 import { Animated, FlatList, Text, TouchableOpacity, I18nManager } from "react-native"
 
-const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress, buttonDeletePosition, buttonDeleteStyle, buttonActiveOpacity }) => {
+const emptyCustomButton = "empty"
+const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress, buttonDeletePosition, buttonDeleteStyle, buttonActiveOpacity, customButtonText, onCustomButtonPress }) => {
   let data = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-  const leftButtonDeletePositions = [deleteText, "0", "empty"]
-  const rightButtonDeletePositions = ["empty", "0", deleteText]
+  const customOrEmptyButtonText = customButtonText != null ? customButtonText : emptyCustomButton
+  const leftButtonDeletePositions = [deleteText, "0", customOrEmptyButtonText]
+  const rightButtonDeletePositions = [customOrEmptyButtonText, "0", deleteText]
 
   const setButtonDeletePosition = (arrToConcatLeft, arrToConcatRight) => {
     let newData = data
@@ -37,7 +39,10 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
         opacity: animatedDeleteButton,
       }]
       ViewStyles = { ...ViewStyles, ...buttonDeleteStyle }
-    } else if (item === "empty") {
+    } else if (item === customButtonText) {
+        onPressInactive = false
+        style = [styles[0]]
+    } else if (item === emptyCustomButton) {
       onPressInactive = false
       style = [styles[0], {
         opacity: 0,
