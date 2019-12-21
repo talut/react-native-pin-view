@@ -8,7 +8,11 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 <p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
 
-##### What's new at v2.4.1
+##### What's new at v2.5.0
+- [https://github.com/talut/react-native-pin-view/pull/48](https://github.com/talut/react-native-pin-view/pull/48) merged. 
+- CustomButton props added.
+
+###### What's new at v2.4.1
 - Minor styling issues.
 - Fix type definition for `deleteText` [https://github.com/talut/react-native-pin-view/pull/35](https://github.com/talut/react-native-pin-view/pull/35)
 
@@ -141,6 +145,7 @@ export default class Master extends Component<Props> {
 
 ## Contributors (Thank you all)
 
+- [@jenskuhrjorgensen](https://github.com/jenskuhrjorgensen)
 - [@devcer](https://github.com/devcer)
 - [@mattvick](https://github.com/mattvick)
 - [@TchernyavskyDaniil](https://github.com/TchernyavskyDaniil)
