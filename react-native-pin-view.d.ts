@@ -24,8 +24,6 @@ declare module "react-native-pin-view" {
         inputAreaStyle?: ViewStyle
         inputViewStyle?: ViewStyle
         inputViewEmptyStyle?: ViewStyle
-        customRightButtonViewStyle?: ViewStyle
-        customLeftButtonViewStyle?: ViewStyle
         buttonViewStyle?: ViewStyle
         buttonAreaStyle ?: ViewStyle
         inputViewFilledStyle?: ViewStyle
@@ -33,19 +31,21 @@ declare module "react-native-pin-view" {
         inputTextStyle?: TextStyle
         buttonTextStyle?: TextStyle
 
-        leftAccessibilityLabel?:string,
-        rightAccessibilityLabel?:string,
-
-        leftButtonDisabled?: boolean
-        rightButtonDisabled?: boolean
         disabled?: boolean
         showInputText?: boolean
         accessible?: boolean
 
         buttonTextByKey ?: object,
 
-        leftCustomButton?: any
-        rightCustomButton?: any
+        customLeftButtonDisabled?: boolean
+        customLeftButton?: React.FunctionComponent<any>
+        customLeftAccessibilityLabel?:string,
+        customLeftButtonViewStyle?: ViewStyle
+
+        customRightButtonDisabled?: boolean
+        customRightButton?: React.FunctionComponent<any>
+        customRightAccessibilityLabel?:string,
+        customRightButtonViewStyle?: ViewStyle
     }
 
     const PinView: React.FunctionComponent<PinViewProps>

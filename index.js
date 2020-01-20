@@ -93,22 +93,23 @@ const PinView = React.forwardRef(
       activeOpacity,
       pinLength,
       buttonSize,
-      leftCustomButton,
-      rightCustomButton,
       buttonViewStyle,
       buttonTextStyle ,
-      customLeftButtonViewStyle,
-      customRightButtonViewStyle,
       inputEmptyStyle,
       inputFilledStyle,
       showInputText,
       inputTextStyle,
       inputSize,
-      rightAccessibilityLabel,
-      leftAccessibilityLabel,
       disabled,
-      leftButtonDisabled,
-      rightButtonDisabled,
+
+      customLeftButton,
+      customRightButton,
+      customRightAccessibilityLabel,
+      customLeftAccessibilityLabel,
+      customLeftButtonViewStyle,
+      customRightButtonViewStyle,
+      customLeftButtonDisabled,
+      customRightButtonDisabled,
     },
     ref
   ) => {
@@ -240,15 +241,15 @@ const PinView = React.forwardRef(
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
           />
-          {leftCustomButton !== undefined ? (
+          {customLeftButton !== undefined ? (
             <ViewButton
-              disabled={leftButtonDisabled}
+              disabled={customLeftButtonDisabled}
               accessible={accessible}
               activeOpacity={activeOpacity}
-              accessibilityLabel={leftAccessibilityLabel}
-              onButtonPress={() => onButtonPress("left")}
+              accessibilityLabel={customLeftAccessibilityLabel}
+              onButtonPress={() => onButtonPress("custom_left")}
               customViewStyle={customLeftButtonViewStyle}
-              customComponent={leftCustomButton}
+              customComponent={customLeftButton}
             />
           ) : (
             <ViewHolder />
@@ -263,15 +264,15 @@ const PinView = React.forwardRef(
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
           />
-          {rightCustomButton !== undefined ? (
+          {customRightButton !== undefined ? (
             <ViewButton
-              disabled={rightButtonDisabled}
+              disabled={customRightButtonDisabled}
               accessible={accessible}
               activeOpacity={activeOpacity}
-              accessibilityLabel={rightAccessibilityLabel}
-              onButtonPress={() => onButtonPress("right")}
+              accessibilityLabel={customRightAccessibilityLabel}
+              onButtonPress={() => onButtonPress("custom_right")}
               customViewStyle={customRightButtonViewStyle}
-              customComponent={rightCustomButton}
+              customComponent={customRightButton}
             />
           ) : (
             <ViewHolder />
@@ -303,11 +304,11 @@ PinView.defaultProps = {
   inputAreaStyle : { marginVertical: 12 },
   activeOpacity :0.9,
   buttonTextStyle : { color: "#FFF", fontSize: 30 },
-  rightAccessibilityLabel : "right",
-  leftAccessibilityLabel : "left",
+  customRightAccessibilityLabel : "right",
+  customLeftAccessibilityLabel : "left",
   disabled: false,
-  leftButtonDisabled: false,
-  rightButtonDisabled : false,
+  customLeftButtonDisabled: false,
+  customRightButtonDisabled: false,
 }
 PinView.propTypes = {
   onComplete: PropTypes.func.isRequired,
@@ -325,15 +326,15 @@ PinView.propTypes = {
   inputSize:PropTypes.number,
   inputViewFilledStyle: ViewPropTypes.style,
 
-  rightAccessibilityLabel: PropTypes.string,
-  rightButtonDisabled: PropTypes.bool,
+  customRightAccessibilityLabel: PropTypes.string,
+  customRightButtonDisabled: PropTypes.bool,
   customRightButtonViewStyle: ViewPropTypes.style,
-  rightCustomButton: PropTypes.element,
+  customRightButton: PropTypes.element,
 
-  leftAccessibilityLabel: PropTypes.string,
-  leftButtonDisabled: PropTypes.bool,
+  customLeftAccessibilityLabel: PropTypes.string,
+  customLeftButtonDisabled: PropTypes.bool,
   customLeftButtonViewStyle: ViewPropTypes.style,
-  leftCustomButton: PropTypes.element,
+  customLeftButton: PropTypes.element,
 
   buttonTextByKey : PropTypes.object,
   buttonAreaStyle : ViewPropTypes.style,
