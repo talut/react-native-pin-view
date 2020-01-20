@@ -1,157 +1,297 @@
-import React from "react"
-import { Animated, View, ViewPropTypes, StyleSheet, Text } from "react-native"
-import KeyboardView from "./libs/parts/KeyboardView"
-import InputView from "./libs/parts/InputView"
-import Styles from "./libs/parts/styles"
+import React, { useEffect, useState } from "react"
+import { StyleSheet, Text, TouchableOpacity, View, ViewPropTypes } from "react-native"
 import PropTypes from "prop-types"
+import PinViewStyle from "./PinViewStyle.js"
 
-class PinView extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      animatedInputIndex: Object.assign([]),
-      animatedDeleteButton: new Animated.Value(0),
-      pinViewAnim: new Animated.Value(0),
-      animatedDeleteButtonOnPress: true,
-    }
-    this.keyboardOnPress = this.keyboardOnPress.bind(this)
-    this.setDeleteButton = this.setDeleteButton.bind(this)
-    this.clear = this.clear.bind(this)
-  }
+const ViewButton = ({
+  activeOpacity,
+  onButtonPress,
+  buttonSize = 60,
+  text,
+  customComponent,
+  customViewStyle,
+  accessible,
+  accessibilityLabel,
+  disabled,
+  customTextStyle,
+}) => {
+  return (
+    <TouchableOpacity
+      accessible={accessible}
+      accessibilityRole="keyboardkey"
+      accessibilityLabel={customComponent !== undefined ? accessibilityLabel : text}
+      activeOpacity={activeOpacity}
+      disabled={disabled}
+      style={PinViewStyle.buttonContainer}
+      onPress={onButtonPress}>
+      <View
+        style={[
+          PinViewStyle.buttonView,
+          customViewStyle,
+          { width: buttonSize, height: buttonSize, borderRadius: buttonSize / 2 },
+        ]}>
+        {customComponent !== undefined ? (
+          customComponent
+        ) : (
+          <Text style={[PinViewStyle.buttonText, customTextStyle]}>{text}</Text>
+        )}
+      </View>
+    </TouchableOpacity>
+  )
+}
 
-  userInput = []
-  setDeleteButton = status => {
-    Animated.timing(
-      // Animate value over time
-      this.state.animatedDeleteButton, // The value to drive
-      {
-        toValue: status ? 1 : 0, // Animate to final value of 1
-        duration: 100,
-      },
-    ).start() // Start the animation
-    this.setState({
-      animatedDeleteButtonOnPress: !status,
-    })
-  }
-
-  clear() {
-    this.userInput = []
-    this.setState({
-      animatedInputIndex: Object.assign([]),
-      pinViewAnim: new Animated.Value(0),
-    })
-  }
-
-  keyboardOnPress = (val, returnType, pinLength, onComplete, onPress) => {
-    if (val === this.props.customButtonText) {
-      this.props.onCustomButtonPress()
-    } else if (val === this.props.deleteText) {
-      this.userInput = this.userInput.slice(0, -1)
-      this.setState({
-        animatedInputIndex: this.state.animatedInputIndex.slice(0, -1),
-      })
-      if (this.userInput.length === 0) {
-        this.setDeleteButton(false)
-      }
-    } else if (this.userInput.length < pinLength) {
-      if (pinLength === this.userInput.length + 1) {
-        this.userInput = this.userInput.concat(parseInt(val))
-        this.setDeleteButton(true)
-        this.setState(
-          {
-            animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val))),
-          },
-          () => {
-            setTimeout(() => {
-              if (returnType === "string") {
-                return onComplete(this.userInput.join(""), this.clear)
-              } else if (returnType === "array") {
-                return onComplete(this.userInput, this.clear)
-              } else {
-                console.log("Unkown return type!")
-              }
-            }, this.props.delayBeforeOnComplete)
-          },
-        )
-      } else {
-        this.userInput = this.userInput.concat(parseInt(val))
-        this.setDeleteButton(true)
-        this.setState({
-          animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val))),
-        })
-      }
-    }
-    if (onPress && typeof onPress === "function") {
-      onPress(this.userInput, this.clear, val)
-    }
-  }
-
-  render() {
-    const {
-      pinLength,
-      showInputs,
-      inputTextStyle,
-      keyboardViewStyle,
-      keyboardViewTextStyle,
-      inputViewStyle,
-      buttonTextColor,
-      returnType,
-      buttonBgColor,
-      inputBgColor,
-      onComplete,
-      disabled,
-      inputActiveBgColor,
-      inputBgOpacity,
-      deleteText,
-      customButtonText,
-      onCustomButtonPress,
-      keyboardContainerStyle,
-      onPress,
-      buttonDeletePosition,
-      buttonDeleteStyle,
-      buttonActiveOpacity,
-    } = this.props
+const ViewInput = ({
+  showInputText = false,
+  inputTextStyle,
+  size = 40,
+  customStyle,
+  text,
+  inputFilledStyle = { backgroundColor: "#000" },
+  inputEmptyStyle = { backgroundColor: "#FFF" },
+}) => {
+  if (showInputText) {
     return (
-      <View pointerEvents={disabled ? "none" : undefined}>
-        <InputView
-          inputViewStyle={inputViewStyle}
-          showInputs={showInputs}
-          inputTextStyle={inputTextStyle}
-          bgOpacity={inputBgOpacity}
-          inputtedValues={showInputs ? this.userInput : undefined}
-          pinLength={pinLength}
-          activeBgColor={inputActiveBgColor}
-          animatedInputIndex={this.state.animatedInputIndex}
-          pinViewAnim={this.state.pinViewAnim}
-          bgColor={inputBgColor}
-          styles={[Styles.passwordInputView, Styles.passwordInputViewItem, Styles.passwordInputViewItemActive]}
-        />
-        <View style={[Styles.keyboardView, keyboardContainerStyle]}>
-          <KeyboardView
-            keyboardViewStyle={keyboardViewStyle}
-            keyboardViewTextStyle={keyboardViewTextStyle}
-            styles={[Styles.keyboardViewItem, Styles.keyboardViewItemText]}
-            bgColor={buttonBgColor}
-            textColor={buttonTextColor}
-            animatedDeleteButton={this.state.animatedDeleteButton}
-            pinLength={pinLength}
-            deleteText={deleteText}
-            customButtonText={customButtonText}
-            onCustomButtonPress={onCustomButtonPress}
-            onComplete={onComplete}
-            animatedDeleteButtonOnPress={this.state.animatedDeleteButtonOnPress}
-            keyboardOnPress={this.keyboardOnPress}
-            returnType={returnType}
-            onPress={onPress}
-            buttonDeletePosition={buttonDeletePosition}
-            buttonDeleteStyle={buttonDeleteStyle}
-            buttonActiveOpacity={buttonActiveOpacity}
+      <View
+        style={[
+          PinViewStyle.inputView,
+          customStyle,
+          { width: size, height: size, borderRadius: size / 2, alignItems: "center", justifyContent: "center" },
+          text !== undefined ? inputFilledStyle : inputEmptyStyle,
+        ]}>
+        <Text style={[PinViewStyle.inputText, inputTextStyle]}>{text}</Text>
+      </View>
+    )
+  } else {
+    return (
+      <View
+        style={[
+          PinViewStyle.inputView,
+          customStyle,
+          { width: size, height: size, borderRadius: size / 2 },
+          text !== undefined ? inputFilledStyle : inputEmptyStyle,
+        ]}
+      />
+    )
+  }
+}
+
+const ViewHolder = () => {
+  return <View style={PinViewStyle.buttonContainer} />
+}
+
+const PinView = React.forwardRef(
+  (
+    {
+      buttonTextByKey = {
+        one: "1",
+        two: "2",
+        three: "3",
+        four: "4",
+        five: "5",
+        six: "6",
+        seven: "7",
+        eight: "8",
+        nine: "9",
+        zero: "0",
+      },
+      accessible = false,
+      style,
+      onButtonPress = () => {},
+      inputTextStyle = { color: "#FFF" },
+      onComplete = () => {},
+      buttonAreaStyle = { marginVertical: 12 },
+      inputAreaStyle = { marginVertical: 12 },
+      inputViewStyle,
+      activeOpacity = 0.9,
+      pinLength,
+      buttonSize,
+      leftCustomButton,
+      rightCustomButton,
+      buttonViewStyle,
+      buttonTextStyle = { color: "#FFF", fontSize: 30 },
+      customLeftButtonViewStyle,
+      customRightButtonViewStyle,
+      inputEmptyStyle,
+      inputFilledStyle,
+      showInputText,
+      inputSize,
+      rightAccessibilityLabel = "right",
+      leftAccessibilityLabel = "left",
+      disabled = false,
+      leftButtonDisabled = false,
+      rightButtonDisabled = false,
+    },
+    ref
+  ) => {
+    const [input, setInput] = useState("")
+    ref.current = {
+      clear: () => {
+        if (input.length > 0) {
+          setInput(input.slice(0, -1))
+        }
+      },
+    }
+    useEffect(() => {
+      if (input.length === pinLength) {
+        onComplete(input)
+      }
+    }, [input, onComplete, pinLength])
+
+    const onButtonPressHandle = (key, value) => {
+      onButtonPress(key)
+      if (input.length < pinLength) {
+        setInput(input + "" + value)
+      }
+    }
+
+    return (
+      <View style={[PinViewStyle.pinView, style]}>
+        <View style={[PinViewStyle.inputContainer, inputAreaStyle]}>
+          {Array.apply(null, { length: pinLength }).map((e, i) => (
+            <ViewInput
+              inputTextStyle={inputTextStyle}
+              showInputText={showInputText}
+              inputEmptyStyle={inputEmptyStyle}
+              inputFilledStyle={inputFilledStyle}
+              text={input[i]}
+              customStyle={inputViewStyle}
+              size={inputSize}
+              key={"input-view-" + i}
+            />
+          ))}
+        </View>
+        <View style={[PinViewStyle.buttonAreaContainer, buttonAreaStyle]}>
+          <ViewButton
+            disabled={disabled}
+            accessible={accessible}
+            activeOpacity={activeOpacity}
+            onButtonPress={() => onButtonPressHandle("one", "1")}
+            buttonSize={buttonSize}
+            text={buttonTextByKey.one}
+            customTextStyle={buttonTextStyle}
+            customViewStyle={buttonViewStyle}
           />
+          <ViewButton
+            disabled={disabled}
+            accessible={accessible}
+            activeOpacity={activeOpacity}
+            onButtonPress={() => onButtonPressHandle("two", "2")}
+            buttonSize={buttonSize}
+            text={buttonTextByKey.two}
+            customTextStyle={buttonTextStyle}
+            customViewStyle={buttonViewStyle}
+          />
+          <ViewButton
+            disabled={disabled}
+            accessible={accessible}
+            activeOpacity={activeOpacity}
+            onButtonPress={() => onButtonPressHandle("three", "3")}
+            buttonSize={buttonSize}
+            text={buttonTextByKey.three}
+            customTextStyle={buttonTextStyle}
+            customViewStyle={buttonViewStyle}
+          />
+          <ViewButton
+            disabled={disabled}
+            accessible={accessible}
+            activeOpacity={activeOpacity}
+            onButtonPress={() => onButtonPressHandle("four", "4")}
+            buttonSize={buttonSize}
+            text={buttonTextByKey.four}
+            customTextStyle={buttonTextStyle}
+            customViewStyle={buttonViewStyle}
+          />
+          <ViewButton
+            disabled={disabled}
+            accessible={accessible}
+            activeOpacity={activeOpacity}
+            onButtonPress={() => onButtonPressHandle("five", "5")}
+            buttonSize={buttonSize}
+            text={buttonTextByKey.five}
+            customTextStyle={buttonTextStyle}
+            customViewStyle={buttonViewStyle}
+          />
+          <ViewButton
+            disabled={disabled}
+            accessible={accessible}
+            activeOpacity={activeOpacity}
+            onButtonPress={() => onButtonPressHandle("six", "6")}
+            buttonSize={buttonSize}
+            text={buttonTextByKey.six}
+            customTextStyle={buttonTextStyle}
+            customViewStyle={buttonViewStyle}
+          />
+          <ViewButton
+            disabled={disabled}
+            accessible={accessible}
+            activeOpacity={activeOpacity}
+            onButtonPress={() => onButtonPressHandle("seven", "7")}
+            buttonSize={buttonSize}
+            text={buttonTextByKey.seven}
+            customTextStyle={buttonTextStyle}
+            customViewStyle={buttonViewStyle}
+          />
+          <ViewButton
+            disabled={disabled}
+            accessible={accessible}
+            activeOpacity={activeOpacity}
+            onButtonPress={() => onButtonPressHandle("eight", "8")}
+            buttonSize={buttonSize}
+            text={buttonTextByKey.eight}
+            customTextStyle={buttonTextStyle}
+            customViewStyle={buttonViewStyle}
+          />
+          <ViewButton
+            disabled={disabled}
+            accessible={accessible}
+            activeOpacity={activeOpacity}
+            onButtonPress={() => onButtonPressHandle("nine", "9")}
+            buttonSize={buttonSize}
+            text={buttonTextByKey.nine}
+            customTextStyle={buttonTextStyle}
+            customViewStyle={buttonViewStyle}
+          />
+          {leftCustomButton !== undefined ? (
+            <ViewButton
+              disabled={leftButtonDisabled}
+              accessible={accessible}
+              activeOpacity={activeOpacity}
+              accessibilityLabel={leftAccessibilityLabel}
+              onButtonPress={() => onButtonPress("left")}
+              customViewStyle={customLeftButtonViewStyle}
+              customComponent={leftCustomButton}
+            />
+          ) : (
+            <ViewHolder />
+          )}
+          <ViewButton
+            disabled={disabled}
+            accessible={accessible}
+            activeOpacity={activeOpacity}
+            onButtonPress={() => onButtonPressHandle("zero", "0")}
+            buttonSize={buttonSize}
+            text={buttonTextByKey.zero}
+            customTextStyle={buttonTextStyle}
+            customViewStyle={buttonViewStyle}
+          />
+          {rightCustomButton !== undefined ? (
+            <ViewButton
+              disabled={rightButtonDisabled}
+              accessible={accessible}
+              activeOpacity={activeOpacity}
+              accessibilityLabel={rightAccessibilityLabel}
+              onButtonPress={() => onButtonPress("right")}
+              customViewStyle={customRightButtonViewStyle}
+              customComponent={rightCustomButton}
+            />
+          ) : (
+            <ViewHolder />
+          )}
         </View>
       </View>
     )
   }
-}
+)
 
 PinView.defaultProps = {
   deleteText: "DEL",
@@ -176,6 +316,7 @@ PinView.defaultProps = {
 }
 PinView.propTypes = {
   disabled: PropTypes.bool,
+  leftButtonDisabled: PropTypes.bool,
   deleteText: PropTypes.any,
   customButtonText: PropTypes.any,
   onCustomButtonPress: PropTypes.func,
