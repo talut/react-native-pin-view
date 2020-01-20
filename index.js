@@ -87,6 +87,7 @@ const PinView = React.forwardRef(
       style,
       onButtonPress,
       onComplete,
+      onValueChange,
       buttonAreaStyle,
       inputAreaStyle,
       inputViewStyle,
@@ -128,11 +129,18 @@ const PinView = React.forwardRef(
     }, [input, onComplete, pinLength])
 
     const onButtonPressHandle = (key, value) => {
-      onButtonPress(key, input)
+      onButtonPress(key)
       if (input.length < pinLength) {
         setInput(input + "" + value)
       }
     }
+
+    useEffect(() => {
+      if (onValueChange!==undefined){
+         onValueChange(input)
+      }
+    }, [input])
+
 
     return (
       <View style={[PinViewStyle.pinView, style]}>
@@ -247,7 +255,7 @@ const PinView = React.forwardRef(
               accessible={accessible}
               activeOpacity={activeOpacity}
               accessibilityLabel={customLeftAccessibilityLabel}
-              onButtonPress={() => onButtonPress("custom_left", input)}
+              onButtonPress={() => onButtonPress("custom_left")}
               customViewStyle={customLeftButtonViewStyle}
               customComponent={customLeftButton}
             />
@@ -270,7 +278,7 @@ const PinView = React.forwardRef(
               accessible={accessible}
               activeOpacity={activeOpacity}
               accessibilityLabel={customRightAccessibilityLabel}
-              onButtonPress={() => onButtonPress("custom_right", input)}
+              onButtonPress={() => onButtonPress("custom_right")}
               customViewStyle={customRightButtonViewStyle}
               customComponent={customRightButton}
             />
@@ -299,7 +307,6 @@ PinView.defaultProps = {
   accessible: false,
   onButtonPress: () => {},
   inputTextStyle : { color: "#FFF" },
-  onComplete : () => {},
   buttonAreaStyle : { marginVertical: 12 },
   inputAreaStyle : { marginVertical: 12 },
   activeOpacity :0.9,
@@ -317,6 +324,7 @@ PinView.propTypes = {
   accessible: PropTypes.bool,
   style : ViewPropTypes.style,
   onButtonPress: PropTypes.func,
+  onValueChange: PropTypes.func,
   showInputText: PropTypes.bool,
 
   inputAreaStyle: ViewPropTypes.style,
