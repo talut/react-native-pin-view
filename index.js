@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { StyleSheet, Text, TouchableOpacity, View, ViewPropTypes } from "react-native"
+import { Text, TouchableOpacity, View, ViewPropTypes } from "react-native"
 import PropTypes from "prop-types"
 import PinViewStyle from "./PinViewStyle.js"
 
@@ -102,6 +102,7 @@ const PinView = React.forwardRef(
       inputEmptyStyle,
       inputFilledStyle,
       showInputText,
+      inputTextStyle,
       inputSize,
       rightAccessibilityLabel,
       leftAccessibilityLabel,
@@ -327,12 +328,12 @@ PinView.propTypes = {
   rightAccessibilityLabel: PropTypes.string,
   rightButtonDisabled: PropTypes.bool,
   customRightButtonViewStyle: ViewPropTypes.style,
-  rightCustomButton: PropTypes.node,
+  rightCustomButton: PropTypes.element,
 
   leftAccessibilityLabel: PropTypes.string,
   leftButtonDisabled: PropTypes.bool,
   customLeftButtonViewStyle: ViewPropTypes.style,
-  leftCustomButton: PropTypes.node,
+  leftCustomButton: PropTypes.element,
 
   buttonTextByKey : PropTypes.object,
   buttonAreaStyle : ViewPropTypes.style,
