@@ -128,7 +128,7 @@ const PinView = React.forwardRef(
     }, [input, onComplete, pinLength])
 
     const onButtonPressHandle = (key, value) => {
-      onButtonPress(key)
+      onButtonPress(key, input)
       if (input.length < pinLength) {
         setInput(input + "" + value)
       }
@@ -247,7 +247,7 @@ const PinView = React.forwardRef(
               accessible={accessible}
               activeOpacity={activeOpacity}
               accessibilityLabel={customLeftAccessibilityLabel}
-              onButtonPress={() => onButtonPress("custom_left")}
+              onButtonPress={() => onButtonPress("custom_left", input)}
               customViewStyle={customLeftButtonViewStyle}
               customComponent={customLeftButton}
             />
@@ -270,7 +270,7 @@ const PinView = React.forwardRef(
               accessible={accessible}
               activeOpacity={activeOpacity}
               accessibilityLabel={customRightAccessibilityLabel}
-              onButtonPress={() => onButtonPress("custom_right")}
+              onButtonPress={() => onButtonPress("custom_right", input)}
               customViewStyle={customRightButtonViewStyle}
               customComponent={customRightButton}
             />
