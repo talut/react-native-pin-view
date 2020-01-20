@@ -121,6 +121,11 @@ const PinView = React.forwardRef(
           setInput(input.slice(0, -1))
         }
       },
+      clearAll: () => {
+        if (input.length > 0) {
+          setInput("")
+        }
+      },
     }
     useEffect(() => {
       if (input.length === pinLength) {
