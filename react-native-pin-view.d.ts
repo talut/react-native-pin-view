@@ -13,6 +13,8 @@ declare module "react-native-pin-view" {
 
     export interface PinViewProps {
         onComplete: onCompleteCallback
+        onButtonPress?: onPressCallback
+
         pinLength: number,
         inputSize?: number
         activeOpacity?: number
@@ -27,8 +29,6 @@ declare module "react-native-pin-view" {
         buttonViewStyle?: ViewStyle
         buttonAreaStyle ?: ViewStyle
         inputViewFilledStyle?: ViewStyle
-
-        onButtonPress?: onPressCallback
 
         inputTextStyle?: TextStyle
         buttonTextStyle?: TextStyle
