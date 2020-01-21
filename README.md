@@ -35,36 +35,36 @@ import PinView from 'react-native-pin-view';
 
 ## Props
 
-| Prop                          | Type              | Default                               | Description                                                                                           | Required  |
-| ----------------------------- | ----------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------- |
-|onComplete                     |func               |-                                      |                                                                                                       |           |
-|onButtonPress                  |func               |-                                      |                                                                                                       |           |
-|onValueChange                  |func               |-                                      |                                                                                                       |           |
-|pinLength                      |number             |-                                      |                                                                                                       |           |
-|inputSize                      |number             |-                                      |                                                                                                       |           |
-|activeOpacity                  |number             |`0.9`                                  |                                                                                                       |           |
-|buttonSize                     |number             |`60`                                   |                                                                                                       |           |
-|style                          |ViewStyle          |-                                      |                                                                                                       |           |
-|inputAreaStyle                 |ViewStyle          |`{ marginVertical: 12 }`               |                                                                                                       |           |
-|inputViewStyle                 |ViewStyle          |-                                      |                                                                                                       |           |
-|inputViewEmptyStyle            |ViewStyle          |-                                      |                                                                                                       |           |
-|buttonViewStyle                |ViewStyle          |-                                      |                                                                                                       |           |
-|buttonAreaStyle                |ViewStyle          |`{ marginVertical: 12 }`               |                                                                                                       |           |
-|inputViewFilledStyle           |ViewStyle          |-                                      |                                                                                                       |           |
-|inputTextStyle                 |TextStyle          |-                                      |                                                                                                       |           |
-|buttonTextStyle                |TextStyle          |`{ color: "#FFF", fontSize: 30 }`      |                                                                                                       |           |
-|disabled                       |boolean            |-                                      |                                                                                                       |           |
-|showInputText                  |boolean            |-                                      |                                                                                                       |           |
-|accessible                     |boolean            |-                                      |                                                                                                       |           |
-|buttonTextByKey                |object             |`{one: "1",two: "2",three: "3",four: "4",five: "5",six: "6",seven: "7",eight: "8",nine: "9",zero: "0",}`                                  |                                                                                                       |           |
-|customLeftButtonDisabled       |boolean            |-                                      |                                                                                                       |           |
-|customLeftButton               |React.Component    |-                                      |                                                                                                       |           |
-|customLeftAccessibilityLabel   |string             |-                                      |                                                                                                       |           |
-|customLeftButtonViewStyle      |ViewStyle          |-                                      |                                                                                                       |           |
-|customRightButtonDisabled      |boolean            |-                                      |                                                                                                       |           |
-|customRightButton              |React.Component    |-                                      |                                                                                                       |           |
-|customRightAccessibilityLabel  |string             |-                                      |                                                                                                       |           |
-|customRightButtonViewStyle     |ViewStyle          |-                                      |                                                                                                       |           |
+| Prop                          | Type              | Default                                                                                                |  Required  |
+| ----------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------ | ---------- |
+|onComplete                     |func               |-                                                                                                       | **Yes**    |
+|onButtonPress                  |func               |-                                                                                                       | No         |
+|onValueChange                  |func               |-                                                                                                       | No         |
+|pinLength                      |number             |-                                                                                                       | **Yes**    |
+|inputSize                      |number             |-                                                                                                       | No         |
+|activeOpacity                  |number             |`0.9`                                                                                                   | No         |
+|buttonSize                     |number             |`60`                                                                                                    | No         |
+|style                          |ViewStyle          |-                                                                                                       | No         |
+|inputAreaStyle                 |ViewStyle          |`{ marginVertical: 12 }`                                                                                | No         |
+|inputViewStyle                 |ViewStyle          |-                                                                                                       | No         |
+|inputViewEmptyStyle            |ViewStyle          |-                                                                                                       | No         |
+|buttonViewStyle                |ViewStyle          |-                                                                                                       | No         |
+|buttonAreaStyle                |ViewStyle          |`{ marginVertical: 12 }`                                                                                | No         |
+|inputViewFilledStyle           |ViewStyle          |-                                                                                                       | No         |
+|inputTextStyle                 |TextStyle          |-                                                                                                       | No         |
+|buttonTextStyle                |TextStyle          |`{ color: "#FFF", fontSize: 30 }`                                                                       | No         |
+|disabled                       |boolean            |-                                                                                                       | No         |
+|showInputText                  |boolean            |`false`                                                                                                 | No         |
+|accessible                     |boolean            |`false`                                                                                                 | No         |
+|buttonTextByKey                |object             |`{one: "1",two: "2",three: "3",four: "4",five: "5",six: "6",seven: "7",eight: "8",nine: "9",zero: "0",}`| No         |
+|customLeftButtonDisabled       |boolean            |`false`                                                                                                 | No         |
+|customLeftButton               |React.Component    |-                                                                                                       | No         |
+|customLeftAccessibilityLabel   |string             |`left`                                                                                                  | No         |
+|customLeftButtonViewStyle      |ViewStyle          |-                                                                                                       | No         |
+|customRightButtonDisabled      |boolean            |-                                                                                                       | No         |
+|customRightButton              |React.Component    |-                                                                                                       | No         |
+|customRightAccessibilityLabel  |string             |`right`                                                                                                 | No         |
+|customRightButtonViewStyle     |ViewStyle          |-                                                                                                       | No         |
 
 #### Example App
 
