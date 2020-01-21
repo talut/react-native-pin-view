@@ -96,8 +96,8 @@ const PinView = React.forwardRef(
       buttonSize,
       buttonViewStyle,
       buttonTextStyle ,
-      inputEmptyStyle,
-      inputFilledStyle,
+      inputViewEmptyStyle,
+      inputViewFilledStyle,
       showInputText,
       inputTextStyle,
       inputSize,
@@ -154,8 +154,8 @@ const PinView = React.forwardRef(
             <ViewInput
               inputTextStyle={inputTextStyle}
               showInputText={showInputText}
-              inputEmptyStyle={inputEmptyStyle}
-              inputFilledStyle={inputFilledStyle}
+              inputEmptyStyle={inputViewEmptyStyle}
+              inputFilledStyle={inputViewFilledStyle}
               text={input[i]}
               customStyle={inputViewStyle}
               size={inputSize}

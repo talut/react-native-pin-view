@@ -69,59 +69,59 @@ import PinView from 'react-native-pin-view';
 #### Example App
 
 ```javascript
-import React, { Component } from 'react';
-import { View } from 'react-native';
-import PinView from 'react-native-pin-view';
+import Icon from "react-native-vector-icons/Ionicons"
 
-type Props = {};
-export default class Master extends Component<Props> {
-  constructor(props) {
-    super(props);
-    this.onComplete = this.onComplete.bind(this);
-    this.state = {
-        pin: "896745"
-    };
-  }
-  onComplete(inputtedPin, clear) {
-    if (val !== this.state.pin) {
-      clear();
-    } else {
-      console.log("Pin is correct");
-    }
-  }
-  onPress(inputtedPin, clear, pressed) {
-    console.log("Pressed: "+ pressed);
-    console.log("inputtedPin: "+ inputtedPin);
-    // clear();
-  }
-  render() {
-    return (
-      <View style={{
-        flex           : 1,
-        backgroundColor: '#f1f1f1',
-        justifyContent : 'center'
-      }}>
-        <PinView
-        onPress={this.onPress}
-        onComplete={this.onComplete}
-        pinLength={this.state.pin.length}
-        // pinLength={6} // You can also use like that.
-        />
-      </View>
-    );
-  }
+const App = () => {
+  const pinView = useRef(null)
+  const [showRemoveButton, setShowRemoveButton] = useState(false)
+  return (
+    <>
+      <StatusBar barStyle="dark-content" />
+      <ImageBackground source={bg} style={SplashScreenStyle.container}>
+        <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+          <ReactNativePinView
+            inputSize={24}
+            ref={pinView}
+            pinLength={8}
+            onComplete={pin => {alert(pin)}}
+            buttonSize={80}
+            onValueChange={value => {
+              if (value.length > 0) {
+                setShowRemoveButton(true)
+              } else {
+                setShowRemoveButton(false)
+              }
+            }}
+            inputViewEmptyStyle={{
+              backgroundColor: "transparent",
+              borderWidth: 1,
+              borderColor: "#FFF",
+            }}
+            inputViewFilledStyle={{
+              backgroundColor: "#FFF",
+            }}
+            buttonViewStyle={{
+              borderWidth: 1,
+              borderColor: "#FFF",
+            }}
+            buttonTextStyle={{
+              color: "#FFF",
+            }}
+            onButtonPress={key => {
+              if (key === "custom_left") {
+                pinView.current.clearAll()
+              }
+            }}
+            customLeftButton={showRemoveButton ? <Icon name={"ios-backspace"} size={36} color={"#FFF"} /> : undefined}
+          />
+        </SafeAreaView>
+      </ImageBackground>
+    </>
+  )
 }
+export default App
 ```
-
-## Contributors (Thank you all)
-
-- [@jenskuhrjorgensen](https://github.com/jenskuhrjorgensen)
-- [@devcer](https://github.com/devcer)
-- [@mattvick](https://github.com/mattvick)
-- [@TchernyavskyDaniil](https://github.com/TchernyavskyDaniil)
-
 ## Built With
-
 * [React-Native](https://facebook.github.io/react-native/)
 
 ## License
