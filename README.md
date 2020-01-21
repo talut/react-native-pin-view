@@ -69,6 +69,7 @@ import PinView from 'react-native-pin-view';
 #### Example App
 
 ```javascript
+import ReactNativePinView from "react-native-pin-view"
 import Icon from "react-native-vector-icons/Ionicons"
 
 const App = () => {
@@ -77,13 +78,15 @@ const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <ImageBackground source={bg} style={SplashScreenStyle.container}>
+      <ImageBackground source={bg} style={{ flex: 1 }}>
         <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
           <ReactNativePinView
             inputSize={24}
             ref={pinView}
             pinLength={8}
-            onComplete={pin => {alert(pin)}}
+            onComplete={pin => {
+              alert(pin)
+            }}
             buttonSize={80}
             onValueChange={value => {
               if (value.length > 0) {
@@ -109,10 +112,10 @@ const App = () => {
             }}
             onButtonPress={key => {
               if (key === "custom_left") {
-                pinView.current.clearAll()
+                pinView.current.clear()
               }
             }}
-            customLeftButton={showRemoveButton ? <Icon name={"ios-backspace"} size={36} color={"#FFF"} /> : undefined}
+            customLeftButton={showRemoveButton ? <Icon name={"ios-backspace"} size={48} color={"#FFF"} /> : undefined}
           />
         </SafeAreaView>
       </ImageBackground>
