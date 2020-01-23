@@ -1,6 +1,6 @@
 {
   "name": "react-native-pin-view",
-  "version": "2.5.0",
+  "version": "3.0.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/talut/react-native-pin-view.git"
@@ -15,6 +15,9 @@
     "react-native-pin-view",
     "react pin view",
     "pin view",
+    "pinlock",
+    "code",
+    "react-security-view",
     "react pin",
     "react password",
     "pin",

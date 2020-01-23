@@ -4,9 +4,14 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 ## v3.0.0 Released with more powerful features
 
-##### BEWARE! This version has a lot of breaking changes
+##### BEWARE! This version has a lot of breaking changes. Ple
 
-<p align='center'><img src='./pin-view.gif' alt='PinView 1'></p>
+<p align='center'>
+<img src='./pin-view.gif' alt='PinView 1'>
+</p>
+
+You can get codes of this preview from [here](#example)
+
 
 ## Getting Started
 
@@ -25,14 +30,10 @@ npm install --save react-native-pin-view
 ## Basic Usage
 
 ```
-
 import PinView from 'react-native-pin-view';
 
 ...
-        <PinView
-            onComplete={val=>{console.log(val)}}
-            pinLength={6}
-        />
+        <PinView pinLength={6} />
 ```
 
 ## Props
