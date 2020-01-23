@@ -4,7 +4,7 @@ Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS
 
 ## v3.0.0 Released with more powerful features
 
-##### BEWARE! This version has a lot of breaking changes. Ple
+##### BEWARE! This version has a lot of breaking changes.
 
 <p align='center'>
 <img src='./pin-view.gif' alt='PinView 1'>
