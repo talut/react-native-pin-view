@@ -111,7 +111,6 @@ const App = () => {
               paddingBottom: 48,
               color: "rgba(255,255,255,0.7)",
               fontSize: 48,
-              fontFamily: "Avenir-Black",
             }}>
             LUNA/CITY
           </Text>
@@ -159,8 +158,6 @@ const App = () => {
 }
 export default App
 ```
-## Built With
-* [React-Native](https://facebook.github.io/react-native/)
 
 ## License
 
