@@ -1,8 +1,10 @@
 # React Native Pin View
 
-## v3.0.0 Released
-
 Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS and Android, and has only keyboard and input.
+
+## v3.0.0 Released with more powerful features
+
+##### BEWARE! This version has a lot of breaking changes
 
 <p align='center'><img src='./pin-view.gif' alt='PinView 1'></p>
 
@@ -99,7 +101,7 @@ const App = () => {
   }, [enteredPin])
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle="light-content" />
         <SafeAreaView
           style={{ flex: 1, backgroundColor: "rgba(0,0,0,0.5)", justifyContent: "center", alignItems: "center" }}>
           <Text
