@@ -1,38 +1,51 @@
-// Type definitions for react-native-pin-view 2.1.2
+// Type definitions for react-native-pin-view v3.0.0
 // Project: https://github.com/talut/react-native-pin-view
 // Definitions by: Talut TASGIRAN <https://github.com/talut>
 // TypeScript Version: 2.8
 declare module "react-native-pin-view" {
+    // @ts-ignore
     import React from "react"
+    // @ts-ignore
     import { ViewStyle, TextStyle } from "react-native"
 
-    type onCompleteCallback = (value: string, clear: () => void) => void
-    type onPressCallback = (value: string, pressed: boolean, clear: () => void) => void
-    type onCustomButtonPress = () => void
+    type onButtonPressCallback = (key: string) => void
+    type onValueChangeCallback = (value: string) => void
 
-    interface PinViewProps {
-        pinLength: number
-        showInputs?: boolean
-        inputTextStyle?: TextStyle
-        buttonTextColor?: string
-        returnType?: string
-        buttonBgColor?: string
-        inputBgColor?: string
-        onComplete: onCompleteCallback
-        onPress?: onPressCallback
-        disabled?: boolean
-        inputActiveBgColor?: string
-        inputBgOpacity?: number
-        deleteText?: any
-        customButtonText?: any
-        onCustomButtonPress?: onCustomButtonPress,
-        buttonDeletePosition?: string
-        buttonDeleteStyle?: ViewStyle
-        delayBeforeOnComplete?: number
+    export interface PinViewProps {
+        onButtonPress?: onButtonPressCallback
+        onValueChange?: onValueChangeCallback
+
+        pinLength: number,
+        inputSize?: number
+        activeOpacity?: number
+        buttonSize?: number
+
+        style ?: ViewStyle
+        inputAreaStyle?: ViewStyle
         inputViewStyle?: ViewStyle
-        keyboardViewStyle?: ViewStyle
-        keyboardViewTextStyle?: TextStyle
-        keyboardContainerStyle?: ViewStyle
+        inputViewEmptyStyle?: ViewStyle
+        buttonViewStyle?: ViewStyle
+        buttonAreaStyle ?: ViewStyle
+        inputViewFilledStyle?: ViewStyle
+
+        inputTextStyle?: TextStyle
+        buttonTextStyle?: TextStyle
+
+        disabled?: boolean
+        showInputText?: boolean
+        accessible?: boolean
+
+        buttonTextByKey ?: object,
+
+        customLeftButtonDisabled?: boolean
+        customLeftButton?: React.FunctionComponent<any>
+        customLeftAccessibilityLabel?:string,
+        customLeftButtonViewStyle?: ViewStyle
+
+        customRightButtonDisabled?: boolean
+        customRightButton?: React.FunctionComponent<any>
+        customRightAccessibilityLabel?:string,
+        customRightButtonViewStyle?: ViewStyle
     }
 
     const PinView: React.FunctionComponent<PinViewProps>
