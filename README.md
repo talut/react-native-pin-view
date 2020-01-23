@@ -148,6 +148,9 @@ const App = () => {
               if (key === "custom_right") {
                 alert("Entered Pin: " + enteredPin)
               }
+              if (key === "three") {
+                alert("You can't use 3")
+              }
             }}
             customLeftButton={showRemoveButton ? <Icon name={"ios-backspace"} size={36} color={"#FFF"} /> : undefined}
             customRightButton={showCompletedButton ? <Icon name={"ios-unlock"} size={36} color={"#FFF"} /> : undefined}
