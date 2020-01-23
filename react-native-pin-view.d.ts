@@ -8,12 +8,10 @@ declare module "react-native-pin-view" {
     // @ts-ignore
     import { ViewStyle, TextStyle } from "react-native"
 
-    type onCompleteCallback = (value: string) => void
     type onButtonPressCallback = (key: string) => void
     type onValueChangeCallback = (value: string) => void
 
     export interface PinViewProps {
-        onComplete: onCompleteCallback
         onButtonPress?: onButtonPressCallback
         onValueChange?: onValueChangeCallback
 
