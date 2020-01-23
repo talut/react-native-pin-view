@@ -66,6 +66,14 @@ import PinView from 'react-native-pin-view';
 |customRightAccessibilityLabel  |string             |`right`                                                                                                 | No         |
 |customRightButtonViewStyle     |ViewStyle          |-                                                                                                       | No         |
 
+## Ref Actions
+`const pinView = useRef(null)`
+
+| Prop                          | Description                                          |
+| ----------------------------- | -----------------------------------------------------|
+|pinView.current.clearAll()     |This method completely clears the entered code.       |
+|pinView.current.clear()        |This method only delete last number of entered code.  | 
+
 #### Example App
 
 ```javascript
