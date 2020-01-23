@@ -4,7 +4,7 @@
 
 Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS and Android, and has only keyboard and input.
 
-<p align='center'><img src='https://taluttasgiran.com.tr/assets/demo-of-pinview.gif' alt='PinView 1'></p>
+<p align='center'><img src='./pin-view.gif' alt='PinView 1'></p>
 
 ## Getting Started
 
@@ -37,10 +37,9 @@ import PinView from 'react-native-pin-view';
 
 | Prop                          | Type              | Default                                                                                                |  Required  |
 | ----------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------ | ---------- |
-|onComplete                     |func               |-                                                                                                       | **Yes**    |
+|pinLength                      |number             |-                                                                                                       | **Yes**    |
 |onButtonPress                  |func               |-                                                                                                       | No         |
 |onValueChange                  |func               |-                                                                                                       | No         |
-|pinLength                      |number             |-                                                                                                       | **Yes**    |
 |inputSize                      |number             |-                                                                                                       | No         |
 |activeOpacity                  |number             |`0.9`                                                                                                   | No         |
 |buttonSize                     |number             |`60`                                                                                                    | No         |
@@ -74,34 +73,56 @@ import PinView from 'react-native-pin-view';
 |pinView.current.clearAll()     |This method completely clears the entered code.       |
 |pinView.current.clear()        |This method only delete last number of entered code.  | 
 
-#### Example App
+#### Example
 
 ```javascript
-import ReactNativePinView from "react-native-pin-view"
 import Icon from "react-native-vector-icons/Ionicons"
-
+import React, { useEffect, useRef, useState } from "react"
+import { ImageBackground, SafeAreaView, StatusBar, Text } from "react-native"
+import ReactNativePinView from "react-native-pin-view"
 const App = () => {
   const pinView = useRef(null)
   const [showRemoveButton, setShowRemoveButton] = useState(false)
+  const [enteredPin, setEnteredPin] = useState("")
+  const [showCompletedButton, setShowCompletedButton] = useState(false)
+  useEffect(() => {
+    if (enteredPin.length > 0) {
+      setShowRemoveButton(true)
+    } else {
+      setShowRemoveButton(false)
+    }
+    if (enteredPin.length === 8) {
+      setShowCompletedButton(true)
+    } else {
+      setShowCompletedButton(false)
+    }
+  }, [enteredPin])
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <ImageBackground source={bg} style={{ flex: 1 }}>
-        <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <SafeAreaView
+          style={{ flex: 1, backgroundColor: "rgba(0,0,0,0.5)", justifyContent: "center", alignItems: "center" }}>
+          <Text
+            style={{
+              paddingTop: 24,
+              paddingBottom: 48,
+              color: "rgba(255,255,255,0.7)",
+              fontSize: 48,
+              fontFamily: "Avenir-Black",
+            }}>
+            LUNA/CITY
+          </Text>
           <ReactNativePinView
-            inputSize={24}
+            inputSize={32}
             ref={pinView}
             pinLength={8}
-            onComplete={pin => {
-              alert(pin)
+            buttonSize={60}
+            onValueChange={value => setEnteredPin(value)}
+            buttonAreaStyle={{
+              marginTop: 24,
             }}
-            buttonSize={80}
-            onValueChange={value => {
-              if (value.length > 0) {
-                setShowRemoveButton(true)
-              } else {
-                setShowRemoveButton(false)
-              }
+            inputAreaStyle={{
+              marginBottom: 24,
             }}
             inputViewEmptyStyle={{
               backgroundColor: "transparent",
@@ -122,11 +143,14 @@ const App = () => {
               if (key === "custom_left") {
                 pinView.current.clear()
               }
+              if (key === "custom_right") {
+                alert("Entered Pin: " + enteredPin)
+              }
             }}
-            customLeftButton={showRemoveButton ? <Icon name={"ios-backspace"} size={48} color={"#FFF"} /> : undefined}
+            customLeftButton={showRemoveButton ? <Icon name={"ios-backspace"} size={36} color={"#FFF"} /> : undefined}
+            customRightButton={showCompletedButton ? <Icon name={"ios-unlock"} size={36} color={"#FFF"} /> : undefined}
           />
         </SafeAreaView>
-      </ImageBackground>
     </>
   )
 }

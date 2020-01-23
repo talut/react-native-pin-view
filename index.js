@@ -86,7 +86,6 @@ const PinView = React.forwardRef(
       accessible,
       style,
       onButtonPress,
-      onComplete,
       onValueChange,
       buttonAreaStyle,
       inputAreaStyle,
@@ -127,11 +126,6 @@ const PinView = React.forwardRef(
         }
       },
     }
-    useEffect(() => {
-      if (input.length === pinLength) {
-        onComplete(input)
-      }
-    }, [input, onComplete, pinLength])
 
     const onButtonPressHandle = (key, value) => {
       onButtonPress(key)
@@ -323,7 +317,6 @@ PinView.defaultProps = {
   customRightButtonDisabled: false,
 }
 PinView.propTypes = {
-  onComplete: PropTypes.func.isRequired,
   pinLength: PropTypes.number.isRequired,
 
   accessible: PropTypes.bool,
