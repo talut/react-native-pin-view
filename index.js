@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Text, TouchableOpacity, View, ViewPropTypes } from "react-native"
-import PropTypes from "prop-types"
+import { Text, TouchableOpacity, View } from "react-native"
 import PinViewStyle from "./PinViewStyle.js"
 
 const ViewButton = ({
@@ -316,39 +315,4 @@ PinView.defaultProps = {
   customLeftButtonDisabled: false,
   customRightButtonDisabled: false,
 }
-PinView.propTypes = {
-  pinLength: PropTypes.number.isRequired,
-
-  accessible: PropTypes.bool,
-  style : ViewPropTypes.style,
-  onButtonPress: PropTypes.func,
-  onValueChange: PropTypes.func,
-  showInputText: PropTypes.bool,
-
-  inputAreaStyle: ViewPropTypes.style,
-  inputViewStyle: ViewPropTypes.style,
-  inputTextStyle: Text.propTypes.style,
-  inputViewEmptyStyle: ViewPropTypes.style,
-  inputSize:PropTypes.number,
-  inputViewFilledStyle: ViewPropTypes.style,
-
-  customRightAccessibilityLabel: PropTypes.string,
-  customRightButtonDisabled: PropTypes.bool,
-  customRightButtonViewStyle: ViewPropTypes.style,
-  customRightButton: PropTypes.element,
-
-  customLeftAccessibilityLabel: PropTypes.string,
-  customLeftButtonDisabled: PropTypes.bool,
-  customLeftButtonViewStyle: ViewPropTypes.style,
-  customLeftButton: PropTypes.element,
-
-  buttonTextByKey : PropTypes.object,
-  buttonAreaStyle : ViewPropTypes.style,
-  activeOpacity:PropTypes.number,
-  buttonSize:PropTypes.number,
-  buttonViewStyle: ViewPropTypes.style,
-  buttonTextStyle: Text.propTypes.style,
-  disabled: PropTypes.bool,
-}
-
 export default PinView
