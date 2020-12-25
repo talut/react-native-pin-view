@@ -2,7 +2,7 @@
 
 Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS and Android, and has only keyboard and input.
 
-## v3.0.0 Released with more powerful features
+## v3.0.1 Released with more powerful features
 
 ##### BEWARE! This version has a lot of breaking changes.
 
@@ -74,7 +74,7 @@ import PinView from 'react-native-pin-view';
 | Prop                          | Description                                          |
 | ----------------------------- | -----------------------------------------------------|
 |pinView.current.clearAll()     |This method completely clears the entered code.       |
-|pinView.current.clear()        |This method only delete last number of entered code.  | 
+|pinView.current.clear()        |This method only delete last number of entered code.  |
 
 #### Example
 

@@ -29,7 +29,7 @@ const ViewButton = ({
           customViewStyle,
           { width: buttonSize, height: buttonSize, borderRadius: buttonSize / 2 },
         ]}>
-        {customComponent !== undefined ? (
+        {customComponent ? (
           customComponent
         ) : (
           <Text style={[PinViewStyle.buttonText, customTextStyle]}>{text}</Text>
@@ -55,7 +55,7 @@ const ViewInput = ({
           PinViewStyle.inputView,
           customStyle,
           { width: size, height: size, borderRadius: size / 2, alignItems: "center", justifyContent: "center" },
-          text !== undefined ? inputFilledStyle : inputEmptyStyle,
+          text ? inputFilledStyle : inputEmptyStyle,
         ]}>
         <Text style={[PinViewStyle.inputText, inputTextStyle]}>{text}</Text>
       </View>
@@ -67,7 +67,7 @@ const ViewInput = ({
           PinViewStyle.inputView,
           customStyle,
           { width: size, height: size, borderRadius: size / 2 },
-          text !== undefined ? inputFilledStyle : inputEmptyStyle,
+          text ? inputFilledStyle : inputEmptyStyle,
         ]}
       />
     )
@@ -100,7 +100,6 @@ const PinView = React.forwardRef(
       inputTextStyle,
       inputSize,
       disabled,
-
       customLeftButton,
       customRightButton,
       customRightAccessibilityLabel,
