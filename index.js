@@ -26,8 +26,8 @@ const ViewButton = ({
       <View
         style={[
           PinViewStyle.buttonView,
-          customViewStyle,
           { width: buttonSize, height: buttonSize, borderRadius: buttonSize / 2 },
+          customViewStyle,
         ]}>
         {customComponent !== undefined ? (
           customComponent
@@ -53,8 +53,8 @@ const ViewInput = ({
       <View
         style={[
           PinViewStyle.inputView,
-          customStyle,
           { width: size, height: size, borderRadius: size / 2, alignItems: "center", justifyContent: "center" },
+          customStyle,
           text !== undefined ? inputFilledStyle : inputEmptyStyle,
         ]}>
         <Text style={[PinViewStyle.inputText, inputTextStyle]}>{text}</Text>
@@ -65,8 +65,8 @@ const ViewInput = ({
       <View
         style={[
           PinViewStyle.inputView,
-          customStyle,
           { width: size, height: size, borderRadius: size / 2 },
+          customStyle,
           text !== undefined ? inputFilledStyle : inputEmptyStyle,
         ]}
       />
@@ -109,6 +109,8 @@ const PinView = React.forwardRef(
       customRightButtonViewStyle,
       customLeftButtonDisabled,
       customRightButtonDisabled,
+      customLeftButtonSize = 60,
+      customRightButtonSize = 60,
     },
     ref
   ) => {
@@ -269,6 +271,7 @@ const PinView = React.forwardRef(
             text={buttonTextByKey.zero}
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
+            buttonSize={customLeftButtonSize}
           />
           {customRightButton !== undefined ? (
             <ViewButton
@@ -279,6 +282,7 @@ const PinView = React.forwardRef(
               onButtonPress={() => onButtonPress("custom_right")}
               customViewStyle={customRightButtonViewStyle}
               customComponent={customRightButton}
+              buttonSize={customRightButtonSize}
             />
           ) : (
             <ViewHolder />
