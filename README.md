@@ -2,7 +2,7 @@
 
 Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS and Android, and has only keyboard and input.
 
-## v3.0.1 Released with more powerful features
+## v3.* Released with more powerful features
 
 ##### BEWARE! This version has a lot of breaking changes.
 
