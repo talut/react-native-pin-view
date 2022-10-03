@@ -24,7 +24,7 @@
     "PinView"
   ],
   "peerDependencies": {
-    "react-native": "^0.68.2"
+    "react-native": "^0.69.6"
   },
   "main": "index.js",
   "types": "react-native-pin-view.d.ts",
