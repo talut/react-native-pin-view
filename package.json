@@ -23,9 +23,6 @@
     "pin",
     "PinView"
   ],
-  "peerDependencies": {
-    "react-native": "^0.63.4"
-  },
   "main": "index.js",
   "types": "react-native-pin-view.d.ts",
   "author": "Talut Tasgiran",
