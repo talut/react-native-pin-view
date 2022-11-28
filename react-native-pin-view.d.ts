@@ -1,4 +1,4 @@
-// Type definitions for react-native-pin-view v3.0.0
+// Type definitions for react-native-pin-view v3.0.3
 // Project: https://github.com/talut/react-native-pin-view
 // Definitions by: Talut TASGIRAN <https://github.com/talut>
 // TypeScript Version: 2.8
