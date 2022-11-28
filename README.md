@@ -2,9 +2,7 @@
 
 Easy, convenient, quick-forming PinView component. It runs smoothly for both IOS and Android, and has only keyboard and input.
 
-## v3.* Released with more powerful features
-
-##### BEWARE! This version has a lot of breaking changes.
+## v3.0.3
 
 <p align='center'>
 <img src='./pin-view.gif' alt='PinView 1'>
@@ -149,7 +147,7 @@ const App = () => {
                 alert("Entered Pin: " + enteredPin)
               }
               if (key === "three") {
-                alert("You can't use 3")
+                alert("You just click to 3")
               }
             }}
             customLeftButton={showRemoveButton ? <Icon name={"ios-backspace"} size={36} color={"#FFF"} /> : undefined}

@@ -1,11 +1,13 @@
 {
   "name": "react-native-pin-view",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "repository": {
     "type": "git",
     "url": "git://github.com/talut/react-native-pin-view.git"
   },
-  "publishConfig": {"registry": "https://npm.pkg.github.com/@talut"},
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@talut"
+  },
   "description": "React Native Pin View Component for Protection",
   "keywords": [
     "react-native",
@@ -24,7 +26,8 @@
     "PinView"
   ],
   "peerDependencies": {
-    "react-native": "^0.63.4"
+    "react": "*",
+    "react-native": "*"
   },
   "main": "index.js",
   "types": "react-native-pin-view.d.ts",
