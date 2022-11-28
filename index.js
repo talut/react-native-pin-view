@@ -262,7 +262,7 @@ const PinView = React.forwardRef(
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
           />
-          {customLeftButton !== undefined ? (
+          {customLeftButton ? (
             <ViewButton
               disabled={customLeftButtonDisabled}
               accessible={accessible}
@@ -271,6 +271,7 @@ const PinView = React.forwardRef(
               onButtonPress={() => onButtonPress("custom_left")}
               customViewStyle={customLeftButtonViewStyle}
               customComponent={customLeftButton}
+              buttonSize={customRightButtonSize ? customRightButtonSize : buttonSize}
             />
           ) : (
             <ViewHolder />
@@ -283,9 +284,9 @@ const PinView = React.forwardRef(
             text={buttonTextByKey.zero}
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
-            buttonSize={customLeftButtonSize ? customLeftButtonSize : buttonSize}
+            buttonSize={buttonSize}
           />
-          {customRightButton !== undefined ? (
+          {customRightButton ? (
             <ViewButton
               disabled={customRightButtonDisabled}
               accessible={accessible}

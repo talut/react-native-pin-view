@@ -5,7 +5,9 @@
     "type": "git",
     "url": "git://github.com/talut/react-native-pin-view.git"
   },
-  "publishConfig": {"registry": "https://npm.pkg.github.com/@talut"},
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@talut"
+  },
   "description": "React Native Pin View Component for Protection",
   "keywords": [
     "react-native",
@@ -23,6 +25,10 @@
     "pin",
     "PinView"
   ],
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
   "main": "index.js",
   "types": "react-native-pin-view.d.ts",
   "author": "Talut Tasgiran",

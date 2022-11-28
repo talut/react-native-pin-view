@@ -11,7 +11,7 @@ declare module "react-native-pin-view" {
     type onButtonPressCallback = (key: string) => void
     type onValueChangeCallback = (value: string) => void
 
-    export interface PinViewProps {
+  export interface PinViewProps {
         onButtonPress?: onButtonPressCallback
         onValueChange?: onValueChangeCallback
 
@@ -19,6 +19,8 @@ declare module "react-native-pin-view" {
         inputSize?: number
         activeOpacity?: number
         buttonSize?: number
+        customLeftButtonSize?: number
+        customRightButtonSize?: number
 
         style ?: ViewStyle
         inputAreaStyle?: ViewStyle
