@@ -26,7 +26,11 @@ const ViewButton = ({
       <View
         style={[
           PinViewStyle.buttonView,
-          { width: buttonSize, height: buttonSize, borderRadius: buttonSize / 2 },
+          {
+            width: buttonSize,
+            height: buttonSize,
+            borderRadius: buttonSize / 2,
+          },
           customViewStyle,
         ]}>
         {customComponent ? (
@@ -53,7 +57,13 @@ const ViewInput = ({
       <View
         style={[
           PinViewStyle.inputView,
-          { width: size, height: size, borderRadius: size / 2, alignItems: "center", justifyContent: "center" },
+          {
+            width: size,
+            height: size,
+            borderRadius: size / 2,
+            alignItems: "center",
+            justifyContent: "center",
+          },
           text ? inputFilledStyle : inputEmptyStyle,
           customStyle,
         ]}>
@@ -65,7 +75,11 @@ const ViewInput = ({
       <View
         style={[
           PinViewStyle.inputView,
-          { width: size, height: size, borderRadius: size / 2 },
+          {
+            width: size,
+            height: size,
+            borderRadius: size / 2,
+          },
           text ? inputFilledStyle : inputEmptyStyle,
           customStyle,
         ]}
@@ -93,7 +107,7 @@ const PinView = React.forwardRef(
       pinLength,
       buttonSize,
       buttonViewStyle,
-      buttonTextStyle ,
+      buttonTextStyle,
       inputViewEmptyStyle,
       inputViewFilledStyle,
       showInputText,
@@ -111,7 +125,7 @@ const PinView = React.forwardRef(
       customLeftButtonSize = 60,
       customRightButtonSize = 60,
     },
-    ref
+    ref,
   ) => {
     const [input, setInput] = useState("")
     ref.current = {
@@ -135,7 +149,7 @@ const PinView = React.forwardRef(
     }
 
     useEffect(() => {
-      if (onValueChange!==undefined){
+      if (onValueChange !== undefined) {
         onValueChange(input)
       }
     }, [input])
@@ -266,11 +280,10 @@ const PinView = React.forwardRef(
             accessible={accessible}
             activeOpacity={activeOpacity}
             onButtonPress={() => onButtonPressHandle("zero", "0")}
-            buttonSize={buttonSize}
             text={buttonTextByKey.zero}
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
-            buttonSize={customLeftButtonSize}
+            buttonSize={customLeftButtonSize ? customLeftButtonSize : buttonSize}
           />
           {customRightButton !== undefined ? (
             <ViewButton
@@ -281,7 +294,7 @@ const PinView = React.forwardRef(
               onButtonPress={() => onButtonPress("custom_right")}
               customViewStyle={customRightButtonViewStyle}
               customComponent={customRightButton}
-              buttonSize={customRightButtonSize}
+              buttonSize={customRightButtonSize ? customRightButtonSize : buttonSize}
             />
           ) : (
             <ViewHolder />
@@ -289,7 +302,7 @@ const PinView = React.forwardRef(
         </View>
       </View>
     )
-  }
+  },
 )
 
 PinView.defaultProps = {
@@ -307,13 +320,16 @@ PinView.defaultProps = {
   },
   accessible: false,
   onButtonPress: () => {},
-  inputTextStyle : { color: "#FFF" },
-  buttonAreaStyle : { marginVertical: 12 },
-  inputAreaStyle : { marginVertical: 12 },
-  activeOpacity :0.9,
-  buttonTextStyle : { color: "#FFF", fontSize: 30 },
-  customRightAccessibilityLabel : "right",
-  customLeftAccessibilityLabel : "left",
+  inputTextStyle: { color: "#FFF" },
+  buttonAreaStyle: { marginVertical: 12 },
+  inputAreaStyle: { marginVertical: 12 },
+  activeOpacity: 0.9,
+  buttonTextStyle: {
+    color: "#FFF",
+    fontSize: 30,
+  },
+  customRightAccessibilityLabel: "right",
+  customLeftAccessibilityLabel: "left",
   disabled: false,
   customLeftButtonDisabled: false,
   customRightButtonDisabled: false,

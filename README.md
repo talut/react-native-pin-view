@@ -149,7 +149,7 @@ const App = () => {
                 alert("Entered Pin: " + enteredPin)
               }
               if (key === "three") {
-                alert("You can't use 3")
+                alert("You just click to 3")
               }
             }}
             customLeftButton={showRemoveButton ? <Icon name={"ios-backspace"} size={36} color={"#FFF"} /> : undefined}
