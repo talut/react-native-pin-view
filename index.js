@@ -282,7 +282,7 @@ const PinView = React.forwardRef(
               onButtonPress={() => onButtonPress("custom_left")}
               customViewStyle={customLeftButtonViewStyle}
               customComponent={customLeftButton}
-              buttonSize={customRightButtonSize ? customRightButtonSize : buttonSize}
+              buttonSize={customLeftButtonSize ? customLeftButtonSize : buttonSize}
             />
           ) : (
             <ViewHolder />
