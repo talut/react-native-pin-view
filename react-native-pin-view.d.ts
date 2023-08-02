@@ -28,6 +28,7 @@ declare module "react-native-pin-view" {
         inputViewEmptyStyle?: ViewStyle
         buttonViewStyle?: ViewStyle
         buttonAreaStyle ?: ViewStyle
+        buttonContainerStyle?: ViewStyle
         inputViewFilledStyle?: ViewStyle
 
         inputTextStyle?: TextStyle
