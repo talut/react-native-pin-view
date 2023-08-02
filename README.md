@@ -48,6 +48,7 @@ import PinView from 'react-native-pin-view';
 |inputAreaStyle                 |ViewStyle          |`{ marginVertical: 12 }`                                                                                | No         |
 |inputViewStyle                 |ViewStyle          |-                                                                                                       | No         |
 |inputViewEmptyStyle            |ViewStyle          |-                                                                                                       | No         |
+|buttonContainerStyle           |ViewStyle          |-                                                                                                       | No         |
 |buttonViewStyle                |ViewStyle          |-                                                                                                       | No         |
 |buttonAreaStyle                |ViewStyle          |`{ marginVertical: 12 }`                                                                                | No         |
 |inputViewFilledStyle           |ViewStyle          |-                                                                                                       | No         |

@@ -13,6 +13,7 @@ const ViewButton = ({
   accessibilityLabel,
   disabled,
   customTextStyle,
+  customContainerStyle,
 }) => {
   return (
     <TouchableOpacity
@@ -21,7 +22,7 @@ const ViewButton = ({
       accessibilityLabel={customComponent !== undefined ? accessibilityLabel : text}
       activeOpacity={activeOpacity}
       disabled={disabled}
-      style={PinViewStyle.buttonContainer}
+      style={[PinViewStyle.buttonContainer, customContainerStyle]}
       onPress={onButtonPress}>
       <View
         style={[
@@ -108,6 +109,7 @@ const PinView = React.forwardRef(
       buttonSize,
       buttonViewStyle,
       buttonTextStyle,
+      buttonContainerStyle,
       inputViewEmptyStyle,
       inputViewFilledStyle,
       showInputText,
@@ -181,6 +183,7 @@ const PinView = React.forwardRef(
             text={buttonTextByKey.one}
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
+            customContainerStyle={buttonContainerStyle}
           />
           <ViewButton
             disabled={disabled}
@@ -191,6 +194,7 @@ const PinView = React.forwardRef(
             text={buttonTextByKey.two}
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
+            customContainerStyle={buttonContainerStyle}
           />
           <ViewButton
             disabled={disabled}
@@ -201,6 +205,7 @@ const PinView = React.forwardRef(
             text={buttonTextByKey.three}
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
+            customContainerStyle={buttonContainerStyle}
           />
           <ViewButton
             disabled={disabled}
@@ -211,6 +216,7 @@ const PinView = React.forwardRef(
             text={buttonTextByKey.four}
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
+            customContainerStyle={buttonContainerStyle}
           />
           <ViewButton
             disabled={disabled}
@@ -221,6 +227,7 @@ const PinView = React.forwardRef(
             text={buttonTextByKey.five}
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
+            customContainerStyle={buttonContainerStyle}
           />
           <ViewButton
             disabled={disabled}
@@ -231,6 +238,7 @@ const PinView = React.forwardRef(
             text={buttonTextByKey.six}
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
+            customContainerStyle={buttonContainerStyle}
           />
           <ViewButton
             disabled={disabled}
@@ -241,6 +249,7 @@ const PinView = React.forwardRef(
             text={buttonTextByKey.seven}
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
+            customContainerStyle={buttonContainerStyle}
           />
           <ViewButton
             disabled={disabled}
@@ -251,6 +260,7 @@ const PinView = React.forwardRef(
             text={buttonTextByKey.eight}
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
+            customContainerStyle={buttonContainerStyle}
           />
           <ViewButton
             disabled={disabled}
@@ -261,6 +271,7 @@ const PinView = React.forwardRef(
             text={buttonTextByKey.nine}
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
+            customContainerStyle={buttonContainerStyle}
           />
           {customLeftButton ? (
             <ViewButton
@@ -271,7 +282,7 @@ const PinView = React.forwardRef(
               onButtonPress={() => onButtonPress("custom_left")}
               customViewStyle={customLeftButtonViewStyle}
               customComponent={customLeftButton}
-              buttonSize={customRightButtonSize ? customRightButtonSize : buttonSize}
+              buttonSize={customLeftButtonSize ? customLeftButtonSize : buttonSize}
             />
           ) : (
             <ViewHolder />
@@ -284,6 +295,7 @@ const PinView = React.forwardRef(
             text={buttonTextByKey.zero}
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
+            customContainerStyle={buttonContainerStyle}
             buttonSize={buttonSize}
           />
           {customRightButton ? (
